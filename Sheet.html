@@ -354,35 +354,55 @@
             </div>
             <div class="ac-init-speed-container">
                 <div class="ac" style="margin-right: 1px;">
-					<input type="text" name="attr_pac" title="@{pac}" value="floor((@{physique}+@{cunning})/2+@{globalpacmod})" disabled="true">
-                    <span class="label pc-ac">PAC</span>
+					<input type="text" name="attr_init_pool" value="2d6">
+                    <span class="label pc-ac">INITIATIVE POOL</span>
                 </div>
                 <div class="init">
-                    <input type="text" name="attr_mac" title="@{mac}" value="floor((@{ego}+@{charisma})/2+@{globalmacmod})" disabled="true">
-                    <span class="label pc-ac">MAC</span>
+                    <input type="text" name="attr_init_mod" value="+0">
+                    <span class="label pc-ac">INITIATIVE MOD</span>
 					</div>
                 <div class="speed">
                     <input type="text" name="attr_speed" title="@{speed}">
                     <span class="label">SPEED</span>
                 </div>
             </div>
-            <div class="hp"  style="height: 76px;">
-                <div class="top">
-                    <span>Physical HP Max</span>
-                    <input type="text" name="attr_physical_hp_max" title="@{physical_hp_max}">
-                </div>
-                <input type="number" name="attr_physical_hp" title="@{physical_hp}">
-                <span class="label">PHYSICAL HIT POINTS</span>
+			            <div class="hdice-dsaves-container" style="width: 242px;">
+                <div class="subcontainer">
+					<div class="ac" style="margin-right: 1px;">
+					<input type="text" name="attr_pac" title="@{pac}" value="floor((@{physique}+@{cunning})/2+@{globalpacmod})" disabled="true">
+                    <span class="label pc-ac">PAC</span>
+					</div>
+				</div>
+                <div class="subcontainer" style="float: right;">
+					<div class="ac" style="margin-right: 1px;">
+						<input type="text" name="attr_mac" title="@{mac}" value="floor((@{ego}+@{charisma})/2+@{globalmacmod})" disabled="true">
+						<span class="label pc-ac">MAC</span>
+					</div>
+				</div>
             </div>
-			<div class="hp"  style="height: 76px;">
-                <div class="top">
-                    <span>Mental HP Max</span>
-                    <input type="text" name="attr_mental_hp_max" title="@{mental_hp_max}">
-                </div>
-                <input type="number" name="attr_mental_hp" title="@{mental_hp}">
-                <span class="label">MENTAL HIT POINTS</span>
+			<div class="hdice-dsaves-container" style="width: 242px;">
+                <div class="subcontainer">
+					<div class="ac" style="margin-right: 1px;">
+						<div class="top">
+							<span>Max</span>
+							<input type="text" name="attr_physical_hp_max" title="@{physical_hp_max}">
+						</div>
+						<input type="number" name="attr_physical_hp" title="@{physical_hp}">
+						<span class="label">PHYSICAL HIT POINTS</span>
+					</div>
+				</div>
+                <div class="subcontainer" style="float: right;">
+					<div class="ac" style="margin-right: 1px;">
+						<div class="top">
+							<span>Max</span>
+							<input type="text" name="attr_mental_hp_max" title="@{mental_hp_max}">
+						</div>
+						<input type="number" name="attr_mental_hp" title="@{mental_hp}">
+						<span class="label">MENTAL HIT POINTS</span>
+					</div>
+				</div>
             </div>
-            <div class="hp" style="height: 56px;">
+			<div class="hp" style="height: 56px;">
                 <input type="number" name="attr_hp_temp" title="@{stress}" value="0">
                 <span class="label" >STRESS</span>
             </div>
