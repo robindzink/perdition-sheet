@@ -28,6 +28,7 @@
             <input type="text" name="attr_character_name" style="width: 100%;">
             <span class="label">CHARACTER NAME</span>
         </div>
+        
         <div class="header-info">
             <div class="top">
                 <div class="hlabel-container">
@@ -50,18 +51,39 @@
                     <input type="number" name="attr_base_level" value="1" style="margin-left: -6px; width: 28px;">
                     <span class="label">CLASS & LEVEL</span>
                 </div>
+                <div class="hlabel-container">
+                    <input class="flag" type="hidden" name="attr_mutliclass1_showingflag" value="0">
+                    <input class="hiding" type="text" disabled="true" style="width: 64px; margin-bottom: 30px;">
+                    <input class="hiding" type="text" disabled="true" style="margin-left: -6px; width: 28px; margin-bottom: 30px;">
+                    <input class="showing" type="text" name="attr_multiclass1_name" value="@{multiclass1}" disabled="true" style="width: 64px; margin-bottom: 30px;">
+                    <input class="showing" type="text" name="attr_multiclass1_level" value="@{multiclass1_lvl}" disabled="true" style="margin-left: -6px; width: 28px; margin-bottom: 30px;">
+                </div>
+                <div class="hlabel-container">
+                    <input class="flag" type="hidden" name="attr_mutliclass2_showingflag" value="0">
+                    <input class="hiding" type="text" disabled="true" style="width: 64px; margin-bottom: 30px;">
+                    <input class="hiding" type="text" disabled="true" style="margin-left: -6px; width: 28px; margin-bottom: 30px;">
+                    <input class="showing" type="text" name="attr_multiclass2_name" value="@{multiclass2}" disabled="true" style="width: 64px; margin-bottom: 30px;">
+                    <input class="showing" type="text" name="attr_multiclass2_level" value="@{multiclass2_lvl}" disabled="true" style="margin-left: -6px; width: 28px; margin-bottom: 30px;">
+                </div>
+                <div class="hlabel-container">
+                    <input class="flag" type="hidden" name="attr_mutliclass3_showingflag" value="0">
+                    <input class="hiding" type="text" disabled="true" style="width: 64px; margin-bottom: 30px;">
+                    <input class="hiding" type="text" disabled="true" style="margin-left: -6px; width: 28px; margin-bottom: 30px;">
+                    <input class="showing" type="text" name="attr_multiclass3_name" value="@{multiclass3}" disabled="true" style="width: 64px; margin-bottom: 30px;">
+                    <input class="showing" type="text" name="attr_multiclass3_level" value="@{multiclass3_lvl}" disabled="true" style="margin-left: -6px; width: 28px; margin-bottom: 30px;">
+                </div>
+                <div class="hlabel-container">
+                    <input type="text" name="attr_background" style="width: 122px;">
+                    <span class="label">NEXT LEVEL</span>
+                </div>
             </div>
             <div class="bottom">
                 <div class="hlabel-container">
                     <input type="text" name="attr_race">
                     <span class="label">RACE</span>
                 </div>
-				<div class="hlabel-container">
-                    <input class="showing" type="text" name="attr_size" value="@{attr_size}" disabled="true" style="width: 64px; height: 28px; padding-top: 10px;">
-                    <select class="hiding" name="attr_size" style="width: 64px;">
-                        <option value="0">Medium</option>
-                        <option value="2">Large</option>
-                    </select>
+                <div class="hlabel-container">
+                    <input type="text" name="attr_alignment">
                     <span class="label">SIZE</span>
                 </div>
                 <div class="hlabel-container">
@@ -70,6 +92,7 @@
                 </div>
             </div>
         </div>
+    
     </div>
     <div class="body">
         <div class="col col1">
@@ -2394,7 +2417,7 @@
         <div class="name-container">
             <img src="http://i.imgur.com/ZgULBCp.png" style="padding-bottom: 5px;">
             <input type="text" name="attr_character_name" style="width: 100%;">
-            <span class="label" data-i18n="char-name-u">CHARACTER NAME</span>
+            <span class="label">CHARACTER NAME</span>
         </div>
         <div class="header-info">
             <div class="top">
@@ -2402,21 +2425,21 @@
                     <input class="flag" type="hidden" name="attr_customclass_flag" value="0">
                     <input class="showing" type="text" name="attr_cust_class" value="@{cust_classname}" disabled="true" style="width: 64px; height: 28px; padding-top: 10px;">
                     <select class="hiding" name="attr_class" style="width: 64px;">
-                        <option value="Thug" data-i18n="thug">Thug</option>
-                        <option value="Inheritor" data-i18n="inheritor">Inheritor</option>
-                        <option value="Inquisitor" data-i18n="inquisitor">Inquisitor</option>
-                        <option value="Druid" data-i18n="druid">Druid</option>
-                        <option value="Heavy Knight" data-i18n="heavy_knight">Heavy Knight</option>
-                        <option value="Mystic" data-i18n="mystic">Mystic</option>
-                        <option value="Paladin" data-i18n="paladin">Paladin</option>
-                        <option value="Outrider" data-i18n="outrider">Outrider</option>
-                        <option value="Shroud" data-i18n="shroud">Shroud</option>
-                        <option value="Sorcerer" data-i18n="sorcerer">Sorcerer</option>
-                        <option value="Warlock" data-i18n="warlock">Warlock</option>
-                        <option value="Magus" data-i18n="magus">Magus</option>
+                        <option value="Thug">Thug</option>
+                        <option value="Inheritor">Inheritor</option>
+                        <option value="Inquisitor">Inquisitor</option>
+                        <option value="Druid">Druid</option>
+                        <option value="Heavy Knight">Heavy Knight</option>
+                        <option value="Mystic">Mystic</option>
+                        <option value="Paladin">Paladin</option>
+                        <option value="Outrider">Outrider</option>
+                        <option value="Shroud">Shroud</option>
+                        <option value="Sorcerer">Sorcerer</option>
+                        <option value="Warlock">Warlock</option>
+                        <option value="Magus">Magus</option>
                     </select>
                     <input type="number" name="attr_base_level" value="1" style="margin-left: -6px; width: 28px;">
-                    <span class="label" data-i18n="class-level-u">CLASS & LEVEL</span>
+                    <span class="label">CLASS & LEVEL</span>
                 </div>
                 <div class="hlabel-container">
                     <input class="flag" type="hidden" name="attr_mutliclass1_showingflag" value="0">
@@ -2441,21 +2464,21 @@
                 </div>
                 <div class="hlabel-container">
                     <input type="text" name="attr_background" style="width: 122px;">
-                    <span class="label" data-i18n="background-u">BACKGROUND</span>
+                    <span class="label">NEXT LEVEL</span>
                 </div>
             </div>
             <div class="bottom">
                 <div class="hlabel-container">
                     <input type="text" name="attr_race">
-                    <span class="label" data-i18n="race-u">RACE</span>
+                    <span class="label">RACE</span>
                 </div>
                 <div class="hlabel-container">
                     <input type="text" name="attr_alignment">
-                    <span class="label" data-i18n="alignment-u">ALIGNMENT</span>
+                    <span class="label">SIZE</span>
                 </div>
                 <div class="hlabel-container">
                     <input type="text" name="attr_experience">
-                    <span class="label" data-i18n="exp-pts-u">EXPERIENCE POINTS</span>
+                    <span class="label">EXPERIENCE POINTS</span>
                 </div>
             </div>
         </div>
@@ -2529,7 +2552,7 @@
                     <span data-i18n="arcane-shroud-u">ARCANE ROGUE</span>
                 </div>
                 <div class="row title">
-                    <span data-i18n="class-options-u">CLASS OPTIONS (<span name="attr_class" data-i18n-dynamic></span>)</span>
+                    <span>CLASS OPTIONS (<span name="attr_class" data-i18n-dynamic></span>)</span>
                 </div>
             </div>
         </div>
@@ -4490,27 +4513,10 @@
         setlevel();
     };
     
-    var updateTool = function() {
-        getAttrs(["repeating_tool_toolname_base","repeating_tool_toolbonus_base","repeating_tool_tool_mod","level","repeating_tool_toolattr_base","physique","cunning","constitution","intelligence","ego","charisma"], function(v) {
-            var pb = (Math.ceil((v.level)/1e10) + Math.ceil((v.level)/4))
-            if(v.repeating_tool_toolbonus_base === "(@{pb})") {bonus = pb}
-            else if(v.repeating_tool_toolbonus_base === "(@{pb}*2)") {bonus = pb*2}
-            else if(v.repeating_tool_toolbonus_base === "(floor(@{pb}/2))") {bonus = Math.floor(pb/2)};
-            var attr = v.repeating_tool_toolattr_base.substring(0, v.repeating_tool_toolattr_base.length - 5).substr(2).toUpperCase();
-            var mod = v.repeating_tool_tool_mod && isNaN(parseInt(v.repeating_tool_tool_mod,10)) === false ? parseInt(v.repeating_tool_tool_mod,10) : 0;
-            var bonus = bonus + Math.floor((parseInt(v[attr.toLowerCase()],10) - 10) / 2) + mod;
-            setAttrs({
-                repeating_tool_toolname: v.repeating_tool_toolname_base,
-                repeating_tool_toolbonus: bonus,
-                repeating_tool_toolattr: attr
-            });
-        });
-    };
-    
     var updateAttack = function(eventinfo) {
         var sourcetype = eventinfo.sourceType;
         var attackid = eventinfo.sourceAttribute.substring(17, 37);
-        getAttrs(["level","repeating_attack_atkflag","repeating_attack_atkname_base","repeating_attack_atkattr_base","repeating_attack_atkmod","repeating_attack_atkprofflag","repeating_attack_atkmagic","repeating_attack_dmgflag","repeating_attack_dmgbase","repeating_attack_dmgattr","repeating_attack_dmgmod","repeating_attack_dmgtype","repeating_attack_dmg2flag","repeating_attack_dmg2base","repeating_attack_dmg2attr","repeating_attack_dmg2mod","repeating_attack_dmg2type","physique","cunning","constitution","intelligence","ego","charisma","spellcasting_ability","repeating_attack_dmgcustcrit","repeating_attack_dmg2custcrit","repeating_attack_saveflag","repeating_attack_savedc","repeating_attack_saveeffect","repeating_attack_saveflat","dtype","repeating_attack_hldmg","repeating_attack_spellid","repeating_attack_atkrange","repeating_attack_itemid","globalmagicmod","repeating_attack_ammo"], function(v) {
+        getAttrs(["level","repeating_attack_atkflag","repeating_attack_atkname_base","repeating_attack_atkattr_base","repeating_attack_atkmod","repeating_attack_atkmagic","repeating_attack_dmgflag","repeating_attack_dmgbase","repeating_attack_dmgattr","repeating_attack_dmgmod","repeating_attack_dmgtype","repeating_attack_dmg2flag","repeating_attack_dmg2base","repeating_attack_dmg2attr","repeating_attack_dmg2mod","repeating_attack_dmg2type","physique","cunning","ego","spellcasting_ability","repeating_attack_dmgcustcrit","repeating_attack_dmg2custcrit","repeating_attack_saveflag","repeating_attack_savedc","repeating_attack_saveeffect","repeating_attack_saveflat","dtype","repeating_attack_hldmg","repeating_attack_spellid","repeating_attack_atkrange","repeating_attack_itemid","globalmagicmod","repeating_attack_ammo"], function(v) {
             var update = {};
             var quietupdate = {};
             var hbonus = "";
@@ -4528,21 +4534,18 @@
                 spelllevel = "{{spelllevel=" + v["repeating_attack_spellid"].split("_")[0].substr(1) + "}}";
             };
             if(v.repeating_attack_atkattr_base === "0") {atkattr_base = 0} else {atkattr_base = Math.floor((v[v.repeating_attack_atkattr_base.substring(0, v.repeating_attack_atkattr_base.length - 5).substr(2)] - 10) / 2 );};
-            if(v.repeating_attack_dmgattr === "0") {dmgattr = 0} else {dmgattr = Math.floor((v[v.repeating_attack_dmgattr.substring(0, v.repeating_attack_dmgattr.length - 5).substr(2)] - 10) / 2 );};
-            if(v.repeating_attack_dmg2attr === "0") {dmg2attr = 0} else {dmg2attr = Math.floor((v[v.repeating_attack_dmg2attr.substring(0, v.repeating_attack_dmg2attr.length - 5).substr(2)] - 10) / 2 );};
             var dmgbase = v.repeating_attack_dmgbase && v.repeating_attack_dmgbase != "" ? v.repeating_attack_dmgbase : 0;
             var dmg2base = v.repeating_attack_dmg2base && v.repeating_attack_dmg2base != "" ? v.repeating_attack_dmg2base : 0;
             var dmgmod = v.repeating_attack_dmgmod && isNaN(parseInt(v.repeating_attack_dmgmod,10)) === false ? parseInt(v.repeating_attack_dmgmod,10) : 0;
             var dmg2mod = v.repeating_attack_dmg2mod && isNaN(parseInt(v.repeating_attack_dmg2mod,10)) === false ? parseInt(v.repeating_attack_dmg2mod,10) : 0;
             var dmgtype = v.repeating_attack_dmgtype ? v.repeating_attack_dmgtype + " " : "";
             var dmg2type = v.repeating_attack_dmg2type ? v.repeating_attack_dmg2type + " " : "";
-            var pb = v.repeating_attack_atkprofflag && v.repeating_attack_atkprofflag != 0 ? (Math.ceil((v.level)/1e10) + Math.ceil((v.level)/4)) : 0;
             var atkmod = v.repeating_attack_atkmod && v.repeating_attack_atkmod != "" ? parseInt(v.repeating_attack_atkmod,10) : 0;
             var atkmag = v.repeating_attack_atkmagic && v.repeating_attack_atkmagic != "" ? parseInt(v.repeating_attack_atkmagic,10) : 0;
             var dmgmag = isNaN(atkmag) === false && atkmag != 0 && ((v.repeating_attack_dmgflag && v.repeating_attack_dmgflag != 0) || (v.repeating_attack_dmg2flag && v.repeating_attack_dmg2flag != 0)) ? "+ " + atkmag + " Magic Bonus" : "";
             var name = v.repeating_attack_atkname_base ? v.repeating_attack_atkname_base : "-";
             if(v.repeating_attack_atkflag && v.repeating_attack_atkflag != 0) {
-                bonus_mod = atkattr_base + atkmod + pb + atkmag + magicattackmod;
+                bonus_mod = atkattr_base + atkmod + atkmag + magicattackmod;
                 plus_minus = bonus_mod > -1 ? "+" : "";
                 bonus = plus_minus + bonus_mod;
             }
@@ -4551,9 +4554,9 @@
                 savedcattr = savedcattr.replace(/^[^{]*{/,"").replace(/\_.*$/,"");
                 if(v.repeating_attack_savedc && v.repeating_attack_savedc === "(@{saveflat})") {
                     var tempdc = isNaN(parseInt(v.repeating_attack_saveflat)) === false ? parseInt(v.repeating_attack_saveflat) : "0";
-                }
+                } 
                 else {
-                    var tempdc = isNaN(Math.floor((parseInt(v[savedcattr], 10) - 10) / 2) + 8 + pb) === false ? (Math.floor((parseInt(v[savedcattr], 10) - 10) / 2) + 8 + pb) : "0";
+                    var tempdc = isNaN(Math.floor((parseInt(v[savedcattr], 10) - 10) / 2) + 8) === false ? (Math.floor((parseInt(v[savedcattr], 10) - 10) / 2) + 8 ) : "0";
                 }
                 bonus = "DC" + tempdc;
             }
@@ -4561,17 +4564,17 @@
                 bonus = "-";
             }
             if(v.repeating_attack_dmgflag && v.repeating_attack_dmgflag != 0) {
-                if(dmgbase === 0 && (dmgattr + dmgmod === 0)){
+                if(dmgbase === 0 && (dmgmod === 0)){
                     dmg = 0;
                 }
                 if(dmgbase != 0) {
                     dmg = dmgbase;
                 }
-                if(dmgbase != 0 && (dmgattr + dmgmod != 0)){
-                    dmg = dmgattr + dmgmod > 0 ? dmg + "+" : dmg;
+                if(dmgbase != 0 && (dmgmod != 0)){
+                    dmg = dmgmod > 0 ? dmg + "+" : dmg;
                 }
                 if(dmgattr + dmgmod != 0) {
-                    dmg = dmg + (dmgattr + dmgmod);
+                    dmg = dmg + (dmgmod);
                 }
                 dmg = dmg + " " + dmgtype;
             }
@@ -4579,17 +4582,17 @@
                 dmg = "";
             };
             if(v.repeating_attack_dmg2flag && v.repeating_attack_dmg2flag != 0) {
-                if(dmg2base === 0 && (dmg2attr + dmg2mod === 0)){
+                if(dmg2base === 0 && (dmg2mod === 0)){
                     dmg2 = 0;
                 }
                 if(dmg2base != 0) {
                     dmg2 = dmg2base;
                 }
-                if(dmg2base != 0 && (dmg2attr + dmg2mod != 0)){
+                if(dmg2base != 0 && (dmg2mod != 0)){
                     dmg2 = dmg2attr + dmg2mod > 0 ? dmg2 + "+" : dmg2;
                 }
                 if(dmg2attr + dmg2mod != 0) {
-                    dmg2 = dmg2 + (dmg2attr + dmg2mod);
+                    dmg2 = dmg2 + (dmg2mod);
                 }
                 dmg2 = dmg2 + " " + dmg2type;
             }
@@ -4604,7 +4607,6 @@
             if(v.repeating_attack_atkflag && v.repeating_attack_atkflag != 0) {
                 if(magicattackmod != 0) {hbonus = " + " + magicattackmod + "[SPELLATK]" + hbonus};
                 if(atkmag != 0) {hbonus = " + " + atkmag + "[MAGIC]" + hbonus};
-                if(pb != 0) {hbonus = " + " + pb + "[PROF]" + hbonus};
                 if(atkmod != 0) {hbonus = " + " + atkmod + "[MOD]" + hbonus};
                 if(atkattr_base != 0) {hbonus = " + " + atkattr_base + "[" + v.repeating_attack_atkattr_base.substring(2, 5).toUpperCase() + "]" + hbonus};
             }

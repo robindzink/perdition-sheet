@@ -656,6 +656,25 @@ button.sheet-attacks-saving-throws {
     width: initial;
 }
 
+.sheet-ac .sheet-top input
+{
+	border-bottom: 1px solid #D3D3D3;
+    border-top: 0px;
+    border-left: 0px;
+    border-right: 0px;
+    background: none;
+    box-shadow: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    -webkit-border-radius: 0px;
+    border-radius: 0px;
+    color: black;
+    width: 100px;
+    display: inline-block;
+    font-size: 12px;
+    padding: 0px;
+}
+
 .sheet-hp .sheet-top input,
 .sheet-hdice-dsaves-container .sheet-top input[type=text]
 {
