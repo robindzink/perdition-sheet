@@ -608,8 +608,8 @@
                         </div>
                     </fieldset>
                     <div class="weighttotal">
-                        <span class="label">TOTAL WEIGHT</span>
-                        <input type="text" name="attr_weighttotal" value="0">
+                        <span class="label">ITEM SLOTS REMAINING</span>
+                        <input type="text" name="attr_itemslots" value="0">
                         <input type="hidden" class="encumberance" name="attr_encumberance">
                         <span class="encumb immobile">IMMOBILE</span>
                         <span class="encumb heavily">HEAVILY ENCUMBERED</span>
@@ -2773,6 +2773,7 @@
 <input type="hidden" name="attr_stealth_proficiency" value="(((@{stealth_prof} + @{jack_of_all_trades}) + abs(@{stealth_prof} - @{jack_of_all_trades})) / 2)" disabled="true">
 <input type="hidden" name="attr_survival_proficiency" value="(((@{survival_prof} + @{jack_of_all_trades}) + abs(@{survival_prof} - @{jack_of_all_trades})) / 2)" disabled="true">
 <input type="hidden" name="attr_hitdie_final" value="">
+<input type="hidden" name="attr_weighttotal" value="">
 <input type="hidden" name="attr_globalsavingthrowbonus" value="">
 <input type="hidden" name="attr_halflingluck" value="">
 
@@ -3419,10 +3420,6 @@
         });
     });
     
-    on("change:repeating_tool:toolname_base change:repeating_tool:toolbonus_base change:repeating_tool:toolattr_base change:repeating_tool:tool_mod", function() {
-        updateTool();
-    });
-    
     on("change:repeating_attack:atkflag change:repeating_attack:atkname_base change:repeating_attack:atkattr_base change:repeating_attack:atkmod change:repeating_attack:atkmagic change:repeating_attack:atkprofflag change:repeating_attack:dmgflag change:repeating_attack:dmgbase change:repeating_attack:dmgattr change:repeating_attack:dmgmod change:repeating_attack:dmgtype change:repeating_attack:dmg2flag change:repeating_attack:dmg2base change:repeating_attack:dmg2attr change:repeating_attack:dmg2mod change:repeating_attack:dmg2type change:repeating_attack:saveflag change:repeating_attack:savedc change:repeating_attack:saveflat change:repeating_attack:updateflag change:repeating_attack:dmgcustcrit change:repeating_attack:dmg2custcrit change:repeating_attack:ammo", function(eventinfo) {
         updateAttack(eventinfo);
     });
@@ -3620,11 +3617,7 @@
     //     })
 
     // });
-
-    on("change:repeating_npcaction:name change:repeating_npcaction:attack_flag change:repeating_npcaction:attack_type change:repeating_npcaction:attack_range change:repeating_npcaction:attack_target change:repeating_npcaction:attack_tohit change:repeating_npcaction:attack_damage change:repeating_npcaction:attack_damagetype change:repeating_npcaction:attack_damage2 change:repeating_npcaction:attack_damagetype2 change:repeating_npcaction:description change:repeating_npcaction-l:name change:repeating_npcaction-l:attack_flag change:repeating_npcaction-l:attack_type change:repeating_npcaction-l:attack_range change:repeating_npcaction-l:attack_target change:repeating_npcaction-l:attack_tohit change:repeating_npcaction-l:attack_damage change:repeating_npcaction-l:attack_damagetype change:repeating_npcaction-l:attack_damage2 change:repeating_npcaction-l:attack_damagetype2 change:repeating_npcaction-l:description change:repeating_npcaction:updateflag change:repeating_npcaction-l:updateflag", function(eventinfo) {
-        updateNPCaction(eventinfo);
-    });
-
+	
     on("change:simpleinventory", function() {
         getAttrs(["simpleinventory"], function(v) {
             setAttrs({
@@ -3633,7 +3626,7 @@
         });
     });
 
-    on("change:repeating_inventory:itemweight change:repeating_inventory:equipped change:repeating_inventory:itemcount change:cb change:cp change:cs change:sp change:gc change:pc", function() {
+    on("change:repeating_inventory:itemweight change:repeating_inventory:equipped change:repeating_inventory:itemcount change:cb change:cp change:cs change:sp change:gc change:pc change:physique", function() {
         updateitemweight();
     });
 
@@ -4001,13 +3994,15 @@
     });
     var updateitemweight = function() {
         var wtotal = 0;
-        getAttrs(["cb", "cp","cs","sp","gc","pc"], function(v) {
+		var itemslots = 0;
+        getAttrs(["cb", "cp","cs","sp","gc","pc","physique"], function(v) {
             cb = isNaN(parseInt(v.cb, 10)) === false ? parseInt(v.cb, 10) : 0;		
             cp = isNaN(parseInt(v.cp, 10)) === false ? parseInt(v.cp, 10) : 0;
 			cs = isNaN(parseInt(v.cs, 10)) === false ? parseInt(v.cs, 10) : 0;
             sp = isNaN(parseInt(v.sp, 10)) === false ? parseInt(v.sp, 10) : 0;
             gc = isNaN(parseInt(v.gc, 10)) === false ? parseInt(v.gc, 10) : 0;
             pc = isNaN(parseInt(v.pc, 10)) === false ? parseInt(v.pc, 10) : 0;
+			var phys = parseInt(v.physique, 10);
             wtotal = wtotal + Math.floor(((cp + sp + gc) / 200) + ((cb) / 1600) + ((cs + pc) / 2000));
             getSectionIDs("repeating_inventory", function(idarray) {
                 if(idarray.length > 0) {
@@ -4018,13 +4013,17 @@
                                 wtotal = wtotal + (parseFloat(v["repeating_inventory_" + currentID + "_itemweight"]) * count);
                             }
                             if(i === idarray.length - 1) {
-                                setAttrs({weighttotal: wtotal});
+                                itemslots = phys - wtotal;
+								setAttrs({weighttotal: wtotal});
+								setAttrs({itemslots: itemslots});
                             }
                         });
                     });
                 }
                 else {
                     setAttrs({weighttotal: wtotal});
+					itemslots = phys - wtotal;
+					setAttrs({itemslots: itemslots});
                 }
                 
             });
