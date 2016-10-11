@@ -99,7 +99,7 @@
             <div class="attributes-container" style="margin-top: 10px;">
                 <div class="attr-container">
                     <button type="roll" name="roll_physique" value="@{wtype}&{template:simple} {{rname=PHYSIQUE TEST}} {{mod=[[[[@{physique_mod}]][PHYSIQUE]]]}} {{r1=[[@{physique_strength}+[[@{physique_mod}]]-[[floor(@{affliction}/2)]][STRENGTH+PHYSIQUE]]]}} @{charname_output}">PHYSIQUE</button>
-                    <input class="attr" type="text" name="attr_physique_mod" title="@{physique_mod}" value="(floor((@{physique}-10)/3))" disabled="true">
+                    <input class="attr" type="text" name="attr_physique_mod" title="@{physique_mod}" value="0">
 					<div>
 						<select class="hiding" name="attr_physique_strength" title="@{physique_strength}" value="-">
 							<option value="2d6">-</option>
@@ -113,7 +113,7 @@
                 </div>
                 <div class="attr-container">
                     <button type="roll" name="roll_cunning" value="@{wtype}&{template:simple} {{rname=CUNNING TEST}} {{mod=[[[[@{cunning_mod}]][CUNNING]]]}} {{r1=[[@{cunning_strength}+[[@{cunning_mod}]]-[[floor(@{affliction}/2)]][STRENGTH+CUNNING]]]}} @{charname_output}">CUNNING</button>
-                    <input class="attr" type="text" name="attr_cunning_mod" title="@{cunning_mod}" value="(floor((@{cunning}-10)/3))" disabled="true">
+                    <input class="attr" type="text" name="attr_cunning_mod" title="@{cunning_mod}" value="0">
 					<div>
 						<select class="hiding" name="attr_cunning_strength" title="@{cunning_strength}" value="-">
 							<option value="2d6">-</option>
@@ -127,7 +127,7 @@
                 </div>
                 <div class="attr-container">
                     <button type="roll" name="roll_ego" value="@{wtype}&{template:simple} {{rname=EGO TEST}} {{mod=[[[[@{ego_mod}]][EGO]]]}} {{r1=[[@{ego_strength}+[[@{ego_mod}]]-[[floor(@{affliction}/2)]][STRENGTH+EGO]]]}} @{charname_output}">EGO</button>
-                    <input class="attr" type="text" name="attr_ego_mod" title="@{ego_mod}" value="(floor((@{ego}-10)/3))" disabled="true">
+                    <input class="attr" type="text" name="attr_ego_mod" title="@{ego_mod}" value="0">
 					<div>
 						<select class="hiding" name="attr_ego_strength" title="@{ego_strength}" value="-">
 							<option value="2d6">-</option>
@@ -141,7 +141,7 @@
                 </div>
                 <div class="attr-container">
                     <button type="roll" name="roll_charisma" value="@{wtype}&{template:simple} {{rname=CHARISMA TEST}} {{mod=[[[[@{charisma_mod}]][CHA]]]}} {{r1=[[@{charisma_strength}+[[@{charisma_mod}]]-[[floor(@{affliction}/2)]][STRENGTH+CHA]]]}} @{charname_output}">CHARISMA</button>
-                    <input class="attr" type="text" name="attr_charisma_mod" title="@{charisma_mod}" value="(floor((@{charisma}-10)/3))" disabled="true">
+                    <input class="attr" type="text" name="attr_charisma_mod" title="@{charisma_mod}" value="0">
 					<div>
 						<select class="hiding" name="attr_charisma_strength" title="@{charisma_strength}">
 							<option value="2d6">-</option>
@@ -433,11 +433,11 @@
 				</div>
             </div>
             <input type="hidden" class="ammoflag" name="attr_ammoflag">
-            <div class="attacks" style="position: relative;">
+<div class="attacks" style="position: relative;">
                 <div class="top">
                     <span class="label" style="width: 95px;">NAME</span>
                     <span class="label" style="width: 25px;">ATK</span>
-                    <span class="label" style="width: 95px;" >DAMAGE/TYPE</span>
+                    <span class="label" style="width: 95px;">DAMAGE/TYPE</span>
                 </div>
                 <fieldset class="repeating_attack">
                     <div class="attack">
@@ -452,12 +452,11 @@
                                 <input type="checkbox" name="attr_atkflag" value="{{attack=1}}" checked="checked">
                                 <span>ATTACK:</span>
                                 <select name="attr_atkattr_base">
-                                    <option value="1" selected="selected">PHYSICAL ATTACK</option>
-                                    <option value="@{magical_attack_mod}">MAGICAL ATTACK</option>
-                                    <option value="@{psychic_attack_mod}">PSYCHIC ATTACK</option>
-                                    <option value="@{social_attack_mod}">SOCIAL ATTACK</option>
-                                    <option value="@{roll_physical_struggle}">PHYSICAL STRUGGLE</option>
-                                    <option value="@{roll_psychic_struggle}">PSYCHIC STRUGGLE</option>
+                                    <option value="@{physical_attack_mod}">PHYSICAL</option>
+                                    <option value="@{magical_attack_mod}">MAGICAL</option>
+                                    <option value="@{psychic_attack_mod}">PSYCHIC</option>
+                                    <option value="@{social_attack_mod}">SOCIAL</option>
+                                    <option value="0" selected="selected">-</option>
                                 </select>
                                 <span>+</span>
                                 <input type="text" class="num" name="attr_atkmod" placeholder="0">
@@ -480,27 +479,75 @@
                                 <span>DAMAGE:</span>
                                 <input type="text" name="attr_dmgbase" placeholder="1d6" style="width: 50px;">
                                 <span>+</span>
+                                <select name="attr_dmgattr">
+                                    <option value="@{strength_mod}" data-i18n="str-u">STR</option>
+                                    <option value="@{dexterity_mod}" data-i18n="dex-u">DEX</option>
+                                    <option value="@{constitution_mod}" data-i18n="con-u">CON</option>
+                                    <option value="@{intelligence_mod}" data-i18n="int-u">INT</option>
+                                    <option value="@{wisdom_mod}" data-i18n="wis-u">WIS</option>
+                                    <option value="@{charisma_mod}" data-i18n="cha-u">CHA</option>
+                                    <option value="0" selected="selected">-</option>
+                                </select>
+                                <span>+</span>
                                 <input type="text" class="num" name="attr_dmgmod" placeholder="0">
                             </div>
                             <div class="row">
                                 <span style="margin-left: 17px;">TYPE:</span>
                                 <input type="text" name="attr_dmgtype" placeholder="Slashing" style="width: 50px;">
+                                <span>CRIT:</span>
+                                <input type="text" name="attr_dmgcustcrit" placeholder="1d6" style="width: 80px;">
                             </div>
                             <div class="row">
                                 <input type="checkbox" name="attr_dmg2flag" value="{{damage=1}} {{dmg2flag=1}}">
                                 <span>DAMAGE2:</span>
                                 <input type="text" name="attr_dmg2base" placeholder="1d6" style="width: 50px;">
                                 <span>+</span>
+                                <select name="attr_dmg2attr">
+                                    <option value="@{strength_mod}" selected="selected" data-i18n="str-u">STR</option>
+                                    <option value="@{dexterity_mod}" data-i18n="dex-u">DEX</option>
+                                    <option value="@{constitution_mod}" data-i18n="con-u">CON</option>
+                                    <option value="@{intelligence_mod}" data-i18n="int-u">INT</option>
+                                    <option value="@{wisdom_mod}" data-i18n="wis-u">WIS</option>
+                                    <option value="@{charisma_mod}" data-i18n="cha-u">CHA</option>
+                                    <option value="0">-</option>
+                                </select>
+                                <span>+</span>
                                 <input type="text" class="num" name="attr_dmg2mod" placeholder="0">
                             </div>
                             <div class="row">
                                 <span style="margin-left: 17px;">TYPE:</span>
                                 <input type="text" name="attr_dmg2type" placeholder="Slashing" style="width: 50px;">
+                                <span>CRIT:</span>
+                                <input type="text" name="attr_dmg2custcrit" placeholder="1d6" style="width: 80px;">
                             </div>
                             <div class="row">
                                 <input type="checkbox" name="attr_saveflag" value="{{save=1}} {{saveattr=@{saveattr}}} {{savedesc=@{saveeffect}}} {{savedc=[[[[@{savedc}]][SAVE]]]}}">
                                 <span>SAVING THROW:</span>
-                                <input type="text" name="attr_saveeffect" placeholder="half damage" style="width: 120px;">
+                                <select name="attr_saveattr">
+                                    <option value="Strength" selected="selected" data-i18n="str-u">STR</option>
+                                    <option value="Dexterity" data-i18n="dex-u">DEX</option>
+                                    <option value="Constitution" data-i18n="con-u">CON</option>
+                                    <option value="Intelligence" data-i18n="int-u">INT</option>
+                                    <option value="Wisdom" data-i18n="wis-u">WIS</option>
+                                    <option value="Charisma" data-i18n="cha-u">CHA</option>
+                                </select>
+                                <span>VS DC:</span>
+                                <select name="attr_savedc">
+                                    <option value="(@{spell_save_dc})" selected="selected" data-i18n="spell-u">SPELL</option>
+                                    <option value="(@{strength_mod}+8+@{pb})" data-i18n="str-u">STR</option>
+                                    <option value="(@{dexterity_mod}+8+@{pb})" data-i18n="dex-u">DEX</option>
+                                    <option value="(@{constitution_mod}+8+@{pb})" data-i18n="con-u">CON</option>
+                                    <option value="(@{intelligence_mod}+8+@{pb})" data-i18n="int-u">INT</option>
+                                    <option value="(@{wisdom_mod}+8+@{pb})" data-i18n="wis-u">WIS</option>
+                                    <option value="(@{charisma_mod}+8+@{pb})" data-i18n="cha-u">CHA</option>
+                                    <option value="(@{saveflat})" data-i18n="flat-u">FLAT</option>
+                                </select>
+                                <input class="flatflag" type="hidden" name="attr_flatflag">
+                                <input class="num flat" type="text" name="attr_saveflat" placeholder="10">
+                            </div>
+                            <div class="row">
+                                <span>SAVE EFFECT:</span>
+                                <input type="text" name="attr_saveeffect" placeholder="half damage" style="width: 160px;">
                             </div>
                             <div class="row ammo">
                                 <span>AMMUNITION:</span>
@@ -3324,8 +3371,6 @@
         </div>
     </rolltemplate>
     
-   
-</div>
 
 <!-- WORKERS -->
 <script type="text/worker">
@@ -3799,12 +3844,6 @@
         });
     });
 
-    on("change:halflingluck_flag", function() {
-        getAttrs(["halflingluck_flag"], function(v) {
-            toggle = v.halflingluck_flag && v.halflingluck_flag === "1" ? "ro<1" : "";
-            setAttrs({halflingluck: toggle});
-        });
-    });
     on("change:weighttotal change:encumberance_setting change:physique", function() {
         getAttrs(["weighttotal","encumberance_setting","physique"], function(v) {
             var update = {};
@@ -3992,6 +4031,107 @@
             }
         });
     });
+	on("change:physique", function() {
+		updatephysmod();
+		});
+	on("change:cunning", function() {
+		updatecunmod();
+		});
+	on("change:ego", function() {
+		updateegomod();
+		});
+	on("change:charisma", function() {
+		updatechamod();
+		});
+	var updatephysmod = function() {
+		getAttrs(["physique"], function(v) {
+			var physmod = 0;
+			var physique = parseInt(v.physique, 10);
+			if(physique <= 5) {
+				physmod = -2;
+			}
+			else if(physique <= 8) {
+				physmod = -1;
+			}
+			else if(physique <= 12) {
+				physmod = 0;
+			}
+			else if(physique <= 15) {
+				physmod =+1;
+			}
+			else if(physique >= 16) {
+				physmod = +2;
+			}
+			setAttrs({physique_mod: physmod});
+		});
+	}
+	var updatecunmod = function() {
+		getAttrs(["cunning"], function(v) {
+			var cunmod = 0;
+			var cunning = parseInt(v.cunning, 10);
+			if(cunning <= 5) {
+				cunmod = -2;
+			}
+			else if(cunning <= 8) {
+				cunmod = -1;
+			}
+			else if(cunning <= 12) {
+				cunmod = 0;
+			}
+			else if(cunning <= 15) {
+				cunmod =1;
+			}
+			else if(cunning >= 16) {
+				cunmod = 2;
+			}
+			setAttrs({cunning_mod: cunmod});
+		});
+	}
+	var updateegomod = function() {
+		getAttrs(["ego"], function(v) {
+			var egomod = 0;
+			var ego = parseInt(v.ego, 10);
+			if(ego <= 5) {
+				egomod = -2;
+			}
+			else if(ego <= 8) {
+				egomod = -1;
+			}
+			else if(ego <= 12) {
+				egomod = 0;
+			}
+			else if(ego <= 15) {
+				egomod =1;
+			}
+			else if(ego >= 16) {
+				egomod = 2;
+			}
+			setAttrs({ego_mod: egomod});
+		});
+	}
+	var updatechamod = function() {
+		getAttrs(["charisma"], function(v) {
+			var chamod = 0;
+			var cha = parseInt(v.charisma, 10);
+			if(cha <= 5) {
+				chamod = -2;
+			}
+			else if(cha <= 8) {
+				chamod = -1;
+			}
+			else if(cha <= 12) {
+				chamod = 0;
+			}
+			else if(cha <= 15) {
+				chamod =1;
+			}
+			else if(cha >= 16) {
+				chamod = 2;
+			}
+			setAttrs({charisma_mod: chamod});
+		});
+	}
+	
     var updateitemweight = function() {
         var wtotal = 0;
 		var itemslots = 0;
@@ -4535,7 +4675,7 @@
     var updateAttack = function(eventinfo) {
         var sourcetype = eventinfo.sourceType;
         var attackid = eventinfo.sourceAttribute.substring(17, 37);
-        getAttrs(["level","repeating_attack_atkflag","repeating_attack_atkname_base","repeating_attack_atkattr_base","repeating_attack_atkmod","repeating_attack_atkmagic","repeating_attack_dmgflag","repeating_attack_dmgbase","repeating_attack_dmgattr","repeating_attack_dmgmod","repeating_attack_dmgtype","repeating_attack_dmg2flag","repeating_attack_dmg2base","repeating_attack_dmg2attr","repeating_attack_dmg2mod","repeating_attack_dmg2type","physique","cunning","ego","spellcasting_ability","repeating_attack_dmgcustcrit","repeating_attack_dmg2custcrit","repeating_attack_saveflag","repeating_attack_savedc","repeating_attack_saveeffect","repeating_attack_saveflat","dtype","repeating_attack_hldmg","repeating_attack_spellid","repeating_attack_atkrange","repeating_attack_itemid","globalmagicmod","repeating_attack_ammo"], function(v) {
+        getAttrs(["level","repeating_attack_atkflag","repeating_attack_atkname_base","repeating_attack_atkattr_base","repeating_attack_atkmod","repeating_attack_atkprofflag","repeating_attack_atkmagic","repeating_attack_dmgflag","repeating_attack_dmgbase","repeating_attack_dmgattr","repeating_attack_dmgmod","repeating_attack_dmgtype","repeating_attack_dmg2flag","repeating_attack_dmg2base","repeating_attack_dmg2attr","repeating_attack_dmg2mod","repeating_attack_dmg2type","strength","dexterity","constitution","intelligence","wisdom","charisma","spellcasting_ability","repeating_attack_dmgcustcrit","repeating_attack_dmg2custcrit","repeating_attack_saveflag","repeating_attack_savedc","repeating_attack_saveeffect","repeating_attack_saveflat","dtype","repeating_attack_hldmg","repeating_attack_spellid","repeating_attack_atkrange","repeating_attack_itemid","globalmagicmod","repeating_attack_ammo"], function(v) {
             var update = {};
             var quietupdate = {};
             var hbonus = "";
@@ -4553,18 +4693,21 @@
                 spelllevel = "{{spelllevel=" + v["repeating_attack_spellid"].split("_")[0].substr(1) + "}}";
             };
             if(v.repeating_attack_atkattr_base === "0") {atkattr_base = 0} else {atkattr_base = Math.floor((v[v.repeating_attack_atkattr_base.substring(0, v.repeating_attack_atkattr_base.length - 5).substr(2)] - 10) / 2 );};
+            if(v.repeating_attack_dmgattr === "0") {dmgattr = 0} else {dmgattr = Math.floor((v[v.repeating_attack_dmgattr.substring(0, v.repeating_attack_dmgattr.length - 5).substr(2)] - 10) / 2 );};
+            if(v.repeating_attack_dmg2attr === "0") {dmg2attr = 0} else {dmg2attr = Math.floor((v[v.repeating_attack_dmg2attr.substring(0, v.repeating_attack_dmg2attr.length - 5).substr(2)] - 10) / 2 );};
             var dmgbase = v.repeating_attack_dmgbase && v.repeating_attack_dmgbase != "" ? v.repeating_attack_dmgbase : 0;
             var dmg2base = v.repeating_attack_dmg2base && v.repeating_attack_dmg2base != "" ? v.repeating_attack_dmg2base : 0;
             var dmgmod = v.repeating_attack_dmgmod && isNaN(parseInt(v.repeating_attack_dmgmod,10)) === false ? parseInt(v.repeating_attack_dmgmod,10) : 0;
             var dmg2mod = v.repeating_attack_dmg2mod && isNaN(parseInt(v.repeating_attack_dmg2mod,10)) === false ? parseInt(v.repeating_attack_dmg2mod,10) : 0;
             var dmgtype = v.repeating_attack_dmgtype ? v.repeating_attack_dmgtype + " " : "";
             var dmg2type = v.repeating_attack_dmg2type ? v.repeating_attack_dmg2type + " " : "";
+            var pb = v.repeating_attack_atkprofflag && v.repeating_attack_atkprofflag != 0 ? (Math.ceil((v.level)/1e10) + Math.ceil((v.level)/4)) : 0;
             var atkmod = v.repeating_attack_atkmod && v.repeating_attack_atkmod != "" ? parseInt(v.repeating_attack_atkmod,10) : 0;
             var atkmag = v.repeating_attack_atkmagic && v.repeating_attack_atkmagic != "" ? parseInt(v.repeating_attack_atkmagic,10) : 0;
             var dmgmag = isNaN(atkmag) === false && atkmag != 0 && ((v.repeating_attack_dmgflag && v.repeating_attack_dmgflag != 0) || (v.repeating_attack_dmg2flag && v.repeating_attack_dmg2flag != 0)) ? "+ " + atkmag + " Magic Bonus" : "";
             var name = v.repeating_attack_atkname_base ? v.repeating_attack_atkname_base : "-";
             if(v.repeating_attack_atkflag && v.repeating_attack_atkflag != 0) {
-                bonus_mod = atkattr_base + atkmod + atkmag + magicattackmod;
+                bonus_mod = atkattr_base + atkmod + pb + atkmag + magicattackmod;
                 plus_minus = bonus_mod > -1 ? "+" : "";
                 bonus = plus_minus + bonus_mod;
             }
@@ -4573,9 +4716,9 @@
                 savedcattr = savedcattr.replace(/^[^{]*{/,"").replace(/\_.*$/,"");
                 if(v.repeating_attack_savedc && v.repeating_attack_savedc === "(@{saveflat})") {
                     var tempdc = isNaN(parseInt(v.repeating_attack_saveflat)) === false ? parseInt(v.repeating_attack_saveflat) : "0";
-                } 
+                }
                 else {
-                    var tempdc = isNaN(Math.floor((parseInt(v[savedcattr], 10) - 10) / 2) + 8) === false ? (Math.floor((parseInt(v[savedcattr], 10) - 10) / 2) + 8 ) : "0";
+                    var tempdc = isNaN(Math.floor((parseInt(v[savedcattr], 10) - 10) / 2) + 8 + pb) === false ? (Math.floor((parseInt(v[savedcattr], 10) - 10) / 2) + 8 + pb) : "0";
                 }
                 bonus = "DC" + tempdc;
             }
@@ -4583,17 +4726,17 @@
                 bonus = "-";
             }
             if(v.repeating_attack_dmgflag && v.repeating_attack_dmgflag != 0) {
-                if(dmgbase === 0 && (dmgmod === 0)){
+                if(dmgbase === 0 && (dmgattr + dmgmod === 0)){
                     dmg = 0;
                 }
                 if(dmgbase != 0) {
                     dmg = dmgbase;
                 }
-                if(dmgbase != 0 && (dmgmod != 0)){
-                    dmg = dmgmod > 0 ? dmg + "+" : dmg;
+                if(dmgbase != 0 && (dmgattr + dmgmod != 0)){
+                    dmg = dmgattr + dmgmod > 0 ? dmg + "+" : dmg;
                 }
                 if(dmgattr + dmgmod != 0) {
-                    dmg = dmg + (dmgmod);
+                    dmg = dmg + (dmgattr + dmgmod);
                 }
                 dmg = dmg + " " + dmgtype;
             }
@@ -4601,17 +4744,17 @@
                 dmg = "";
             };
             if(v.repeating_attack_dmg2flag && v.repeating_attack_dmg2flag != 0) {
-                if(dmg2base === 0 && (dmg2mod === 0)){
+                if(dmg2base === 0 && (dmg2attr + dmg2mod === 0)){
                     dmg2 = 0;
                 }
                 if(dmg2base != 0) {
                     dmg2 = dmg2base;
                 }
-                if(dmg2base != 0 && (dmg2mod != 0)){
+                if(dmg2base != 0 && (dmg2attr + dmg2mod != 0)){
                     dmg2 = dmg2attr + dmg2mod > 0 ? dmg2 + "+" : dmg2;
                 }
                 if(dmg2attr + dmg2mod != 0) {
-                    dmg2 = dmg2 + (dmg2mod);
+                    dmg2 = dmg2 + (dmg2attr + dmg2mod);
                 }
                 dmg2 = dmg2 + " " + dmg2type;
             }
@@ -4626,6 +4769,7 @@
             if(v.repeating_attack_atkflag && v.repeating_attack_atkflag != 0) {
                 if(magicattackmod != 0) {hbonus = " + " + magicattackmod + "[SPELLATK]" + hbonus};
                 if(atkmag != 0) {hbonus = " + " + atkmag + "[MAGIC]" + hbonus};
+                if(pb != 0) {hbonus = " + " + pb + "[PROF]" + hbonus};
                 if(atkmod != 0) {hbonus = " + " + atkmod + "[MOD]" + hbonus};
                 if(atkattr_base != 0) {hbonus = " + " + atkattr_base + "[" + v.repeating_attack_atkattr_base.substring(2, 5).toUpperCase() + "]" + hbonus};
             }
