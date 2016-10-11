@@ -48,7 +48,7 @@
                         <option value="Warlock">Warlock</option>
                         <option value="Magus">Magus</option>
                     </select>
-                    <input type="number" name="attr_base_level" value="1" style="margin-left: -6px; width: 28px;">
+                    <input type="number" name="attr_level" value="1" style="margin-left: -6px; width: 28px;">
                     <span class="label">CLASS & LEVEL</span>
                 </div>
                 <div class="hlabel-container">
@@ -175,7 +175,7 @@
 
 					<input type="hidden" disabled="true" name="attr_squrt" value="@{sq_guess6}" />
 					<div class="value">
-                        <input type="text" name="attr_hb" title="@{hb}" value="floor(@{sq_guess5})" disabled="true" ><span></span>
+                        <input type="text" name="attr_hb" title="@{hb}" value="1">
                     </div>
                     <div class="label">
                         <span>HEROIC BONUS</span>
@@ -183,7 +183,7 @@
                 </div>
 				<div class="hb-attacks-container">
 					<div class="value">
-						<input type="text" name="attr_physical_attack_mod" title="@{physical_attack_mod}" value="@{hb}+@{physique_mod}+@{globalphysattackmod}" disabled="true" ><span></span>
+						<input type="text" name="attr_physical_attack_mod" title="@{physical_attack_mod}" value="0">
 					</div>
 					<div class="label">
 						<button class="attacks-saving-throws" type="roll" name="roll_physical_attack" value="@{wtype}&{template:simple} {{rname=PHYSICAL ATTACK}} {{mod=[[[[@{physical_attack_mod}]][PHYSICAL ATTACK]]]}} {{r1=[[@{advantagetoggle}+[[@{physical_attack_mod]]-[[floor(@{affliction}/2)]] [PHYSICAL ATTACK]]]}} @{charname_output}">PHYSICAL ATTACK</button>
@@ -3414,8 +3414,12 @@
     });
         
     on("change:base_level change:multiclass1 change:multiclass1_lvl change:multiclass2 change:multiclass2_lvl change:multiclass3 change:multiclass3_lvl change:arcane_fighter change:arcane_rogue", function() {
-        setlevel();
+		setlevel();
     });
+	
+    on("change:level", function (){
+		updatehb();
+    })
     
     on("change:multiclass1_flag", function() {
         setlevel();
@@ -3464,7 +3468,20 @@
             };
         });
     });
-    
+	
+	on("change:physique", function() {
+		updatephysmod();
+		});
+	on("change:cunning", function() {
+		updatecunmod();
+		});
+	on("change:ego", function() {
+		updateegomod();
+		});
+	on("change:charisma", function() {
+		updatechamod();
+		});
+	
     on("change:repeating_attack:atkflag change:repeating_attack:atkname_base change:repeating_attack:atkattr_base change:repeating_attack:atkmod change:repeating_attack:atkmagic change:repeating_attack:atkprofflag change:repeating_attack:dmgflag change:repeating_attack:dmgbase change:repeating_attack:dmgattr change:repeating_attack:dmgmod change:repeating_attack:dmgtype change:repeating_attack:dmg2flag change:repeating_attack:dmg2base change:repeating_attack:dmg2attr change:repeating_attack:dmg2mod change:repeating_attack:dmg2type change:repeating_attack:saveflag change:repeating_attack:savedc change:repeating_attack:saveflat change:repeating_attack:updateflag change:repeating_attack:dmgcustcrit change:repeating_attack:dmg2custcrit change:repeating_attack:ammo", function(eventinfo) {
         updateAttack(eventinfo);
     });
@@ -4031,18 +4048,20 @@
             }
         });
     });
-	on("change:physique", function() {
-		updatephysmod();
-		});
-	on("change:cunning", function() {
-		updatecunmod();
-		});
-	on("change:ego", function() {
-		updateegomod();
-		});
-	on("change:charisma", function() {
-		updatechamod();
-		});
+	
+	on("change:hb change:physique_mod change:globalphysattackmod", function() {
+	updatephysattackmod();
+	});
+	on("change:hb change:physique_mod change:globalmagicattackmod", function() {
+	updatemagicattackmod();
+	});
+	on("change:hb change:physique_mod change:globalpsyattackmod", function() {
+	updatepsyattackmod();
+	});
+	on("change:hb change:physique_mod change:globalsocialattackmod", function() {
+	updatesocialattackmod();
+	});
+	
 	var updatephysmod = function() {
 		getAttrs(["physique"], function(v) {
 			var physmod = 0;
@@ -4057,10 +4076,10 @@
 				physmod = 0;
 			}
 			else if(physique <= 15) {
-				physmod =+1;
+				physmod = 1;
 			}
 			else if(physique >= 16) {
-				physmod = +2;
+				physmod = 2;
 			}
 			setAttrs({physique_mod: physmod});
 		});
@@ -4079,7 +4098,7 @@
 				cunmod = 0;
 			}
 			else if(cunning <= 15) {
-				cunmod =1;
+				cunmod = 1;
 			}
 			else if(cunning >= 16) {
 				cunmod = 2;
@@ -4123,13 +4142,74 @@
 				chamod = 0;
 			}
 			else if(cha <= 15) {
-				chamod =1;
+				chamod = 1;
 			}
 			else if(cha >= 16) {
 				chamod = 2;
 			}
 			setAttrs({charisma_mod: chamod});
 		});
+	}
+	
+		var updatehb = function () {
+		getAttrs(["level"], function(v) {
+		var lvl = parseInt(v.level, 10);
+		var guess0 = 0;
+		var guess1 = 0;
+		var guess2 = 0;
+		var guess3 = 0;
+		var guess4 = 0;
+		var guess5 = 0;
+		var hb = 0;
+		guess0 = 1;
+		guess1 = ((guess0 + lvl / guess0) / 2);
+		guess2 = ((guess1 + lvl / guess1) / 2);
+		guess3 = ((guess2 + lvl / guess2) / 2);
+		guess4 = ((guess3 + lvl / guess3) / 2);
+		guess5 = ((guess4 + lvl / guess4) / 2);
+		hb = (Math.floor(guess5));
+		setAttrs({hb: hb});
+	});
+	}
+	var updatephysattackmod = function () {
+		getAttrs (["hb", "physique_mod", "globalphysattackmod"], function(v) {
+			var hb = parseInt(v.hb, 10);
+			var physmod = parseInt(v.physique_mod, 10);
+			var mod = parseInt(v.globalphysattackmod, 10);
+			var phys_attack = 0;
+			phys_attack = hb + physmod + mod;
+			setAttrs({physical_attack_mod: phys_attack});
+			});
+	}
+	var updatemagicattackmod = function () {
+		getAttrs (["hb", "cunning_mod", "globalmagicattackmod"], function(v) {
+			var hb = parseInt(v.hb, 10);
+			var cunmod = parseInt(v.cunning_mod, 10);
+			var mod = parseInt(v.globalmagicattackmod, 10);
+			var magic_attack = 0;
+			magic_attack = hb + cunmod + mod;
+			setAttrs({magical_attack_mod: magic_attack});
+			});
+	}
+	var updatepsyattackmod = function () {
+		getAttrs (["hb", "ego_mod", "globalpsyattackmod"], function(v) {
+			var hb = parseInt(v.hb, 10);
+			var egomod = parseInt(v.ego_mod, 10);
+			var mod = parseInt(v.globalpsyattackmod, 10);
+			var psy_attack = 0;
+			psy_attack = hb + egomod + mod;
+			setAttrs({psychic_attack_mod: psy_attack});
+			});
+	}
+	var updatesocialattackmod = function () {
+		getAttrs (["hb", "charisma_mod", "globalsocialattackmod"], function(v) {
+			var hb = parseInt(v.hb, 10);
+			var chamod = parseInt(v.charisma_mod, 10);
+			var mod = parseInt(v.globalsocialattackmod, 10);
+			var social_attack = 0;
+			social_attack = hb + chamod + mod;
+			setAttrs({social_attack_mod: social_attack});
+			});
 	}
 	
     var updateitemweight = function() {
