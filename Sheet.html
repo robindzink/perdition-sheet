@@ -79,11 +79,22 @@
             </div>
             <div class="bottom">
                 <div class="hlabel-container">
-                    <input type="text" name="attr_race">
+					<select  name="attr_race" style="width: 64px;">
+                        <option value="Black Orc">Black Orc</option>
+                        <option value="Bogill">Bogill</option>
+                        <option value="Devilkin">Inquisitor</option>
+                        <option value="Giant">Giant</option>
+                        <option value="Human">Human</option>
+                        <option value="Hobgoblin">Hobgoblin</option>
+                        <option value="Red Troll">Red Troll</option>
+                    </select>
                     <span class="label">RACE</span>
                 </div>
                 <div class="hlabel-container">
-                    <input type="text" name="attr_alignment">
+					<select name="attr_size" style="width: 64px;">
+                        <option value="medium">Medium</option>
+                        <option value="large">Large</option>
+                    </select>
                     <span class="label">SIZE</span>
                 </div>
                 <div class="hlabel-container">
@@ -589,27 +600,27 @@
                 <div class="money">
 					<div class="coin">
                         <span class="label">CB</span>
-                        <input type="text" name="attr_cb" title="@{cb}">
+                        <input type="text" name="attr_cb" value="0" title="@{cb}">
                     </div>
                     <div class="coin">
                         <span class="label">CP</span>
-                        <input type="text" name="attr_cp" title="@{cp}">
+                        <input type="text" name="attr_cp" value="0" title="@{cp}">
                     </div>
 					<div class="coin">
                         <span class="label">CS</span>
-                        <input type="text" name="attr_cs" title="@{cs}">
+                        <input type="text" name="attr_cs" value="0" title="@{cs}">
                     </div>
                     <div class="coin">
                         <span class="label">SP</span>
-                        <input type="text" name="attr_sp" title="@{sp}">
+                        <input type="text" name="attr_sp" value="0" title="@{sp}">
                     </div>
                     <div class="coin">
                         <span class="label">GC</span>
-                        <input type="text" name="attr_gc" title="@{gc}">
+                        <input type="text" name="attr_gc" value="0" title="@{gc}">
                     </div>
                     <div class="coin">
                         <span class="label">PC</span>
-                        <input type="text" name="attr_pc" title="@{pc}">
+                        <input type="text" name="attr_pc" value="0" title="@{pc}">
                     </div>
                 </div>
                 <input type="hidden" class="inventoryflag" name="attr_inventoryflag" value="complex">
@@ -630,9 +641,15 @@
                     <fieldset class="repeating_inventory">
                         <input type="hidden" class="equippedflag" name="attr_equippedflag">
                         <div class="item compendium-drop-target">
-                            <input class="weight" type="text" name="attr_itemcount" value="1">
-                            <input class="name" type="text" name="attr_itemname" accept="Name">
-                            <input class="weight" type="text" name="attr_itemweight" accept="Weight">
+                            <input class="itemcount" type="text" name="attr_itemcount" value="1">
+                            <input class="name" type="text" name="attr_itemname">
+							<select class="weight" name="attr_itemweight">
+								<option value="0.01">Bundle</option>
+								<option value="1" selected="selected">Light</option>
+								<option value="2">Encumbering</option>
+								<option value="4">Heavy</option>
+								<option value="10">Unwieldy</option>
+							</select>
                             <input class="inventorysubflag" type="checkbox" name="attr_inventorysubflag"><span>i</span>
                             <div class="subitem">
                                 <input class="equipped" type="checkbox" name="attr_equipped" value="1" checked="checked">
@@ -4772,7 +4789,7 @@
                 magicattackmod = parseInt(v.globalmagicmod, 10);
                 spelllevel = "{{spelllevel=" + v["repeating_attack_spellid"].split("_")[0].substr(1) + "}}";
             };
-            if(v.repeating_attack_atkattr_base === "0") {atkattr_base = 0} else {atkattr_base = Math.floor((v[v.repeating_attack_atkattr_base.substring(0, v.repeating_attack_atkattr_base.length - 5).substr(2)] - 10) / 2 );};
+            if(v.repeating_attack_atkattr_base === "0") {atkattr_base = 0} else {atkattr_base = v.repeating_attack_atkattr_base;};
             if(v.repeating_attack_dmgattr === "0") {dmgattr = 0} else {dmgattr = Math.floor((v[v.repeating_attack_dmgattr.substring(0, v.repeating_attack_dmgattr.length - 5).substr(2)] - 10) / 2 );};
             if(v.repeating_attack_dmg2attr === "0") {dmg2attr = 0} else {dmg2attr = Math.floor((v[v.repeating_attack_dmg2attr.substring(0, v.repeating_attack_dmg2attr.length - 5).substr(2)] - 10) / 2 );};
             var dmgbase = v.repeating_attack_dmgbase && v.repeating_attack_dmgbase != "" ? v.repeating_attack_dmgbase : 0;

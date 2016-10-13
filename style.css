@@ -1920,12 +1920,28 @@ button.sheet-attacks-saving-throws {
 }
 
 .sheet-item .sheet-name {
-    width: 100px;
+    width: 55px;
 }
 
-.sheet-item input[type="text"].sheet-weight {
+.sheet-item input[type="text"].sheet-itemcount {
     width: 25px;
     text-align: center;
+}
+
+.sheet-item .sheet-weight {
+    width: 70px;
+	border: none;
+    text-align: center;
+	line-height: 12px;
+    border-top-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    background-color: #EFEFEF;
+    cursor: pointer;
+    font-size: 9px;
+    font-weight: bold;
+	padding: 0px;
+	height: 21px;
+	margin: 0px;
 }
 
 .sheet-item .sheet-subitem .sheet-subfield {
