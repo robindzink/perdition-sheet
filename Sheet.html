@@ -17,7 +17,6 @@
 </div>
 
 <input class="tab-button core" type="radio" name="attr_tab" value="core" checked="checked"><span >CORE</span>
-<input class="tab-button bio" type="radio" name="attr_tab" value="bio"><span>BIO</span>
 <input class="tab-button spells" type="radio" name="attr_tab" value="spells"><span>SPELLS</span>
 <input class="tab-button options" type="radio" name="attr_tab" value="options"><span style="font-family: pictos">y</span>
 
@@ -34,7 +33,7 @@
                 <div class="hlabel-container">
                     <input class="flag" type="hidden" name="attr_customclass_flag" value="0">
                     <input class="showing" type="text" name="attr_cust_class" value="@{cust_classname}" disabled="true" style="width: 64px; height: 28px; padding-top: 10px;">
-                    <select class="hiding" name="attr_class" style="width: 100px;">
+                    <select class="hiding" name="attr_class" style="width: 90px;">
                         <option value="Paladin">Paladin</option>
                         <option value="Heavy Knight">Heavy Knight</option>
                         <option value="Thug">Thug</option>
@@ -50,27 +49,6 @@
                     </select>
                     <input type="number" name="attr_level" value="1" style="margin-left: -6px; width: 28px;">
                     <span class="label">CLASS & LEVEL</span>
-                </div>
-                <div class="hlabel-container">
-                    <input class="flag" type="hidden" name="attr_mutliclass1_showingflag" value="0">
-                    <input class="hiding" type="text" disabled="true" style="width: 64px; margin-bottom: 30px;">
-                    <input class="hiding" type="text" disabled="true" style="margin-left: -6px; width: 28px; margin-bottom: 30px;">
-                    <input class="showing" type="text" name="attr_multiclass1_name" value="@{multiclass1}" disabled="true" style="width: 64px; margin-bottom: 30px;">
-                    <input class="showing" type="text" name="attr_multiclass1_level" value="@{multiclass1_lvl}" disabled="true" style="margin-left: -6px; width: 28px; margin-bottom: 30px;">
-                </div>
-                <div class="hlabel-container">
-                    <input class="flag" type="hidden" name="attr_mutliclass2_showingflag" value="0">
-                    <input class="hiding" type="text" disabled="true" style="width: 64px; margin-bottom: 30px;">
-                    <input class="hiding" type="text" disabled="true" style="margin-left: -6px; width: 28px; margin-bottom: 30px;">
-                    <input class="showing" type="text" name="attr_multiclass2_name" value="@{multiclass2}" disabled="true" style="width: 64px; margin-bottom: 30px;">
-                    <input class="showing" type="text" name="attr_multiclass2_level" value="@{multiclass2_lvl}" disabled="true" style="margin-left: -6px; width: 28px; margin-bottom: 30px;">
-                </div>
-                <div class="hlabel-container">
-                    <input class="flag" type="hidden" name="attr_mutliclass3_showingflag" value="0">
-                    <input class="hiding" type="text" disabled="true" style="width: 64px; margin-bottom: 30px;">
-                    <input class="hiding" type="text" disabled="true" style="margin-left: -6px; width: 28px; margin-bottom: 30px;">
-                    <input class="showing" type="text" name="attr_multiclass3_name" value="@{multiclass3}" disabled="true" style="width: 64px; margin-bottom: 30px;">
-                    <input class="showing" type="text" name="attr_multiclass3_level" value="@{multiclass3_lvl}" disabled="true" style="margin-left: -6px; width: 28px; margin-bottom: 30px;">
                 </div>
                 <div class="hlabel-container">
                     <input type="text" name="attr_background" style="width: 122px;">
@@ -396,9 +374,9 @@
 					<div class="ac" style="margin-right: 1px;">
 						<div class="top">
 							<span>Max</span>
-							<input type="text" name="attr_physical_hp_max" title="@{physical_hp_max}">
+							<input type="text" name="attr_physical_hp_max" title="@{physical_hp_max}" value="0">
 						</div>
-						<input type="number" name="attr_physical_hp" title="@{physical_hp}">
+						<input type="number" name="attr_physical_hp" title="@{physical_hp}" value="0">
 						<span class="label">PHYSICAL HIT POINTS</span>
 					</div>
 				</div>
@@ -406,9 +384,9 @@
 					<div class="ac" style="margin-right: 1px;">
 						<div class="top">
 							<span>Max</span>
-							<input type="text" name="attr_mental_hp_max" title="@{mental_hp_max}">
+							<input type="text" name="attr_mental_hp_max" title="@{mental_hp_max}" value="0">
 						</div>
-						<input type="number" name="attr_mental_hp" title="@{mental_hp}">
+						<input type="number" name="attr_mental_hp" title="@{mental_hp}" value="0">
 						<span class="label">MENTAL HIT POINTS</span>
 					</div>
 				</div>
@@ -679,10 +657,10 @@
                     <div class="subcontainer" style="height: 64px; width: 119px;">
                         <div class="top">
                             <span>Total</span>
-                            <input type="text" name="attr_class_resource_max" title="@{class_resource_max}">
+                            <input type="text" name="attr_resource_max" title="@{resource_max}">
                         </div>
-                        <input type="number" name="attr_class_resource" title="@{class_resource}" style="margin-bottom: -6px;">
-                        <input type="text" class="label" name="attr_class_resource_name" title="@{class_resource_name}" placeholder="CLASS RESOURCE">
+                        <input type="number" name="attr_resource" title="@{resource}" style="margin-bottom: -6px;">
+                        <input type="text" class="label" name="attrresource_name" title="@{resource_name}" placeholder="RESOURCE">
                     </div>
                     <div class="subcontainer" style="height: 64px; width: 119px; float: right;">
                         <div class="top">
@@ -690,7 +668,7 @@
                             <input type="text" name="attr_other_resource_max" title="@{other_resource_max}">
                         </div>
                         <input type="number" name="attr_other_resource" title="@{other_resource}" style="margin-bottom: -6px;">
-                        <input type="text" class="label" name="attr_other_resource_name" title="@{other_resource_name}" placeholder="OTHER RESOURCE">
+                        <input type="text" class="label" name="attr_other_resource_name" title="@{other_resource_name}" placeholder="RESOURCE">
                         <input type="hidden" name="attr_other_resource_itemid">
                     </div>
                 </div>
@@ -702,7 +680,7 @@
                                 <input type="text" name="attr_resource_left_max" title="@{repeating_resource_left_max}">
                             </div>
                             <input type="number" name="attr_resource_left" title="@{repeating_resource_left}" style="margin-bottom: -6px;">
-                            <input type="text" class="label" name="attr_resource_left_name" title="@{repeating_resource_left_name}" placeholder="OTHER RESOURCE" data-i18n-placeholder="other-resource-u">
+                            <input type="text" class="label" name="attr_resource_left_name" title="@{repeating_resource_left_name}" placeholder="RESOURCE">
                             <input type="hidden" name="attr_resource_left_itemid">
                         </div>
                         <div class="subcontainer" style="height: 64px; width: 119px;">
@@ -711,7 +689,7 @@
                                 <input type="text" name="attr_resource_right_max" title="@{repeating_resource_right_max}">
                             </div>
                             <input type="number" name="attr_resource_right" title="@{repeating_resource_right}" style="margin-bottom: -6px;">
-                            <input type="text" class="label" name="attr_resource_right_name" title="@{repeating_resource_right_name}" placeholder="OTHER RESOURCE" data-i18n-placeholder="other-resource-u">
+                            <input type="text" class="label" name="attr_resource_right_name" title="@{repeating_resource_right_name}" placeholder="RESOURCE">
                             <input type="hidden" name="attr_resource_right_itemid">
                         </div>
                     </div>
@@ -726,114 +704,29 @@
     </div>
 </div>
     
-<div class="page bio">
-    <div class="header">
-        <div class="name-container">
-            <img src="http://i.imgur.com/ZgULBCp.png" style="padding-bottom: 5px;">
-            <input type="text" name="attr_character_name" style="width: 100%;">
-            <span class="label" data-i18n="char-name-u">CHARACTER NAME</span>
-        </div>
-        <div class="header-info">
-            <div class="top" style="position: relative; top: 10px;">
-                <div class="hlabel-container">
-                    <input type="text" name="attr_age" style="width: 120px;">
-                    <span class="label" data-i18n="age-u">AGE</span>
-                </div>
-                <div class="hlabel-container">
-                    <input type="text" name="attr_size" style="width: 120px;">
-                    <span class="label" data-i18n="size-u">SIZE</span>
-                </div>
-                <div class="hlabel-container">
-                    <input type="text" name="attr_height" style="width: 120px;">
-                    <span class="label" data-i18n="height-u">HEIGHT</span>
-                </div>
-                <div class="hlabel-container">
-                    <input type="text" name="attr_weight" style="width: 120px;">
-                    <span class="label" data-i18n="weight-u">WEIGHT</span>
-                </div>
-            </div>
-            <div class="bottom">
-                <div class="hlabel-container">
-                    <input type="text" name="attr_eyes" style="width: 160px;">
-                    <span class="label" data-i18n="eye-u">EYES</span>
-                </div>
-                <div class="hlabel-container">
-                    <input type="text" name="attr_skin" style="width: 160px;">
-                    <span class="label" data-i18n="skin-u">SKIN</span>
-                </div>
-                <div class="hlabel-container">
-                    <input type="text" name="attr_hair" style="width: 160px;">
-                    <span class="label" data-i18n="hair-u">HAIR</span>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="body">
-        <div class="col col1">
-            <div class="textbox">
-                <textarea name="attr_character_appearance" style="min-height: 300px; height: 300px;"></textarea>
-                <span class="label" data-i18n="char-appearance-u">CHARACTER APPEARANCE</span>
-            </div>
-            <div class="textbox">
-                <textarea name="attr_character_backstory" style="min-height: 623px; height: 623px;"></textarea>
-                <span class="label" data-i18n="char-backstory-u">CHARACTER BACKSTORY</span>
-            </div>
-        </div>
-        <div class="col2-3">
-            <div class="textbox">
-                <textarea name="attr_allies_and_organizations" style="min-height: 288px; height: 300px;"></textarea>
-                <span class="label" data-i18n="allies-orgs-u">ALLIES & ORGANIZATIONS</span>
-            </div>
-            <div class="textbox">
-                <textarea name="attr_additional_feature_and_traits" style="min-height: 289px; height: 300px;"></textarea>
-                <span class="label" data-i18n="add-feats-traits-u">ADDITIONAL FEATURES & TRAITS</span>
-            </div>
-            <div class="textbox">
-                <textarea name="attr_treasure" style="min-height: 300px; height: 300px;"></textarea>
-                <span class="label" data-i18n="treasure-u">TREASURE</span>
-            </div>
-        </div>
-    </div>
-</div>
-
 <div class="page spells">
     <div class="header">
         <div class="name-container">
             <img src="http://i.imgur.com/ZgULBCp.png" style="padding-bottom: 5px;">
             <input type="text" name="attr_character_name" style="width: 100%;">
-            <span class="label" data-i18n="char-name-u">CHARACTER NAME</span>
+            <span class="label">CHARACTER NAME</span>
         </div>
         <div class="header-info">
             <div class="part">
-                <select name="attr_spellcasting_ability">
-                    <option value="0*" data-i18n="none-u">NONE</option>
-                    <option value="@{physique_mod}+" data-i18n="physique-u">PHYSIQUE</option>
-                    <option value="@{cunning_mod}+" data-i18n="cunning-u">CUNNING</option>
-                    <option value="@{constitution_mod}+" data-i18n="constitution-u">CONSTITUTION</option>
-                    <option value="@{intelligence_mod}+" data-i18n="intelligence-u">INTELLIGENCE</option>
-                    <option value="@{ego_mod}+" data-i18n="ego-u">EGO</option>
-                    <option value="@{charisma_mod}+" data-i18n="charisma-u">CHARISMA</option>
-                </select>
-                <span class="label" data-i18n="spell-ability-u">SPELLCASTING ABILITY</span>
+                <input type="text" name="attr_spell pool" value="0">
+                <span class="label">SPELL POOL</span>
             </div>
             <div class="part">
-                <input type="text" name="attr_spell_save_dc" value="(@{spellcasting_ability}(8+@{pb}+@{spell_dc_mod}))" disabled="true">
-                <span class="label" data-i18n="spell-save-dc-u">SPELL SAVE DC</span>
-            </div>
-            <div class="part">
-                <input type="text" name="attr_spell_attack_bonus" value="(@{spellcasting_ability}@{pb})" disabled="true">
-                <span class="label" data-i18n="spell-atk-bonus-u">SPELL ATTACK BONUS</span>
+                <input type="text" name="attr_power_points" value="0">
+                <span class="label">POWER POINTS</span>
             </div>
         </div>
     </div>
     <div class="body">
         <div class="col col1">
             <div class="spell-level">
-                <div class="level">
-                    <span class="label">0</span>
-                </div>
                 <div class="cantrips">
-                    <span class="label" data-i18n="cantrips-u">CANTRIPS</span>
+                    <span class="label">RITUALS</span>
                 </div>
             </div>
             <div class="spell-container">
@@ -842,138 +735,27 @@
                         <input class="options-flag" type="checkbox" name="attr_options-flag" checked="checked"><span>y</span>
                         <div class="options">
                             <div class="row">
-                                <span data-i18n="name:-u">NAME:</span>
-                                <input type="text" name="attr_spellname_base" accept="Name">
-                                <input type="checkbox" name="attr_spellprepared" value="" checked="checked">
-                                <span data-i18n="prep-u">PREP</span>
+                                <span>NAME:</span>
+                                <input type="text" name="attr_spellname_base">
                             </div>
                             <div class="row">
-                                <span data-i18n="school:-u">SCHOOL:</span>
-                                <select name="attr_spellschool" accept="School">
-                                    <option value="Abjuration" data-i18n="abjuration">Abjuration</option>
-                                    <option value="Conjuration" data-i18n="conjuration">Conjuration</option>
-                                    <option value="Divination" data-i18n="divination">Divination</option>
-                                    <option value="Enchantment" data-i18n="enchantment">Enchantment</option>
-                                    <option value="Evocation" data-i18n="evocation">Evocation</option>
-                                    <option value="Illusion" data-i18n="illusion">Illusion</option>
-                                    <option value="Necromancy" data-i18n="necromancy">Necromancy</option>
-                                    <option value="Transmutation" data-i18n="transmutation">Transmutation</option>
-                                </select>
-                                <input type="hidden" name="attr_spellritualflag" accept="Ritual">
-                                <input type="checkbox" name="attr_spellritual" value="{{ritual=1}}">
-                                <span data-i18n="ritual-u">RITUAL</span>
+                                <span>REQUIRES:</span>
+                                <input type="text" name="attr_spellduration">
                             </div>
                             <div class="row">
-                                <span data-i18n="casting-time:-u">CASTING TIME:</span>
-                                <input type="text" name="attr_spellcastingtime" accept="Casting Time">
-                            </div>
-                            <div class="row">
-                                <span data-i18n="range:-u">RANGE:</span>
-                                <input type="text" name="attr_spellrange" accept="Range">
-                            </div>
-                            <div class="row">
-                                <span data-i18n="target:-u">TARGET:</span>
-                                <input type="text" name="attr_spelltarget" accept="Target">
-                            </div>
-                            <input type="hidden" name="attr_spellcomp" accept="Components">
-                            <div class="row">
-                                <span data-i18n="components:-u">COMPONENTS:</span>
-                                <input type="checkbox" name="attr_spellcomp_v" value="{{v=1}}" checked="checked">
-                                <span data-i18n="spell-component-verbal">V</span>
-                                <input type="checkbox" name="attr_spellcomp_s" value="{{s=1}}" checked="checked">
-                                <span data-i18n="spell-component-somatic">S</span>
-                                <input type="checkbox" name="attr_spellcomp_m" value="{{m=1}}" checked="checked">
-                                <span data-i18n="spell-component-material">M</span>
-                                <input type="text" name="attr_spellcomp_materials" accept="Material" placeholder="ruby dust worth 50gp" data-i18n-placeholder="ruby-dust-place">
-                            </div>
-                            <div class="row">
-                                <input type="hidden" name="attr_spellconcentrationflag" accept="Concentration">
-                                <input type="checkbox" name="attr_spellconcentration" value="{{concentration=1}}">
-                                <span data-i18n="concentration-u">CONCENTRATION</span>
-                            </div>
-                            <div class="row">
-                                <span data-i18n="duration:-u">DURATION:</span>
-                                <input type="text" name="attr_spellduration" accept="Duration">
-                            </div>
-                            <div class="row">
-                                <span data-i18n="output:-u">OUTPUT:</span>
+                                <span>OUTPUT:</span>
                                 <select name="attr_spelloutput">
-                                    <option value="SPELLCARD" data-i18n="spellcard-u">SPELLCARD</option>
-                                    <option value="ATTACK" data-i18n="attack-u">ATTACK</option>
+                                    <option value="SPELLCARD">SPELLCARD</option>
+                                    <option value="ATTACK">ATTACK</option>
                                 </select>
                             </div>
                             <input type="hidden" class="spellattackinfoflag" name="attr_spellattackinfoflag">
-                            <div class="spellattackinfo">
-                                <div class="row">
-                                    <span data-i18n="spell-atk:-u">SPELL ATTACK:</span>
-                                    <select name="attr_spellattack" accept="Spell Attack">
-                                        <option value="None" data-i18n="none">None</option>
-                                        <option value="Melee" data-i18n="melee">Melee</option>
-                                        <option value="Ranged" data-i18n="ranged">Ranged</option>
-                                    </select>
-                                </div>
-                                <div class="row">
-                                    <span data-i18n="damage:-u">DAMAGE:</span>
-                                    <input type="text" name="attr_spelldamage" accept="Damage" style="width: 50px;">
-                                    <span data-i18n="type:-u">TYPE:</span>
-                                    <input type="text" name="attr_spelldamagetype" accept="Damage Type" style="width: 103px;">
-                                </div>
-                                <div class="row">
-                                    <span data-i18n="damage2:-u">DAMAGE2:</span>
-                                    <input type="text" name="attr_spelldamage2" accept="Secondary Damage" style="width: 45px;">
-                                    <span data-i18n="type:-u">TYPE:</span>
-                                    <input type="text" name="attr_spelldamagetype2" accept="Secondary Damage Type" style="width: 103px;">
-                                </div>
-                                <div class="row">
-                                    <span data-i18n="healing:-u">HEALING:</span>
-                                    <input type="text" name="attr_spellhealing" accept="Healing" style="width: 45px;">
-                                </div>
-                                <div class="row">
-                                    <input type="checkbox" name="attr_spelldmgmod" value="Yes" accept="Add Casting Modifier">
-                                    <span data-i18n="add-ability-mod-u">ADD ABILITY MOD TO DAMAGE OR HEALING</span>
-                                </div>
-                                <div class="row">
-                                    <span data-i18n="saving-throw:-u">SAVING THROW:</span>
-                                    <select name="attr_spellsave" accept="Save">
-                                        <option value="" selected="selected" data-i18n="none-u">NONE</option>
-                                        <option value="Strength" data-i18n="str-u">PHYSIQUE</option>
-                                        <option value="Dexterity" data-i18n="dex-u">CUNNING</option>
-                                        <option value="Constitution" data-i18n="con-u">CON</option>
-                                        <option value="Intelligence" data-i18n="int-u">INT</option>
-                                        <option value="Wisdom" data-i18n="wis-u">EGO</option>
-                                        <option value="Charisma" data-i18n="cha-u">CHA</option>
-                                    </select>
-                                    <span data-i18n="effect:-u">EFFECT:</span>
-                                    <input type="text" name="attr_spellsavesuccess" accept="Save Success" style="width: 78px;" placeholder="Half damage" data-i18n-placeholder="half-dmg-place">
-                                </div>
-                                <div class="row">
-                                    <span data-i18n="at-higher-lvl-dmg:-u">HIGHER LVL CAST DMG:</span>
-                                    <input type="text" name="attr_spellhldie" placeholder="1" accept="Higher Spell Slot Dice" style="width: 15px; text-align: right;">
-                                    <select name="attr_spellhldietype" accept="Higher Spell Slot Die">
-                                        <option value="" selected="selected" data-i18n="none-u">NONE</option>
-                                        <option value="d4">d4</option>
-                                        <option value="d6">d6</option>
-                                        <option value="d8">d8</option>
-                                        <option value="d10">d10</option>
-                                        <option value="d12">d12</option>
-                                        <option value="d20">d20</option>
-                                    </select>
-                                    <span>+</span>
-                                    <input type="text" name="attr_spellhlbonus" placeholder="0" accept="Higher Spell Slot Bonus" style="width: 15px; text-align: center;">
-                                </div>
-                            </div>
                             <div class="row">
-                                <span data-i18n="description:-u">DESCRIPTION:</span>
+                                <span>DESCRIPTION:</span>
                             </div>
                             <input type="hidden" name="attr_spellcontent" accept="Content">
                             <div class="row">
                                 <textarea name="attr_spelldescription"></textarea>
-                            </div>
-                            <div class="row">
-                                <span data-i18n="at-higher-lvl:-u">AT HIGHER LEVELS:</span>
-                            </div>
-                            <div class="row">
-                                <textarea name="attr_spellathigherlevels" style="height: 36px; min-height: 36px;"></textarea>
                             </div>
                             <input type="hidden" name="attr_spellattackid">
                             <input type="hidden" name="attr_spelllevel" accept="Level">
@@ -989,15 +771,13 @@
                 </fieldset>
             </div>
             
-            <div class="spell-level">
-                <div class="level">
-                    <span class="label">1</span>
-                </div>
-                <div class="total">
-                    <input type="number" name="attr_lvl1_slots_total">
-                </div>
-                <div class="expended">
-                    <input type="number" name="attr_lvl1_slots_expended" value="0">
+
+        </div>
+        <div class="col col2">
+        
+ <div class="spell-level">
+                <div class="cantrips">
+                    <span class="label">MINOR SPELLS</span>
                 </div>
             </div>
             <div class="spell-container">
@@ -1006,138 +786,81 @@
                         <input class="options-flag" type="checkbox" name="attr_options-flag" checked="checked"><span>y</span>
                         <div class="options">
                             <div class="row">
-                                <span data-i18n="name:-u">NAME:</span>
+                                <span>NAME:</span>
                                 <input type="text" name="attr_spellname_base" accept="Name">
                                 <input type="checkbox" name="attr_spellprepared" value="1" checked="checked">
-                                <span data-i18n="prep-u">PREP</span>
+                                <span>LOST</span>
                             </div>
                             <div class="row">
-                                <span data-i18n="school:-u">SCHOOL:</span>
+                                <span>SCHOOL:</span>
                                 <select name="attr_spellschool" accept="School">
-                                    <option value="abjuration" data-i18n="abjuration">Abjuration</option>
-                                    <option value="conjuration" data-i18n="conjuration">Conjuration</option>
-                                    <option value="divination" data-i18n="divination">Divination</option>
-                                    <option value="enchantment" data-i18n="enchantment">Enchantment</option>
-                                    <option value="evocation" data-i18n="evocation">Evocation</option>
-                                    <option value="illusion" data-i18n="illusion">Illusion</option>
-                                    <option value="necromancy" data-i18n="necromancy">Necromancy</option>
-                                    <option value="transmutation" data-i18n="transmutation">Transmutation</option>
+                                    <option value="diabolic power">Diabolic Power</option>
+                                    <option value="demonic power" >Demonic Power</option>
+                                    <option value="arcana">Arcana</option>
+                                    <option value="enchantment">Enchantment</option>
+                                    <option value="fleshcrafting">Fleshcrafting</option>
+                                    <option value="law">Law</option>
+                                    <option value="shadow">Shadow</option>
+                                    <option value="transmutation">Transmutation</option>
                                 </select>
-                                <input type="hidden" name="attr_spellritualflag" accept="Ritual">
-                                <input type="checkbox" name="attr_spellritual" value="{{ritual=1}}">
-                                <span data-i18n="ritual-u">RITUAL</span>
                             </div>
                             <div class="row">
-                                <span data-i18n="castingtime:-u">CASTING TIME:</span>
-                                <input type="text" name="attr_spellcastingtime" accept="Casting Time">
-                            </div>
-                            <div class="row">
-                                <span data-i18n="range:-u">RANGE:</span>
+                                <span>RANGE:</span>
                                 <input type="text" name="attr_spellrange" accept="Range">
-                            </div>
-                            <div class="row">
-                                <span data-i18n="target:-u">TARGET:</span>
-                                <input type="text" name="attr_spelltarget" accept="Target">
-                            </div>
-                            <input type="hidden" name="attr_spellcomp" accept="Components">
-                            <div class="row">
-                                <span data-i18n="components:-u">COMPONENTS:</span>
-                                <input type="checkbox" name="attr_spellcomp_v" value="{{v=1}}" checked="checked">
-                                <span data-i18n="spell-component-verbal">V</span>
-                                <input type="checkbox" name="attr_spellcomp_s" value="{{s=1}}" checked="checked">
-                                <span data-i18n="spell-component-somatic">S</span>
-                                <input type="checkbox" name="attr_spellcomp_m" value="{{m=1}}" checked="checked">
-                                <span data-i18n="spell-component-material">M</span>
-                                <input type="text" name="attr_spellcomp_materials" accept="Material" placeholder="ruby dust worth 50gp" data-i18n-placeholder="ruby-dust-place">
                             </div>
                             <div class="row">
                                 <input type="hidden" name="attr_spellconcentrationflag" accept="Concentration">
                                 <input type="checkbox" name="attr_spellconcentration" value="{{concentration=1}}">
-                                <span data-i18n="concentration-u">CONCENTRATION</span>
+                                <span>CONCENTRATION</span>
                             </div>
                             <div class="row">
-                                <span data-i18n="duration:-u">DURATION:</span>
+                                <span>DURATION:</span>
                                 <input type="text" name="attr_spellduration" accept="Duration">
                             </div>
                             <div class="row">
-                                <span data-i18n="output:-u">OUTPUT:</span>
+                                <span>OUTPUT:</span>
                                 <select name="attr_spelloutput">
-                                    <option value="SPELLCARD" data-i18n="spellcard-u">SPELLCARD</option>
-                                    <option value="ATTACK" data-i18n="attack-u">ATTACK</option>
+                                    <option value="SPELLCARD">SPELLCARD</option>
+                                    <option value="ATTACK">ATTACK</option>
                                 </select>
                             </div>
                             <input type="hidden" class="spellattackinfoflag" name="attr_spellattackinfoflag">
                             <div class="spellattackinfo">
                                 <div class="row">
-                                    <span data-i18n="spell-atk:-u">SPELL ATTACK:</span>
+                                    <span>SPELL ATTACK:</span>
                                     <select name="attr_spellattack" accept="Spell Attack">
-                                        <option value="None" data-i18n="none">None</option>
-                                        <option value="Melee" data-i18n="melee">Melee</option>
-                                        <option value="Ranged" data-i18n="ranged">Ranged</option>
+                                        <option>None</option>
+                                        <option>Melee</option>
+                                        <option>Ranged</option>
                                     </select>
                                 </div>
                                 <div class="row">
-                                    <span data-i18n="damage:-u">DAMAGE:</span>
+                                    <span>DAMAGE:</span>
                                     <input type="text" name="attr_spelldamage" accept="Damage" style="width: 50px;">
-                                    <span data-i18n="type:-u">TYPE:</span>
+                                    <span>TYPE:</span>
                                     <input type="text" name="attr_spelldamagetype" accept="Damage Type" style="width: 103px;">
                                 </div>
                                 <div class="row">
-                                    <span data-i18n="damage2:-u">DAMAGE2:</span>
+                                    <span>DAMAGE2:</span>
                                     <input type="text" name="attr_spelldamage2" accept="Secondary Damage" style="width: 45px;">
-                                    <span data-i18n="type:-u">TYPE:</span>
+                                    <span>TYPE:</span>
                                     <input type="text" name="attr_spelldamagetype2" accept="Secondary Damage Type" style="width: 103px;">
                                 </div>
                                 <div class="row">
-                                    <span data-i18n="healing:-u">HEALING:</span>
+                                    <span>HEALING:</span>
                                     <input type="text" name="attr_spellhealing" accept="Healing" style="width: 45px;">
                                 </div>
                                 <div class="row">
                                     <input type="checkbox" name="attr_spelldmgmod" value="Yes" accept="Add Casting Modifier">
-                                    <span data-i18n="add-ability-mod-u">ADD ABILITY MOD TO DAMAGE OR HEALING</span>
-                                </div>
-                                <div class="row">
-                                    <span data-i18n="saving-throw:-u">SAVING THROW:</span>
-                                    <select name="attr_spellsave" accept="Save">
-                                        <option value="" selected="selected" data-i18n="none-u">NONE</option>
-                                        <option value="Strength" data-i18n="str-u">PHYSIQUE</option>
-                                        <option value="Dexterity" data-i18n="dex-u">CUNNING</option>
-                                        <option value="Constitution" data-i18n="con-u">CON</option>
-                                        <option value="Intelligence" data-i18n="int-u">INT</option>
-                                        <option value="Wisdom" data-i18n="wis-u">EGO</option>
-                                        <option value="Charisma" data-i18n="cha-u">CHA</option>
-                                    </select>
-                                    <span data-i18n="effect:-u">EFFECT:</span>
-                                    <input type="text" name="attr_spellsavesuccess" accept="Save Success" style="width: 78px;" placeholder="Half damage" data-i18n-placeholder="half-dmg-place">
-                                </div>
-                                <div class="row">
-                                    <span data-i18n="at-higher-lvl-dmg:-u">HIGHER LVL CAST DMG:</span>
-                                    <input type="text" name="attr_spellhldie" placeholder="1" accept="Higher Spell Slot Dice" style="width: 15px; text-align: right;">
-                                    <select name="attr_spellhldietype" accept="Higher Spell Slot Die">
-                                        <option value="" selected="selected" data-i18n="none-u">NONE</option>
-                                        <option value="d4">d4</option>
-                                        <option value="d6">d6</option>
-                                        <option value="d8">d8</option>
-                                        <option value="d10">d10</option>
-                                        <option value="d12">d12</option>
-                                        <option value="d20">d20</option>
-                                    </select>
-                                    <span>+</span>
-                                    <input type="text" name="attr_spellhlbonus" placeholder="0" accept="Higher Spell Slot Bonus" style="width: 15px; text-align: center;">
+                                    <span>ADD ABILITY MOD TO DAMAGE OR HEALING</span>
                                 </div>
                             </div>
                             <div class="row">
-                                <span data-i18n="description:-u">DESCRIPTION:</span>
+                                <span>DESCRIPTION:</span>
                             </div>
                             <input type="hidden" name="attr_spellcontent" accept="Content">
                             <div class="row">
                                 <textarea name="attr_spelldescription"></textarea>
-                            </div>
-                            <div class="row">
-                                <span data-i18n="at-higher-lvl:-u">AT HIGHER LEVELS:</span>
-                            </div>
-                            <div class="row">
-                                <textarea name="attr_spellathigherlevels" style="height: 36px; min-height: 36px;"></textarea>
                             </div>
                             <input type="hidden" name="attr_spellattackid">
                             <input type="hidden" name="attr_spelllevel" accept="Level">
@@ -1155,14 +878,8 @@
             </div>
             
             <div class="spell-level">
-                <div class="level">
-                    <span class="label">2</span>
-                </div>
-                <div class="total">
-                    <input type="number" name="attr_lvl2_slots_total">
-                </div>
-                <div class="expended">
-                    <input type="number" name="attr_lvl2_slots_expended" value="0">
+                <div class="cantrips">
+                    <span class="label">MAJOR SPELLS</span>
                 </div>
             </div>
             <div class="spell-container">
@@ -1171,138 +888,81 @@
                         <input class="options-flag" type="checkbox" name="attr_options-flag" checked="checked"><span>y</span>
                         <div class="options">
                             <div class="row">
-                                <span data-i18n="name:-u">NAME:</span>
+                                <span>NAME:</span>
                                 <input type="text" name="attr_spellname_base" accept="Name">
                                 <input type="checkbox" name="attr_spellprepared" value="1" checked="checked">
-                                <span data-i18n="prep-u">PREP</span>
+                                <span>LOST</span>
                             </div>
                             <div class="row">
-                                <span data-i18n="school:-u">SCHOOL:</span>
+                                <span>SCHOOL:</span>
                                 <select name="attr_spellschool" accept="School">
-                                    <option value="abjuration" data-i18n="abjuration">Abjuration</option>
-                                    <option value="conjuration" data-i18n="conjuration">Conjuration</option>
-                                    <option value="divination" data-i18n="divination">Divination</option>
-                                    <option value="enchantment" data-i18n="enchantment">Enchantment</option>
-                                    <option value="evocation" data-i18n="evocation">Evocation</option>
-                                    <option value="illusion" data-i18n="illusion">Illusion</option>
-                                    <option value="necromancy" data-i18n="necromancy">Necromancy</option>
-                                    <option value="transmutation" data-i18n="transmutation">Transmutation</option>
+                                    <option value="diabolic power">Diabolic Power</option>
+                                    <option value="demonic power" >Demonic Power</option>
+                                    <option value="arcana">Arcana</option>
+                                    <option value="enchantment">Enchantment</option>
+                                    <option value="fleshcrafting">Fleshcrafting</option>
+                                    <option value="law">Law</option>
+                                    <option value="shadow">Shadow</option>
+                                    <option value="transmutation">Transmutation</option>
                                 </select>
-                                <input type="hidden" name="attr_spellritualflag" accept="Ritual">
-                                <input type="checkbox" name="attr_spellritual" value="{{ritual=1}}">
-                                <span data-i18n="ritual-u">RITUAL</span>
                             </div>
                             <div class="row">
-                                <span data-i18n="castingtime:-u">CASTING TIME:</span>
-                                <input type="text" name="attr_spellcastingtime" accept="Casting Time">
-                            </div>
-                            <div class="row">
-                                <span data-i18n="range:-u">RANGE:</span>
+                                <span>RANGE:</span>
                                 <input type="text" name="attr_spellrange" accept="Range">
-                            </div>
-                            <div class="row">
-                                <span data-i18n="target:-u">TARGET:</span>
-                                <input type="text" name="attr_spelltarget" accept="Target">
-                            </div>
-                            <input type="hidden" name="attr_spellcomp" accept="Components">
-                            <div class="row">
-                                <span data-i18n="components:-u">COMPONENTS:</span>
-                                <input type="checkbox" name="attr_spellcomp_v" value="{{v=1}}" checked="checked">
-                                <span data-i18n="spell-component-verbal">V</span>
-                                <input type="checkbox" name="attr_spellcomp_s" value="{{s=1}}" checked="checked">
-                                <span data-i18n="spell-component-somatic">S</span>
-                                <input type="checkbox" name="attr_spellcomp_m" value="{{m=1}}" checked="checked">
-                                <span data-i18n="spell-component-material">M</span>
-                                <input type="text" name="attr_spellcomp_materials" accept="Material" placeholder="ruby dust worth 50gp" data-i18n-placeholder="ruby-dust-place">
                             </div>
                             <div class="row">
                                 <input type="hidden" name="attr_spellconcentrationflag" accept="Concentration">
                                 <input type="checkbox" name="attr_spellconcentration" value="{{concentration=1}}">
-                                <span data-i18n="concentration-u">CONCENTRATION</span>
+                                <span>CONCENTRATION</span>
                             </div>
                             <div class="row">
-                                <span data-i18n="duration:-u">DURATION:</span>
+                                <span>DURATION:</span>
                                 <input type="text" name="attr_spellduration" accept="Duration">
                             </div>
                             <div class="row">
-                                <span data-i18n="output:-u">OUTPUT:</span>
+                                <span>OUTPUT:</span>
                                 <select name="attr_spelloutput">
-                                    <option value="SPELLCARD" data-i18n="spellcard-u">SPELLCARD</option>
-                                    <option value="ATTACK" data-i18n="attack-u">ATTACK</option>
+                                    <option value="SPELLCARD">SPELLCARD</option>
+                                    <option value="ATTACK">ATTACK</option>
                                 </select>
                             </div>
                             <input type="hidden" class="spellattackinfoflag" name="attr_spellattackinfoflag">
                             <div class="spellattackinfo">
                                 <div class="row">
-                                    <span data-i18n="spell-atk:-u">SPELL ATTACK:</span>
+                                    <span>SPELL ATTACK:</span>
                                     <select name="attr_spellattack" accept="Spell Attack">
-                                        <option value="None" data-i18n="none">None</option>
-                                        <option value="Melee" data-i18n="melee">Melee</option>
-                                        <option value="Ranged" data-i18n="ranged">Ranged</option>
+                                        <option>None</option>
+                                        <option>Melee</option>
+                                        <option>Ranged</option>
                                     </select>
                                 </div>
                                 <div class="row">
-                                    <span data-i18n="damage:-u">DAMAGE:</span>
+                                    <span>DAMAGE:</span>
                                     <input type="text" name="attr_spelldamage" accept="Damage" style="width: 50px;">
-                                    <span data-i18n="type:-u">TYPE:</span>
+                                    <span>TYPE:</span>
                                     <input type="text" name="attr_spelldamagetype" accept="Damage Type" style="width: 103px;">
                                 </div>
                                 <div class="row">
-                                    <span data-i18n="damage2:-u">DAMAGE2:</span>
+                                    <span>DAMAGE2:</span>
                                     <input type="text" name="attr_spelldamage2" accept="Secondary Damage" style="width: 45px;">
-                                    <span data-i18n="type:-u">TYPE:</span>
+                                    <span>TYPE:</span>
                                     <input type="text" name="attr_spelldamagetype2" accept="Secondary Damage Type" style="width: 103px;">
                                 </div>
                                 <div class="row">
-                                    <span data-i18n="healing:-u">HEALING:</span>
+                                    <span>HEALING:</span>
                                     <input type="text" name="attr_spellhealing" accept="Healing" style="width: 45px;">
                                 </div>
                                 <div class="row">
                                     <input type="checkbox" name="attr_spelldmgmod" value="Yes" accept="Add Casting Modifier">
-                                    <span data-i18n="add-ability-mod-u">ADD ABILITY MOD TO DAMAGE OR HEALING</span>
-                                </div>
-                                <div class="row">
-                                    <span data-i18n="saving-throw:-u">SAVING THROW:</span>
-                                    <select name="attr_spellsave" accept="Save">
-                                        <option value="" selected="selected" data-i18n="none-u">NONE</option>
-                                        <option value="Strength" data-i18n="str-u">PHYSIQUE</option>
-                                        <option value="Dexterity" data-i18n="dex-u">CUNNING</option>
-                                        <option value="Constitution" data-i18n="con-u">CON</option>
-                                        <option value="Intelligence" data-i18n="int-u">INT</option>
-                                        <option value="Wisdom" data-i18n="wis-u">EGO</option>
-                                        <option value="Charisma" data-i18n="cha-u">CHA</option>
-                                    </select>
-                                    <span data-i18n="effect:-u">EFFECT:</span>
-                                    <input type="text" name="attr_spellsavesuccess" accept="Save Success" style="width: 78px;" placeholder="Half damage" data-i18n-placeholder="half-dmg-place">
-                                </div>
-                                <div class="row">
-                                    <span data-i18n="at-higher-lvl-dmg:-u">HIGHER LVL CAST DMG:</span>
-                                    <input type="text" name="attr_spellhldie" placeholder="1" accept="Higher Spell Slot Dice" style="width: 15px; text-align: right;">
-                                    <select name="attr_spellhldietype" accept="Higher Spell Slot Die">
-                                        <option value="" selected="selected" data-i18n="none-u">NONE</option>
-                                        <option value="d4">d4</option>
-                                        <option value="d6">d6</option>
-                                        <option value="d8">d8</option>
-                                        <option value="d10">d10</option>
-                                        <option value="d12">d12</option>
-                                        <option value="d20">d20</option>
-                                    </select>
-                                    <span>+</span>
-                                    <input type="text" name="attr_spellhlbonus" placeholder="0" accept="Higher Spell Slot Bonus" style="width: 15px; text-align: center;">
+                                    <span>ADD ABILITY MOD TO DAMAGE OR HEALING</span>
                                 </div>
                             </div>
                             <div class="row">
-                                <span data-i18n="description:-u">DESCRIPTION:</span>
+                                <span>DESCRIPTION:</span>
                             </div>
                             <input type="hidden" name="attr_spellcontent" accept="Content">
                             <div class="row">
                                 <textarea name="attr_spelldescription"></textarea>
-                            </div>
-                            <div class="row">
-                                <span data-i18n="at-higher-lvl:-u">AT HIGHER LEVELS:</span>
-                            </div>
-                            <div class="row">
-                                <textarea name="attr_spellathigherlevels" style="height: 36px; min-height: 36px;"></textarea>
                             </div>
                             <input type="hidden" name="attr_spellattackid">
                             <input type="hidden" name="attr_spelllevel" accept="Level">
@@ -1318,19 +978,10 @@
                     </div>
                 </fieldset>
             </div>
-            
-        </div>
-        <div class="col col2">
-        
+     
             <div class="spell-level">
-                <div class="level">
-                    <span class="label">3</span>
-                </div>
-                <div class="total">
-                    <input type="number" name="attr_lvl3_slots_total">
-                </div>
-                <div class="expended">
-                    <input type="number" name="attr_lvl3_slots_expended" value="0">
+                <div class="cantrips">
+                    <span class="label">GRAND SPELLS</span>
                 </div>
             </div>
             <div class="spell-container">
@@ -1339,138 +990,81 @@
                         <input class="options-flag" type="checkbox" name="attr_options-flag" checked="checked"><span>y</span>
                         <div class="options">
                             <div class="row">
-                                <span data-i18n="name:-u">NAME:</span>
+                                <span>NAME:</span>
                                 <input type="text" name="attr_spellname_base" accept="Name">
                                 <input type="checkbox" name="attr_spellprepared" value="1" checked="checked">
-                                <span data-i18n="prep-u">PREP</span>
+                                <span>LOST</span>
                             </div>
                             <div class="row">
-                                <span data-i18n="school:-u">SCHOOL:</span>
+                                <span>SCHOOL:</span>
                                 <select name="attr_spellschool" accept="School">
-                                    <option value="abjuration" data-i18n="abjuration">Abjuration</option>
-                                    <option value="conjuration" data-i18n="conjuration">Conjuration</option>
-                                    <option value="divination" data-i18n="divination">Divination</option>
-                                    <option value="enchantment" data-i18n="enchantment">Enchantment</option>
-                                    <option value="evocation" data-i18n="evocation">Evocation</option>
-                                    <option value="illusion" data-i18n="illusion">Illusion</option>
-                                    <option value="necromancy" data-i18n="necromancy">Necromancy</option>
-                                    <option value="transmutation" data-i18n="transmutation">Transmutation</option>
+                                    <option value="diabolic power">Diabolic Power</option>
+                                    <option value="demonic power" >Demonic Power</option>
+                                    <option value="arcana">Arcana</option>
+                                    <option value="enchantment">Enchantment</option>
+                                    <option value="fleshcrafting">Fleshcrafting</option>
+                                    <option value="law">Law</option>
+                                    <option value="shadow">Shadow</option>
+                                    <option value="transmutation">Transmutation</option>
                                 </select>
-                                <input type="hidden" name="attr_spellritualflag" accept="Ritual">
-                                <input type="checkbox" name="attr_spellritual" value="{{ritual=1}}">
-                                <span data-i18n="ritual-u">RITUAL</span>
                             </div>
                             <div class="row">
-                                <span data-i18n="castingtime:-u">CASTING TIME:</span>
-                                <input type="text" name="attr_spellcastingtime" accept="Casting Time">
-                            </div>
-                            <div class="row">
-                                <span data-i18n="range:-u">RANGE:</span>
+                                <span>RANGE:</span>
                                 <input type="text" name="attr_spellrange" accept="Range">
-                            </div>
-                            <div class="row">
-                                <span data-i18n="target:-u">TARGET:</span>
-                                <input type="text" name="attr_spelltarget" accept="Target">
-                            </div>
-                            <input type="hidden" name="attr_spellcomp" accept="Components">
-                            <div class="row">
-                                <span data-i18n="components:-u">COMPONENTS:</span>
-                                <input type="checkbox" name="attr_spellcomp_v" value="{{v=1}}" checked="checked">
-                                <span data-i18n="spell-component-verbal">V</span>
-                                <input type="checkbox" name="attr_spellcomp_s" value="{{s=1}}" checked="checked">
-                                <span data-i18n="spell-component-somatic">S</span>
-                                <input type="checkbox" name="attr_spellcomp_m" value="{{m=1}}" checked="checked">
-                                <span data-i18n="spell-component-material">M</span>
-                                <input type="text" name="attr_spellcomp_materials" accept="Material" placeholder="ruby dust worth 50gp" data-i18n-placeholder="ruby-dust-place">
                             </div>
                             <div class="row">
                                 <input type="hidden" name="attr_spellconcentrationflag" accept="Concentration">
                                 <input type="checkbox" name="attr_spellconcentration" value="{{concentration=1}}">
-                                <span data-i18n="concentration-u">CONCENTRATION</span>
+                                <span>CONCENTRATION</span>
                             </div>
                             <div class="row">
-                                <span data-i18n="duration:-u">DURATION:</span>
+                                <span>DURATION:</span>
                                 <input type="text" name="attr_spellduration" accept="Duration">
                             </div>
                             <div class="row">
-                                <span data-i18n="output:-u">OUTPUT:</span>
+                                <span>OUTPUT:</span>
                                 <select name="attr_spelloutput">
-                                    <option value="SPELLCARD" data-i18n="spellcard-u">SPELLCARD</option>
-                                    <option value="ATTACK" data-i18n="attack-u">ATTACK</option>
+                                    <option value="SPELLCARD">SPELLCARD</option>
+                                    <option value="ATTACK">ATTACK</option>
                                 </select>
                             </div>
                             <input type="hidden" class="spellattackinfoflag" name="attr_spellattackinfoflag">
                             <div class="spellattackinfo">
                                 <div class="row">
-                                    <span data-i18n="spell-atk:-u">SPELL ATTACK:</span>
+                                    <span>SPELL ATTACK:</span>
                                     <select name="attr_spellattack" accept="Spell Attack">
-                                        <option value="None" data-i18n="none">None</option>
-                                        <option value="Melee" data-i18n="melee">Melee</option>
-                                        <option value="Ranged" data-i18n="ranged">Ranged</option>
+                                        <option>None</option>
+                                        <option>Melee</option>
+                                        <option>Ranged</option>
                                     </select>
                                 </div>
                                 <div class="row">
-                                    <span data-i18n="damage:-u">DAMAGE:</span>
+                                    <span>DAMAGE:</span>
                                     <input type="text" name="attr_spelldamage" accept="Damage" style="width: 50px;">
-                                    <span data-i18n="type:-u">TYPE:</span>
+                                    <span>TYPE:</span>
                                     <input type="text" name="attr_spelldamagetype" accept="Damage Type" style="width: 103px;">
                                 </div>
                                 <div class="row">
-                                    <span data-i18n="damage2:-u">DAMAGE2:</span>
+                                    <span>DAMAGE2:</span>
                                     <input type="text" name="attr_spelldamage2" accept="Secondary Damage" style="width: 45px;">
-                                    <span data-i18n="type:-u">TYPE:</span>
+                                    <span>TYPE:</span>
                                     <input type="text" name="attr_spelldamagetype2" accept="Secondary Damage Type" style="width: 103px;">
                                 </div>
                                 <div class="row">
-                                    <span data-i18n="healing:-u">HEALING:</span>
+                                    <span>HEALING:</span>
                                     <input type="text" name="attr_spellhealing" accept="Healing" style="width: 45px;">
                                 </div>
                                 <div class="row">
                                     <input type="checkbox" name="attr_spelldmgmod" value="Yes" accept="Add Casting Modifier">
-                                    <span data-i18n="add-ability-mod-u">ADD ABILITY MOD TO DAMAGE OR HEALING</span>
-                                </div>
-                                <div class="row">
-                                    <span data-i18n="saving-throw:-u">SAVING THROW:</span>
-                                    <select name="attr_spellsave" accept="Save">
-                                        <option value="" selected="selected" data-i18n="none-u">NONE</option>
-                                        <option value="Strength" data-i18n="str-u">PHYSIQUE</option>
-                                        <option value="Dexterity" data-i18n="dex-u">CUNNING</option>
-                                        <option value="Constitution" data-i18n="con-u">CON</option>
-                                        <option value="Intelligence" data-i18n="int-u">INT</option>
-                                        <option value="Wisdom" data-i18n="wis-u">EGO</option>
-                                        <option value="Charisma" data-i18n="cha-u">CHA</option>
-                                    </select>
-                                    <span data-i18n="effect:-u">EFFECT:</span>
-                                    <input type="text" name="attr_spellsavesuccess" accept="Save Success" style="width: 78px;" placeholder="Half damage" data-i18n-placeholder="half-dmg-place">
-                                </div>
-                                <div class="row">
-                                    <span data-i18n="at-higher-lvl-dmg:-u">HIGHER LVL CAST DMG:</span>
-                                    <input type="text" name="attr_spellhldie" placeholder="1" accept="Higher Spell Slot Dice" style="width: 15px; text-align: right;">
-                                    <select name="attr_spellhldietype" accept="Higher Spell Slot Die">
-                                        <option value="" selected="selected" data-i18n="none-u">NONE</option>
-                                        <option value="d4">d4</option>
-                                        <option value="d6">d6</option>
-                                        <option value="d8">d8</option>
-                                        <option value="d10">d10</option>
-                                        <option value="d12">d12</option>
-                                        <option value="d20">d20</option>
-                                    </select>
-                                    <span>+</span>
-                                    <input type="text" name="attr_spellhlbonus" placeholder="0" accept="Higher Spell Slot Bonus" style="width: 15px; text-align: center;">
+                                    <span>ADD ABILITY MOD TO DAMAGE OR HEALING</span>
                                 </div>
                             </div>
                             <div class="row">
-                                <span data-i18n="description:-u">DESCRIPTION:</span>
+                                <span>DESCRIPTION:</span>
                             </div>
                             <input type="hidden" name="attr_spellcontent" accept="Content">
                             <div class="row">
                                 <textarea name="attr_spelldescription"></textarea>
-                            </div>
-                            <div class="row">
-                                <span data-i18n="at-higher-lvl:-u">AT HIGHER LEVELS:</span>
-                            </div>
-                            <div class="row">
-                                <textarea name="attr_spellathigherlevels" style="height: 36px; min-height: 36px;"></textarea>
                             </div>
                             <input type="hidden" name="attr_spellattackid">
                             <input type="hidden" name="attr_spelllevel" accept="Level">
@@ -1484,491 +1078,94 @@
                             </button>
                         </div>
                     </div>
-                </fieldset>
-            </div>
-            
-            <div class="spell-level">
-                <div class="level">
-                    <span class="label">4</span>
-                </div>
-                <div class="total">
-                    <input type="number" name="attr_lvl4_slots_total">
-                </div>
-                <div class="expended">
-                    <input type="number" name="attr_lvl4_slots_expended" value="0">
-                </div>
-            </div>
-            <div class="spell-container">
-                <fieldset class="repeating_spell-4">
-                    <div class="spell compendium-drop-target">
-                        <input class="options-flag" type="checkbox" name="attr_options-flag" checked="checked"><span>y</span>
-                        <div class="options">
-                            <div class="row">
-                                <span data-i18n="name:-u">NAME:</span>
-                                <input type="text" name="attr_spellname_base" accept="Name">
-                                <input type="checkbox" name="attr_spellprepared" value="1" checked="checked">
-                                <span data-i18n="prep-u">PREP</span>
-                            </div>
-                            <div class="row">
-                                <span data-i18n="school:-u">SCHOOL:</span>
-                                <select name="attr_spellschool" accept="School">
-                                    <option value="abjuration" data-i18n="abjuration">Abjuration</option>
-                                    <option value="conjuration" data-i18n="conjuration">Conjuration</option>
-                                    <option value="divination" data-i18n="divination">Divination</option>
-                                    <option value="enchantment" data-i18n="enchantment">Enchantment</option>
-                                    <option value="evocation" data-i18n="evocation">Evocation</option>
-                                    <option value="illusion" data-i18n="illusion">Illusion</option>
-                                    <option value="necromancy" data-i18n="necromancy">Necromancy</option>
-                                    <option value="transmutation" data-i18n="transmutation">Transmutation</option>
-                                </select>
-                                <input type="hidden" name="attr_spellritualflag" accept="Ritual">
-                                <input type="checkbox" name="attr_spellritual" value="{{ritual=1}}">
-                                <span data-i18n="ritual-u">RITUAL</span>
-                            </div>
-                            <div class="row">
-                                <span data-i18n="castingtime:-u">CASTING TIME:</span>
-                                <input type="text" name="attr_spellcastingtime" accept="Casting Time">
-                            </div>
-                            <div class="row">
-                                <span data-i18n="range:-u">RANGE:</span>
-                                <input type="text" name="attr_spellrange" accept="Range">
-                            </div>
-                            <div class="row">
-                                <span data-i18n="target:-u">TARGET:</span>
-                                <input type="text" name="attr_spelltarget" accept="Target">
-                            </div>
-                            <input type="hidden" name="attr_spellcomp" accept="Components">
-                            <div class="row">
-                                <span data-i18n="components:-u">COMPONENTS:</span>
-                                <input type="checkbox" name="attr_spellcomp_v" value="{{v=1}}" checked="checked">
-                                <span data-i18n="spell-component-verbal">V</span>
-                                <input type="checkbox" name="attr_spellcomp_s" value="{{s=1}}" checked="checked">
-                                <span data-i18n="spell-component-somatic">S</span>
-                                <input type="checkbox" name="attr_spellcomp_m" value="{{m=1}}" checked="checked">
-                                <span data-i18n="spell-component-material">M</span>
-                                <input type="text" name="attr_spellcomp_materials" accept="Material" placeholder="ruby dust worth 50gp" data-i18n-placeholder="ruby-dust-place">
-                            </div>
-                            <div class="row">
-                                <input type="hidden" name="attr_spellconcentrationflag" accept="Concentration">
-                                <input type="checkbox" name="attr_spellconcentration" value="{{concentration=1}}">
-                                <span data-i18n="concentration-u">CONCENTRATION</span>
-                            </div>
-                            <div class="row">
-                                <span data-i18n="duration:-u">DURATION:</span>
-                                <input type="text" name="attr_spellduration" accept="Duration">
-                            </div>
-                            <div class="row">
-                                <span data-i18n="output:-u">OUTPUT:</span>
-                                <select name="attr_spelloutput">
-                                    <option value="SPELLCARD" data-i18n="spellcard-u">SPELLCARD</option>
-                                    <option value="ATTACK" data-i18n="attack-u">ATTACK</option>
-                                </select>
-                            </div>
-                            <input type="hidden" class="spellattackinfoflag" name="attr_spellattackinfoflag">
-                            <div class="spellattackinfo">
-                                <div class="row">
-                                    <span data-i18n="spell-atk:-u">SPELL ATTACK:</span>
-                                    <select name="attr_spellattack" accept="Spell Attack">
-                                        <option value="None" data-i18n="none">None</option>
-                                        <option value="Melee" data-i18n="melee">Melee</option>
-                                        <option value="Ranged" data-i18n="ranged">Ranged</option>
-                                    </select>
-                                </div>
-                                <div class="row">
-                                    <span data-i18n="damage:-u">DAMAGE:</span>
-                                    <input type="text" name="attr_spelldamage" accept="Damage" style="width: 50px;">
-                                    <span data-i18n="type:-u">TYPE:</span>
-                                    <input type="text" name="attr_spelldamagetype" accept="Damage Type" style="width: 103px;">
-                                </div>
-                                <div class="row">
-                                    <span data-i18n="damage2:-u">DAMAGE2:</span>
-                                    <input type="text" name="attr_spelldamage2" accept="Secondary Damage" style="width: 45px;">
-                                    <span data-i18n="type:-u">TYPE:</span>
-                                    <input type="text" name="attr_spelldamagetype2" accept="Secondary Damage Type" style="width: 103px;">
-                                </div>
-                                <div class="row">
-                                    <span data-i18n="healing:-u">HEALING:</span>
-                                    <input type="text" name="attr_spellhealing" accept="Healing" style="width: 45px;">
-                                </div>
-                                <div class="row">
-                                    <input type="checkbox" name="attr_spelldmgmod" value="Yes" accept="Add Casting Modifier">
-                                    <span data-i18n="add-ability-mod-u">ADD ABILITY MOD TO DAMAGE OR HEALING</span>
-                                </div>
-                                <div class="row">
-                                    <span data-i18n="saving-throw:-u">SAVING THROW:</span>
-                                    <select name="attr_spellsave" accept="Save">
-                                        <option value="" selected="selected" data-i18n="none-u">NONE</option>
-                                        <option value="Strength" data-i18n="str-u">PHYSIQUE</option>
-                                        <option value="Dexterity" data-i18n="dex-u">CUNNING</option>
-                                        <option value="Constitution" data-i18n="con-u">CON</option>
-                                        <option value="Intelligence" data-i18n="int-u">INT</option>
-                                        <option value="Wisdom" data-i18n="wis-u">EGO</option>
-                                        <option value="Charisma" data-i18n="cha-u">CHA</option>
-                                    </select>
-                                    <span data-i18n="effect:-u">EFFECT:</span>
-                                    <input type="text" name="attr_spellsavesuccess" accept="Save Success" style="width: 78px;" placeholder="Half damage" data-i18n-placeholder="half-dmg-place">
-                                </div>
-                                <div class="row">
-                                    <span data-i18n="at-higher-lvl-dmg:-u">HIGHER LVL CAST DMG:</span>
-                                    <input type="text" name="attr_spellhldie" placeholder="1" accept="Higher Spell Slot Dice" style="width: 15px; text-align: right;">
-                                    <select name="attr_spellhldietype" accept="Higher Spell Slot Die">
-                                        <option value="" selected="selected" data-i18n="none-u">NONE</option>
-                                        <option value="d4">d4</option>
-                                        <option value="d6">d6</option>
-                                        <option value="d8">d8</option>
-                                        <option value="d10">d10</option>
-                                        <option value="d12">d12</option>
-                                        <option value="d20">d20</option>
-                                    </select>
-                                    <span>+</span>
-                                    <input type="text" name="attr_spellhlbonus" placeholder="0" accept="Higher Spell Slot Bonus" style="width: 15px; text-align: center;">
-                                </div>
-                            </div>
-                            <div class="row">
-                                <span data-i18n="description:-u">DESCRIPTION:</span>
-                            </div>
-                            <input type="hidden" name="attr_spellcontent" accept="Content">
-                            <div class="row">
-                                <textarea name="attr_spelldescription"></textarea>
-                            </div>
-                            <div class="row">
-                                <span data-i18n="at-higher-lvl:-u">AT HIGHER LEVELS:</span>
-                            </div>
-                            <div class="row">
-                                <textarea name="attr_spellathigherlevels" style="height: 36px; min-height: 36px;"></textarea>
-                            </div>
-                            <input type="hidden" name="attr_spellattackid">
-                            <input type="hidden" name="attr_spelllevel" accept="Level">
-                            <input type="hidden" name="attr_spell_updateflag">
-                        </div>
-                        <div class="display">
-                            <input type="hidden" name="attr_rollcontent" value="@{wtype}&{template:spell} {{level=@{spellschool} @{spelllevel}}}  {{name=@{spellname_base}}} {{castingtime=@{spellcastingtime}}} {{range=@{spellrange}}} {{target=@{spelltarget}}} @{spellcomp_v} @{spellcomp_s} @{spellcomp_m} {{material=@{spellcomp_materials}}} {{duration=@{spellduration}}} {{description=@{spelldescription}}} {{athigherlevels=@{spellathigherlevels}}} @{spellritual} @{spellconcentration} @{charname_output}">
-                            <button class="spellcard" type="roll" name="roll_spell" value="@{rollcontent}">
-                                <input type="hidden" name="attr_prep" value=""><span class="prep"></span>
-                                <input type="text" name="attr_spellname" style="width: 225px; margin-left: 13px;" value="">
-                            </button>
-                        </div>
-                    </div>
-                </fieldset>
-            </div>
-            
-            <div class="spell-level">
-                <div class="level">
-                    <span class="label">5</span>
-                </div>
-                <div class="total">
-                    <input type="number" name="attr_lvl5_slots_total">
-                </div>
-                <div class="expended">
-                    <input type="number" name="attr_lvl5_slots_expended" value="0">
-                </div>
-            </div>
-            <div class="spell-container">
-                <fieldset class="repeating_spell-5">
-                    <div class="spell compendium-drop-target">
-                        <input class="options-flag" type="checkbox" name="attr_options-flag" checked="checked"><span>y</span>
-                        <div class="options">
-                            <div class="row">
-                                <span data-i18n="name:-u">NAME:</span>
-                                <input type="text" name="attr_spellname_base" accept="Name">
-                                <input type="checkbox" name="attr_spellprepared" value="1" checked="checked">
-                                <span data-i18n="prep-u">PREP</span>
-                            </div>
-                            <div class="row">
-                                <span data-i18n="school:-u">SCHOOL:</span>
-                                <select name="attr_spellschool" accept="School">
-                                    <option value="abjuration" data-i18n="abjuration">Abjuration</option>
-                                    <option value="conjuration" data-i18n="conjuration">Conjuration</option>
-                                    <option value="divination" data-i18n="divination">Divination</option>
-                                    <option value="enchantment" data-i18n="enchantment">Enchantment</option>
-                                    <option value="evocation" data-i18n="evocation">Evocation</option>
-                                    <option value="illusion" data-i18n="illusion">Illusion</option>
-                                    <option value="necromancy" data-i18n="necromancy">Necromancy</option>
-                                    <option value="transmutation" data-i18n="transmutation">Transmutation</option>
-                                </select>
-                                <input type="hidden" name="attr_spellritualflag" accept="Ritual">
-                                <input type="checkbox" name="attr_spellritual" value="{{ritual=1}}">
-                                <span data-i18n="ritual-u">RITUAL</span>
-                            </div>
-                            <div class="row">
-                                <span data-i18n="castingtime:-u">CASTING TIME:</span>
-                                <input type="text" name="attr_spellcastingtime" accept="Casting Time">
-                            </div>
-                            <div class="row">
-                                <span data-i18n="range:-u">RANGE:</span>
-                                <input type="text" name="attr_spellrange" accept="Range">
-                            </div>
-                            <div class="row">
-                                <span data-i18n="target:-u">TARGET:</span>
-                                <input type="text" name="attr_spelltarget" accept="Target">
-                            </div>
-                            <input type="hidden" name="attr_spellcomp" accept="Components">
-                            <div class="row">
-                                <span data-i18n="components:-u">COMPONENTS:</span>
-                                <input type="checkbox" name="attr_spellcomp_v" value="{{v=1}}" checked="checked">
-                                <span data-i18n="spell-component-verbal">V</span>
-                                <input type="checkbox" name="attr_spellcomp_s" value="{{s=1}}" checked="checked">
-                                <span data-i18n="spell-component-somatic">S</span>
-                                <input type="checkbox" name="attr_spellcomp_m" value="{{m=1}}" checked="checked">
-                                <span data-i18n="spell-component-material">M</span>
-                                <input type="text" name="attr_spellcomp_materials" accept="Material" placeholder="ruby dust worth 50gp" data-i18n-placeholder="ruby-dust-place">
-                            </div>
-                            <div class="row">
-                                <input type="hidden" name="attr_spellconcentrationflag" accept="Concentration">
-                                <input type="checkbox" name="attr_spellconcentration" value="{{concentration=1}}">
-                                <span data-i18n="concentration-u">CONCENTRATION</span>
-                            </div>
-                            <div class="row">
-                                <span data-i18n="duration:-u">DURATION:</span>
-                                <input type="text" name="attr_spellduration" accept="Duration">
-                            </div>
-                            <div class="row">
-                                <span data-i18n="output:-u">OUTPUT:</span>
-                                <select name="attr_spelloutput">
-                                    <option value="SPELLCARD" data-i18n="spellcard-u">SPELLCARD</option>
-                                    <option value="ATTACK" data-i18n="attack-u">ATTACK</option>
-                                </select>
-                            </div>
-                            <input type="hidden" class="spellattackinfoflag" name="attr_spellattackinfoflag">
-                            <div class="spellattackinfo">
-                                <div class="row">
-                                    <span data-i18n="spell-atk:-u">SPELL ATTACK:</span>
-                                    <select name="attr_spellattack" accept="Spell Attack">
-                                        <option value="None" data-i18n="none">None</option>
-                                        <option value="Melee" data-i18n="melee">Melee</option>
-                                        <option value="Ranged" data-i18n="ranged">Ranged</option>
-                                    </select>
-                                </div>
-                                <div class="row">
-                                    <span data-i18n="damage:-u">DAMAGE:</span>
-                                    <input type="text" name="attr_spelldamage" accept="Damage" style="width: 50px;">
-                                    <span data-i18n="type:-u">TYPE:</span>
-                                    <input type="text" name="attr_spelldamagetype" accept="Damage Type" style="width: 103px;">
-                                </div>
-                                <div class="row">
-                                    <span data-i18n="damage2:-u">DAMAGE2:</span>
-                                    <input type="text" name="attr_spelldamage2" accept="Secondary Damage" style="width: 45px;">
-                                    <span data-i18n="type:-u">TYPE:</span>
-                                    <input type="text" name="attr_spelldamagetype2" accept="Secondary Damage Type" style="width: 103px;">
-                                </div>
-                                <div class="row">
-                                    <span data-i18n="healing:-u">HEALING:</span>
-                                    <input type="text" name="attr_spellhealing" accept="Healing" style="width: 45px;">
-                                </div>
-                                <div class="row">
-                                    <input type="checkbox" name="attr_spelldmgmod" value="Yes" accept="Add Casting Modifier">
-                                    <span data-i18n="add-ability-mod-u">ADD ABILITY MOD TO DAMAGE OR HEALING</span>
-                                </div>
-                                <div class="row">
-                                    <span data-i18n="saving-throw:-u">SAVING THROW:</span>
-                                    <select name="attr_spellsave" accept="Save">
-                                        <option value="" selected="selected" data-i18n="none-u">NONE</option>
-                                        <option value="Strength" data-i18n="str-u">PHYSIQUE</option>
-                                        <option value="Dexterity" data-i18n="dex-u">CUNNING</option>
-                                        <option value="Constitution" data-i18n="con-u">CON</option>
-                                        <option value="Intelligence" data-i18n="int-u">INT</option>
-                                        <option value="Wisdom" data-i18n="wis-u">EGO</option>
-                                        <option value="Charisma" data-i18n="cha-u">CHA</option>
-                                    </select>
-                                    <span data-i18n="effect:-u">EFFECT:</span>
-                                    <input type="text" name="attr_spellsavesuccess" accept="Save Success" style="width: 78px;" placeholder="Half damage" data-i18n-placeholder="half-dmg-place">
-                                </div>
-                                <div class="row">
-                                    <span data-i18n="at-higher-lvl-dmg:-u">HIGHER LVL CAST DMG:</span>
-                                    <input type="text" name="attr_spellhldie" placeholder="1" accept="Higher Spell Slot Dice" style="width: 15px; text-align: right;">
-                                    <select name="attr_spellhldietype" accept="Higher Spell Slot Die">
-                                        <option value="" selected="selected" data-i18n="none-u">NONE</option>
-                                        <option value="d4">d4</option>
-                                        <option value="d6">d6</option>
-                                        <option value="d8">d8</option>
-                                        <option value="d10">d10</option>
-                                        <option value="d12">d12</option>
-                                        <option value="d20">d20</option>
-                                    </select>
-                                    <span>+</span>
-                                    <input type="text" name="attr_spellhlbonus" placeholder="0" accept="Higher Spell Slot Bonus" style="width: 15px; text-align: center;">
-                                </div>
-                            </div>
-                            <div class="row">
-                                <span data-i18n="description:-u">DESCRIPTION:</span>
-                            </div>
-                            <input type="hidden" name="attr_spellcontent" accept="Content">
-                            <div class="row">
-                                <textarea name="attr_spelldescription"></textarea>
-                            </div>
-                            <div class="row">
-                                <span data-i18n="at-higher-lvl:-u">AT HIGHER LEVELS:</span>
-                            </div>
-                            <div class="row">
-                                <textarea name="attr_spellathigherlevels" style="height: 36px; min-height: 36px;"></textarea>
-                            </div>
-                            <input type="hidden" name="attr_spellattackid">
-                            <input type="hidden" name="attr_spelllevel" accept="Level">
-                            <input type="hidden" name="attr_spell_updateflag">
-                        </div>
-                        <div class="display">
-                            <input type="hidden" name="attr_rollcontent" value="@{wtype}&{template:spell} {{level=@{spellschool} @{spelllevel}}}  {{name=@{spellname_base}}} {{castingtime=@{spellcastingtime}}} {{range=@{spellrange}}} {{target=@{spelltarget}}} @{spellcomp_v} @{spellcomp_s} @{spellcomp_m} {{material=@{spellcomp_materials}}} {{duration=@{spellduration}}} {{description=@{spelldescription}}} {{athigherlevels=@{spellathigherlevels}}} @{spellritual} @{spellconcentration} @{charname_output}">
-                            <button class="spellcard" type="roll" name="roll_spell" value="@{rollcontent}">
-                                <input type="hidden" name="attr_prep" value=""><span class="prep"></span>
-                                <input type="text" name="attr_spellname" style="width: 225px; margin-left: 13px;" value="">
-                            </button>
-                        </div>
-                    </div>
-                </fieldset>
+               </fieldset>
             </div>
             
         </div>
         <div class="col col3">
         
             <div class="spell-level">
-                <div class="level">
-                    <span class="label">6</span>
-                </div>
-                <div class="total">
-                    <input type="number" name="attr_lvl6_slots_total">
-                </div>
-                <div class="expended">
-                    <input type="number" name="attr_lvl6_slots_expended" value="0">
+                <div class="cantrips">
+                    <span class="label">DRUIDIC SPELLS</span>
                 </div>
             </div>
             <div class="spell-container">
-                <fieldset class="repeating_spell-6">
-                    <div class="spell compendium-drop-target">
+                <fieldset class="repeating_spell-4">
+					<div class="spell compendium-drop-target">
                         <input class="options-flag" type="checkbox" name="attr_options-flag" checked="checked"><span>y</span>
                         <div class="options">
                             <div class="row">
-                                <span data-i18n="name:-u">NAME:</span>
+                                <span>NAME:</span>
                                 <input type="text" name="attr_spellname_base" accept="Name">
                                 <input type="checkbox" name="attr_spellprepared" value="1" checked="checked">
-                                <span data-i18n="prep-u">PREP</span>
+                                <span>LOST</span>
                             </div>
                             <div class="row">
-                                <span data-i18n="school:-u">SCHOOL:</span>
+                                <span>PATH:</span>
                                 <select name="attr_spellschool" accept="School">
-                                    <option value="abjuration" data-i18n="abjuration">Abjuration</option>
-                                    <option value="conjuration" data-i18n="conjuration">Conjuration</option>
-                                    <option value="divination" data-i18n="divination">Divination</option>
-                                    <option value="enchantment" data-i18n="enchantment">Enchantment</option>
-                                    <option value="evocation" data-i18n="evocation">Evocation</option>
-                                    <option value="illusion" data-i18n="illusion">Illusion</option>
-                                    <option value="necromancy" data-i18n="necromancy">Necromancy</option>
-                                    <option value="transmutation" data-i18n="transmutation">Transmutation</option>
+                                    <option value="earth">Earth</option>
+                                    <option value="dust" >Dust</option>
+                                    <option value="fire">Fire</option>
+                                    <option value="pain">Pain</option>
                                 </select>
-                                <input type="hidden" name="attr_spellritualflag" accept="Ritual">
-                                <input type="checkbox" name="attr_spellritual" value="{{ritual=1}}">
-                                <span data-i18n="ritual-u">RITUAL</span>
                             </div>
                             <div class="row">
-                                <span data-i18n="castingtime:-u">CASTING TIME:</span>
-                                <input type="text" name="attr_spellcastingtime" accept="Casting Time">
-                            </div>
-                            <div class="row">
-                                <span data-i18n="range:-u">RANGE:</span>
+                                <span>RANGE:</span>
                                 <input type="text" name="attr_spellrange" accept="Range">
-                            </div>
-                            <div class="row">
-                                <span data-i18n="target:-u">TARGET:</span>
-                                <input type="text" name="attr_spelltarget" accept="Target">
-                            </div>
-                            <input type="hidden" name="attr_spellcomp" accept="Components">
-                            <div class="row">
-                                <span data-i18n="components:-u">COMPONENTS:</span>
-                                <input type="checkbox" name="attr_spellcomp_v" value="{{v=1}}" checked="checked">
-                                <span data-i18n="spell-component-verbal">V</span>
-                                <input type="checkbox" name="attr_spellcomp_s" value="{{s=1}}" checked="checked">
-                                <span data-i18n="spell-component-somatic">S</span>
-                                <input type="checkbox" name="attr_spellcomp_m" value="{{m=1}}" checked="checked">
-                                <span data-i18n="spell-component-material">M</span>
-                                <input type="text" name="attr_spellcomp_materials" accept="Material" placeholder="ruby dust worth 50gp" data-i18n-placeholder="ruby-dust-place">
                             </div>
                             <div class="row">
                                 <input type="hidden" name="attr_spellconcentrationflag" accept="Concentration">
                                 <input type="checkbox" name="attr_spellconcentration" value="{{concentration=1}}">
-                                <span data-i18n="concentration-u">CONCENTRATION</span>
+                                <span>CONCENTRATION</span>
                             </div>
                             <div class="row">
-                                <span data-i18n="duration:-u">DURATION:</span>
+                                <span>DURATION:</span>
                                 <input type="text" name="attr_spellduration" accept="Duration">
                             </div>
                             <div class="row">
-                                <span data-i18n="output:-u">OUTPUT:</span>
+                                <span>OUTPUT:</span>
                                 <select name="attr_spelloutput">
-                                    <option value="SPELLCARD" data-i18n="spellcard-u">SPELLCARD</option>
-                                    <option value="ATTACK" data-i18n="attack-u">ATTACK</option>
+                                    <option value="SPELLCARD">SPELLCARD</option>
+                                    <option value="ATTACK">ATTACK</option>
                                 </select>
                             </div>
                             <input type="hidden" class="spellattackinfoflag" name="attr_spellattackinfoflag">
                             <div class="spellattackinfo">
                                 <div class="row">
-                                    <span data-i18n="spell-atk:-u">SPELL ATTACK:</span>
+                                    <span>SPELL ATTACK:</span>
                                     <select name="attr_spellattack" accept="Spell Attack">
-                                        <option value="None" data-i18n="none">None</option>
-                                        <option value="Melee" data-i18n="melee">Melee</option>
-                                        <option value="Ranged" data-i18n="ranged">Ranged</option>
+                                        <option>None</option>
+                                        <option>Melee</option>
+                                        <option>Ranged</option>
                                     </select>
                                 </div>
                                 <div class="row">
-                                    <span data-i18n="damage:-u">DAMAGE:</span>
+                                    <span>DAMAGE:</span>
                                     <input type="text" name="attr_spelldamage" accept="Damage" style="width: 50px;">
-                                    <span data-i18n="type:-u">TYPE:</span>
+                                    <span>TYPE:</span>
                                     <input type="text" name="attr_spelldamagetype" accept="Damage Type" style="width: 103px;">
                                 </div>
                                 <div class="row">
-                                    <span data-i18n="damage2:-u">DAMAGE2:</span>
+                                    <span>DAMAGE2:</span>
                                     <input type="text" name="attr_spelldamage2" accept="Secondary Damage" style="width: 45px;">
-                                    <span data-i18n="type:-u">TYPE:</span>
+                                    <span>TYPE:</span>
                                     <input type="text" name="attr_spelldamagetype2" accept="Secondary Damage Type" style="width: 103px;">
                                 </div>
                                 <div class="row">
-                                    <span data-i18n="healing:-u">HEALING:</span>
+                                    <span>HEALING:</span>
                                     <input type="text" name="attr_spellhealing" accept="Healing" style="width: 45px;">
                                 </div>
                                 <div class="row">
                                     <input type="checkbox" name="attr_spelldmgmod" value="Yes" accept="Add Casting Modifier">
-                                    <span data-i18n="add-ability-mod-u">ADD ABILITY MOD TO DAMAGE OR HEALING</span>
-                                </div>
-                                <div class="row">
-                                    <span data-i18n="saving-throw:-u">SAVING THROW:</span>
-                                    <select name="attr_spellsave" accept="Save">
-                                        <option value="" selected="selected" data-i18n="none-u">NONE</option>
-                                        <option value="Strength" data-i18n="str-u">PHYSIQUE</option>
-                                        <option value="Dexterity" data-i18n="dex-u">CUNNING</option>
-                                        <option value="Constitution" data-i18n="con-u">CON</option>
-                                        <option value="Intelligence" data-i18n="int-u">INT</option>
-                                        <option value="Wisdom" data-i18n="wis-u">EGO</option>
-                                        <option value="Charisma" data-i18n="cha-u">CHA</option>
-                                    </select>
-                                    <span data-i18n="effect:-u">EFFECT:</span>
-                                    <input type="text" name="attr_spellsavesuccess" accept="Save Success" style="width: 78px;" placeholder="Half damage" data-i18n-placeholder="half-dmg-place">
-                                </div>
-                                <div class="row">
-                                    <span data-i18n="at-higher-lvl-dmg:-u">HIGHER LVL CAST DMG:</span>
-                                    <input type="text" name="attr_spellhldie" placeholder="1" accept="Higher Spell Slot Dice" style="width: 15px; text-align: right;">
-                                    <select name="attr_spellhldietype" accept="Higher Spell Slot Die">
-                                        <option value="" selected="selected" data-i18n="none-u">NONE</option>
-                                        <option value="d4">d4</option>
-                                        <option value="d6">d6</option>
-                                        <option value="d8">d8</option>
-                                        <option value="d10">d10</option>
-                                        <option value="d12">d12</option>
-                                        <option value="d20">d20</option>
-                                    </select>
-                                    <span>+</span>
-                                    <input type="text" name="attr_spellhlbonus" placeholder="0" accept="Higher Spell Slot Bonus" style="width: 15px; text-align: center;">
+                                    <span>ADD ABILITY MOD TO DAMAGE OR HEALING</span>
                                 </div>
                             </div>
                             <div class="row">
-                                <span data-i18n="description:-u">DESCRIPTION:</span>
+                                <span>DESCRIPTION:</span>
                             </div>
                             <input type="hidden" name="attr_spellcontent" accept="Content">
                             <div class="row">
                                 <textarea name="attr_spelldescription"></textarea>
-                            </div>
-                            <div class="row">
-                                <span data-i18n="at-higher-lvl:-u">AT HIGHER LEVELS:</span>
-                            </div>
-                            <div class="row">
-                                <textarea name="attr_spellathigherlevels" style="height: 36px; min-height: 36px;"></textarea>
                             </div>
                             <input type="hidden" name="attr_spellattackid">
                             <input type="hidden" name="attr_spelllevel" accept="Level">
@@ -1982,158 +1179,71 @@
                             </button>
                         </div>
                     </div>
-                </fieldset>
+               </fieldset>
             </div>
             
             <div class="spell-level">
-                <div class="level">
-                    <span class="label">7</span>
-                </div>
-                <div class="total">
-                    <input type="number" name="attr_lvl7_slots_total">
-                </div>
-                <div class="expended">
-                    <input type="number" name="attr_lvl7_slots_expended" value="0">
+                <div class="cantrips">
+                    <span class="label">PSIONIC ATTACK MODES</span>
                 </div>
             </div>
             <div class="spell-container">
-                <fieldset class="repeating_spell-7">
-                    <div class="spell compendium-drop-target">
+                <fieldset class="repeating_spell-5">
+					<div class="spell compendium-drop-target">
                         <input class="options-flag" type="checkbox" name="attr_options-flag" checked="checked"><span>y</span>
                         <div class="options">
                             <div class="row">
-                                <span data-i18n="name:-u">NAME:</span>
+                                <span>NAME:</span>
                                 <input type="text" name="attr_spellname_base" accept="Name">
-                                <input type="checkbox" name="attr_spellprepared" value="1" checked="checked">
-                                <span data-i18n="prep-u">PREP</span>
                             </div>
                             <div class="row">
-                                <span data-i18n="school:-u">SCHOOL:</span>
-                                <select name="attr_spellschool" accept="School">
-                                    <option value="abjuration" data-i18n="abjuration">Abjuration</option>
-                                    <option value="conjuration" data-i18n="conjuration">Conjuration</option>
-                                    <option value="divination" data-i18n="divination">Divination</option>
-                                    <option value="enchantment" data-i18n="enchantment">Enchantment</option>
-                                    <option value="evocation" data-i18n="evocation">Evocation</option>
-                                    <option value="illusion" data-i18n="illusion">Illusion</option>
-                                    <option value="necromancy" data-i18n="necromancy">Necromancy</option>
-                                    <option value="transmutation" data-i18n="transmutation">Transmutation</option>
-                                </select>
-                                <input type="hidden" name="attr_spellritualflag" accept="Ritual">
-                                <input type="checkbox" name="attr_spellritual" value="{{ritual=1}}">
-                                <span data-i18n="ritual-u">RITUAL</span>
-                            </div>
-                            <div class="row">
-                                <span data-i18n="castingtime:-u">CASTING TIME:</span>
-                                <input type="text" name="attr_spellcastingtime" accept="Casting Time">
-                            </div>
-                            <div class="row">
-                                <span data-i18n="range:-u">RANGE:</span>
-                                <input type="text" name="attr_spellrange" accept="Range">
-                            </div>
-                            <div class="row">
-                                <span data-i18n="target:-u">TARGET:</span>
-                                <input type="text" name="attr_spelltarget" accept="Target">
-                            </div>
-                            <input type="hidden" name="attr_spellcomp" accept="Components">
-                            <div class="row">
-                                <span data-i18n="components:-u">COMPONENTS:</span>
-                                <input type="checkbox" name="attr_spellcomp_v" value="{{v=1}}" checked="checked">
-                                <span data-i18n="spell-component-verbal">V</span>
-                                <input type="checkbox" name="attr_spellcomp_s" value="{{s=1}}" checked="checked">
-                                <span data-i18n="spell-component-somatic">S</span>
-                                <input type="checkbox" name="attr_spellcomp_m" value="{{m=1}}" checked="checked">
-                                <span data-i18n="spell-component-material">M</span>
-                                <input type="text" name="attr_spellcomp_materials" accept="Material" placeholder="ruby dust worth 50gp" data-i18n-placeholder="ruby-dust-place">
-                            </div>
-                            <div class="row">
-                                <input type="hidden" name="attr_spellconcentrationflag" accept="Concentration">
-                                <input type="checkbox" name="attr_spellconcentration" value="{{concentration=1}}">
-                                <span data-i18n="concentration-u">CONCENTRATION</span>
-                            </div>
-                            <div class="row">
-                                <span data-i18n="duration:-u">DURATION:</span>
+                                <span>DURATION:</span>
                                 <input type="text" name="attr_spellduration" accept="Duration">
                             </div>
                             <div class="row">
-                                <span data-i18n="output:-u">OUTPUT:</span>
+                                <span>OUTPUT:</span>
                                 <select name="attr_spelloutput">
-                                    <option value="SPELLCARD" data-i18n="spellcard-u">SPELLCARD</option>
-                                    <option value="ATTACK" data-i18n="attack-u">ATTACK</option>
+                                    <option value="SPELLCARD">SPELLCARD</option>
+                                    <option value="ATTACK" selected="selected">ATTACK</option>
                                 </select>
                             </div>
                             <input type="hidden" class="spellattackinfoflag" name="attr_spellattackinfoflag">
                             <div class="spellattackinfo">
                                 <div class="row">
-                                    <span data-i18n="spell-atk:-u">SPELL ATTACK:</span>
+                                    <span>SPELL ATTACK:</span>
                                     <select name="attr_spellattack" accept="Spell Attack">
-                                        <option value="None" data-i18n="none">None</option>
-                                        <option value="Melee" data-i18n="melee">Melee</option>
-                                        <option value="Ranged" data-i18n="ranged">Ranged</option>
+                                        <option>None</option>
+                                        <option>Melee</option>
+                                        <option>Ranged</option>
                                     </select>
                                 </div>
                                 <div class="row">
-                                    <span data-i18n="damage:-u">DAMAGE:</span>
+                                    <span>DAMAGE:</span>
                                     <input type="text" name="attr_spelldamage" accept="Damage" style="width: 50px;">
-                                    <span data-i18n="type:-u">TYPE:</span>
+                                    <span>TYPE:</span>
                                     <input type="text" name="attr_spelldamagetype" accept="Damage Type" style="width: 103px;">
                                 </div>
                                 <div class="row">
-                                    <span data-i18n="damage2:-u">DAMAGE2:</span>
+                                    <span>DAMAGE2:</span>
                                     <input type="text" name="attr_spelldamage2" accept="Secondary Damage" style="width: 45px;">
-                                    <span data-i18n="type:-u">TYPE:</span>
+                                    <span>TYPE:</span>
                                     <input type="text" name="attr_spelldamagetype2" accept="Secondary Damage Type" style="width: 103px;">
                                 </div>
                                 <div class="row">
-                                    <span data-i18n="healing:-u">HEALING:</span>
+                                    <span>HEALING:</span>
                                     <input type="text" name="attr_spellhealing" accept="Healing" style="width: 45px;">
                                 </div>
                                 <div class="row">
                                     <input type="checkbox" name="attr_spelldmgmod" value="Yes" accept="Add Casting Modifier">
-                                    <span data-i18n="add-ability-mod-u">ADD ABILITY MOD TO DAMAGE OR HEALING</span>
-                                </div>
-                                <div class="row">
-                                    <span data-i18n="saving-throw:-u">SAVING THROW:</span>
-                                    <select name="attr_spellsave" accept="Save">
-                                        <option value="" selected="selected" data-i18n="none-u">NONE</option>
-                                        <option value="Strength" data-i18n="str-u">PHYSIQUE</option>
-                                        <option value="Dexterity" data-i18n="dex-u">CUNNING</option>
-                                        <option value="Constitution" data-i18n="con-u">CON</option>
-                                        <option value="Intelligence" data-i18n="int-u">INT</option>
-                                        <option value="Wisdom" data-i18n="wis-u">EGO</option>
-                                        <option value="Charisma" data-i18n="cha-u">CHA</option>
-                                    </select>
-                                    <span data-i18n="effect:-u">EFFECT:</span>
-                                    <input type="text" name="attr_spellsavesuccess" accept="Save Success" style="width: 78px;" placeholder="Half damage" data-i18n-placeholder="half-dmg-place">
-                                </div>
-                                <div class="row">
-                                    <span data-i18n="at-higher-lvl-dmg:-u">HIGHER LVL CAST DMG:</span>
-                                    <input type="text" name="attr_spellhldie" placeholder="1" accept="Higher Spell Slot Dice" style="width: 15px; text-align: right;">
-                                    <select name="attr_spellhldietype" accept="Higher Spell Slot Die">
-                                        <option value="" selected="selected" data-i18n="none-u">NONE</option>
-                                        <option value="d4">d4</option>
-                                        <option value="d6">d6</option>
-                                        <option value="d8">d8</option>
-                                        <option value="d10">d10</option>
-                                        <option value="d12">d12</option>
-                                        <option value="d20">d20</option>
-                                    </select>
-                                    <span>+</span>
-                                    <input type="text" name="attr_spellhlbonus" placeholder="0" accept="Higher Spell Slot Bonus" style="width: 15px; text-align: center;">
+                                    <span>ADD ABILITY MOD TO DAMAGE OR HEALING</span>
                                 </div>
                             </div>
                             <div class="row">
-                                <span data-i18n="description:-u">DESCRIPTION:</span>
+                                <span>DESCRIPTION:</span>
                             </div>
                             <input type="hidden" name="attr_spellcontent" accept="Content">
                             <div class="row">
                                 <textarea name="attr_spelldescription"></textarea>
-                            </div>
-                            <div class="row">
-                                <span data-i18n="at-higher-lvl:-u">AT HIGHER LEVELS:</span>
-                            </div>
-                            <div class="row">
-                                <textarea name="attr_spellathigherlevels" style="height: 36px; min-height: 36px;"></textarea>
                             </div>
                             <input type="hidden" name="attr_spellattackid">
                             <input type="hidden" name="attr_spelllevel" accept="Level">
@@ -2147,337 +1257,8 @@
                             </button>
                         </div>
                     </div>
-                </fieldset>
-            </div>
-            
-            <div class="spell-level">
-                <div class="level">
-                    <span class="label">8</span>
-                </div>
-                <div class="total">
-                    <input type="number" name="attr_lvl8_slots_total">
-                </div>
-                <div class="expended">
-                    <input type="number" name="attr_lvl8_slots_expended" value="0">
-                </div>
-            </div>
-            <div class="spell-container">
-                <fieldset class="repeating_spell-8">
-                    <div class="spell compendium-drop-target">
-                        <input class="options-flag" type="checkbox" name="attr_options-flag" checked="checked"><span>y</span>
-                        <div class="options">
-                            <div class="row">
-                                <span data-i18n="name:-u">NAME:</span>
-                                <input type="text" name="attr_spellname_base" accept="Name">
-                                <input type="checkbox" name="attr_spellprepared" value="1" checked="checked">
-                                <span data-i18n="prep-u">PREP</span>
-                            </div>
-                            <div class="row">
-                                <span data-i18n="school:-u">SCHOOL:</span>
-                                <select name="attr_spellschool" accept="School">
-                                    <option value="abjuration" data-i18n="abjuration">Abjuration</option>
-                                    <option value="conjuration" data-i18n="conjuration">Conjuration</option>
-                                    <option value="divination" data-i18n="divination">Divination</option>
-                                    <option value="enchantment" data-i18n="enchantment">Enchantment</option>
-                                    <option value="evocation" data-i18n="evocation">Evocation</option>
-                                    <option value="illusion" data-i18n="illusion">Illusion</option>
-                                    <option value="necromancy" data-i18n="necromancy">Necromancy</option>
-                                    <option value="transmutation" data-i18n="transmutation">Transmutation</option>
-                                </select>
-                                <input type="hidden" name="attr_spellritualflag" accept="Ritual">
-                                <input type="checkbox" name="attr_spellritual" value="{{ritual=1}}">
-                                <span data-i18n="ritual-u">RITUAL</span>
-                            </div>
-                            <div class="row">
-                                <span data-i18n="castingtime:-u">CASTING TIME:</span>
-                                <input type="text" name="attr_spellcastingtime" accept="Casting Time">
-                            </div>
-                            <div class="row">
-                                <span data-i18n="range:-u">RANGE:</span>
-                                <input type="text" name="attr_spellrange" accept="Range">
-                            </div>
-                            <div class="row">
-                                <span data-i18n="target:-u">TARGET:</span>
-                                <input type="text" name="attr_spelltarget" accept="Target">
-                            </div>
-                            <input type="hidden" name="attr_spellcomp" accept="Components">
-                            <div class="row">
-                                <span data-i18n="components:-u">COMPONENTS:</span>
-                                <input type="checkbox" name="attr_spellcomp_v" value="{{v=1}}" checked="checked">
-                                <span data-i18n="spell-component-verbal">V</span>
-                                <input type="checkbox" name="attr_spellcomp_s" value="{{s=1}}" checked="checked">
-                                <span data-i18n="spell-component-somatic">S</span>
-                                <input type="checkbox" name="attr_spellcomp_m" value="{{m=1}}" checked="checked">
-                                <span data-i18n="spell-component-material">M</span>
-                                <input type="text" name="attr_spellcomp_materials" accept="Material" placeholder="ruby dust worth 50gp" data-i18n-placeholder="ruby-dust-place">
-                            </div>
-                            <div class="row">
-                                <input type="hidden" name="attr_spellconcentrationflag" accept="Concentration">
-                                <input type="checkbox" name="attr_spellconcentration" value="{{concentration=1}}">
-                                <span data-i18n="concentration-u">CONCENTRATION</span>
-                            </div>
-                            <div class="row">
-                                <span data-i18n="duration:-u">DURATION:</span>
-                                <input type="text" name="attr_spellduration" accept="Duration">
-                            </div>
-                            <div class="row">
-                                <span data-i18n="output:-u">OUTPUT:</span>
-                                <select name="attr_spelloutput">
-                                    <option value="SPELLCARD" data-i18n="spellcard-u">SPELLCARD</option>
-                                    <option value="ATTACK" data-i18n="attack-u">ATTACK</option>
-                                </select>
-                            </div>
-                            <input type="hidden" class="spellattackinfoflag" name="attr_spellattackinfoflag">
-                            <div class="spellattackinfo">
-                                <div class="row">
-                                    <span data-i18n="spell-atk:-u">SPELL ATTACK:</span>
-                                    <select name="attr_spellattack" accept="Spell Attack">
-                                        <option value="None" data-i18n="none">None</option>
-                                        <option value="Melee" data-i18n="melee">Melee</option>
-                                        <option value="Ranged" data-i18n="ranged">Ranged</option>
-                                    </select>
-                                </div>
-                                <div class="row">
-                                    <span data-i18n="damage:-u">DAMAGE:</span>
-                                    <input type="text" name="attr_spelldamage" accept="Damage" style="width: 50px;">
-                                    <span data-i18n="type:-u">TYPE:</span>
-                                    <input type="text" name="attr_spelldamagetype" accept="Damage Type" style="width: 103px;">
-                                </div>
-                                <div class="row">
-                                    <span data-i18n="damage2:-u">DAMAGE2:</span>
-                                    <input type="text" name="attr_spelldamage2" accept="Secondary Damage" style="width: 45px;">
-                                    <span data-i18n="type:-u">TYPE:</span>
-                                    <input type="text" name="attr_spelldamagetype2" accept="Secondary Damage Type" style="width: 103px;">
-                                </div>
-                                <div class="row">
-                                    <span data-i18n="healing:-u">HEALING:</span>
-                                    <input type="text" name="attr_spellhealing" accept="Healing" style="width: 45px;">
-                                </div>
-                                <div class="row">
-                                    <input type="checkbox" name="attr_spelldmgmod" value="Yes" accept="Add Casting Modifier">
-                                    <span data-i18n="add-ability-mod-u">ADD ABILITY MOD TO DAMAGE OR HEALING</span>
-                                </div>
-                                <div class="row">
-                                    <span data-i18n="saving-throw:-u">SAVING THROW:</span>
-                                    <select name="attr_spellsave" accept="Save">
-                                        <option value="" selected="selected" data-i18n="none-u">NONE</option>
-                                        <option value="Strength" data-i18n="str-u">PHYSIQUE</option>
-                                        <option value="Dexterity" data-i18n="dex-u">CUNNING</option>
-                                        <option value="Constitution" data-i18n="con-u">CON</option>
-                                        <option value="Intelligence" data-i18n="int-u">INT</option>
-                                        <option value="Wisdom" data-i18n="wis-u">EGO</option>
-                                        <option value="Charisma" data-i18n="cha-u">CHA</option>
-                                    </select>
-                                    <span data-i18n="effect:-u">EFFECT:</span>
-                                    <input type="text" name="attr_spellsavesuccess" accept="Save Success" style="width: 78px;" placeholder="Half damage" data-i18n-placeholder="half-dmg-place">
-                                </div>
-                                <div class="row">
-                                    <span data-i18n="at-higher-lvl-dmg:-u">HIGHER LVL CAST DMG:</span>
-                                    <input type="text" name="attr_spellhldie" placeholder="1" accept="Higher Spell Slot Dice" style="width: 15px; text-align: right;">
-                                    <select name="attr_spellhldietype" accept="Higher Spell Slot Die">
-                                        <option value="" selected="selected" data-i18n="none-u">NONE</option>
-                                        <option value="d4">d4</option>
-                                        <option value="d6">d6</option>
-                                        <option value="d8">d8</option>
-                                        <option value="d10">d10</option>
-                                        <option value="d12">d12</option>
-                                        <option value="d20">d20</option>
-                                    </select>
-                                    <span>+</span>
-                                    <input type="text" name="attr_spellhlbonus" placeholder="0" accept="Higher Spell Slot Bonus" style="width: 15px; text-align: center;">
-                                </div>
-                            </div>
-                            <div class="row">
-                                <span data-i18n="description:-u">DESCRIPTION:</span>
-                            </div>
-                            <input type="hidden" name="attr_spellcontent" accept="Content">
-                            <div class="row">
-                                <textarea name="attr_spelldescription"></textarea>
-                            </div>
-                            <div class="row">
-                                <span data-i18n="at-higher-lvl:-u">AT HIGHER LEVELS:</span>
-                            </div>
-                            <div class="row">
-                                <textarea name="attr_spellathigherlevels" style="height: 36px; min-height: 36px;"></textarea>
-                            </div>
-                            <input type="hidden" name="attr_spellattackid">
-                            <input type="hidden" name="attr_spelllevel" accept="Level">
-                            <input type="hidden" name="attr_spell_updateflag">
-                        </div>
-                        <div class="display">
-                            <input type="hidden" name="attr_rollcontent" value="@{wtype}&{template:spell} {{level=@{spellschool} @{spelllevel}}}  {{name=@{spellname_base}}} {{castingtime=@{spellcastingtime}}} {{range=@{spellrange}}} {{target=@{spelltarget}}} @{spellcomp_v} @{spellcomp_s} @{spellcomp_m} {{material=@{spellcomp_materials}}} {{duration=@{spellduration}}} {{description=@{spelldescription}}} {{athigherlevels=@{spellathigherlevels}}} @{spellritual} @{spellconcentration} @{charname_output}">
-                            <button class="spellcard" type="roll" name="roll_spell" value="@{rollcontent}">
-                                <input type="hidden" name="attr_prep" value=""><span class="prep"></span>
-                                <input type="text" name="attr_spellname" style="width: 225px; margin-left: 13px;" value="">
-                            </button>
-                        </div>
-                    </div>
-                </fieldset>
-            </div>
-            
-            <div class="spell-level">
-                <div class="level">
-                    <span class="label">9</span>
-                </div>
-                <div class="total">
-                    <input type="number" name="attr_lvl9_slots_total">
-                </div>
-                <div class="expended">
-                    <input type="number" name="attr_lvl9_slots_expended" value="0">
-                </div>
-            </div>
-            <div class="spell-container">
-                <fieldset class="repeating_spell-9">
-                    <div class="spell compendium-drop-target">
-                        <input class="options-flag" type="checkbox" name="attr_options-flag" checked="checked"><span>y</span>
-                        <div class="options">
-                            <div class="row">
-                                <span data-i18n="name:-u">NAME:</span>
-                                <input type="text" name="attr_spellname_base" accept="Name">
-                                <input type="checkbox" name="attr_spellprepared" value="1" checked="checked">
-                                <span data-i18n="prep-u">PREP</span>
-                            </div>
-                            <div class="row">
-                                <span data-i18n="school:-u">SCHOOL:</span>
-                                <select name="attr_spellschool" accept="School">
-                                    <option value="abjuration" data-i18n="abjuration">Abjuration</option>
-                                    <option value="conjuration" data-i18n="conjuration">Conjuration</option>
-                                    <option value="divination" data-i18n="divination">Divination</option>
-                                    <option value="enchantment" data-i18n="enchantment">Enchantment</option>
-                                    <option value="evocation" data-i18n="evocation">Evocation</option>
-                                    <option value="illusion" data-i18n="illusion">Illusion</option>
-                                    <option value="necromancy" data-i18n="necromancy">Necromancy</option>
-                                    <option value="transmutation" data-i18n="transmutation">Transmutation</option>
-                                </select>
-                                <input type="hidden" name="attr_spellritualflag" accept="Ritual">
-                                <input type="checkbox" name="attr_spellritual" value="{{ritual=1}}">
-                                <span data-i18n="ritual-u">RITUAL</span>
-                            </div>
-                            <div class="row">
-                                <span data-i18n="castingtime:-u">CASTING TIME:</span>
-                                <input type="text" name="attr_spellcastingtime" accept="Casting Time">
-                            </div>
-                            <div class="row">
-                                <span data-i18n="range:-u">RANGE:</span>
-                                <input type="text" name="attr_spellrange" accept="Range">
-                            </div>
-                            <div class="row">
-                                <span data-i18n="target:-u">TARGET:</span>
-                                <input type="text" name="attr_spelltarget" accept="Target">
-                            </div>
-                            <input type="hidden" name="attr_spellcomp" accept="Components">
-                            <div class="row">
-                                <span data-i18n="components:-u">COMPONENTS:</span>
-                                <input type="checkbox" name="attr_spellcomp_v" value="{{v=1}}" checked="checked">
-                                <span data-i18n="spell-component-verbal">V</span>
-                                <input type="checkbox" name="attr_spellcomp_s" value="{{s=1}}" checked="checked">
-                                <span data-i18n="spell-component-somatic">S</span>
-                                <input type="checkbox" name="attr_spellcomp_m" value="{{m=1}}" checked="checked">
-                                <span data-i18n="spell-component-material">M</span>
-                                <input type="text" name="attr_spellcomp_materials" accept="Material" placeholder="ruby dust worth 50gp" data-i18n-placeholder="ruby-dust-place">
-                            </div>
-                            <div class="row">
-                                <input type="hidden" name="attr_spellconcentrationflag" accept="Concentration">
-                                <input type="checkbox" name="attr_spellconcentration" value="{{concentration=1}}">
-                                <span data-i18n="concentration-u">CONCENTRATION</span>
-                            </div>
-                            <div class="row">
-                                <span data-i18n="duration:-u">DURATION:</span>
-                                <input type="text" name="attr_spellduration" accept="Duration">
-                            </div>
-                            <div class="row">
-                                <span data-i18n="output:-u">OUTPUT:</span>
-                                <select name="attr_spelloutput">
-                                    <option value="SPELLCARD" data-i18n="spellcard-u">SPELLCARD</option>
-                                    <option value="ATTACK" data-i18n="attack-u">ATTACK</option>
-                                </select>
-                            </div>
-                            <input type="hidden" class="spellattackinfoflag" name="attr_spellattackinfoflag">
-                            <div class="spellattackinfo">
-                                <div class="row">
-                                    <span data-i18n="spell-atk:-u">SPELL ATTACK:</span>
-                                    <select name="attr_spellattack" accept="Spell Attack">
-                                        <option value="None" data-i18n="none">None</option>
-                                        <option value="Melee" data-i18n="melee">Melee</option>
-                                        <option value="Ranged" data-i18n="ranged">Ranged</option>
-                                    </select>
-                                </div>
-                                <div class="row">
-                                    <span data-i18n="damage:-u">DAMAGE:</span>
-                                    <input type="text" name="attr_spelldamage" accept="Damage" style="width: 50px;">
-                                    <span data-i18n="type:-u">TYPE:</span>
-                                    <input type="text" name="attr_spelldamagetype" accept="Damage Type" style="width: 103px;">
-                                </div>
-                                <div class="row">
-                                    <span data-i18n="damage2:-u">DAMAGE2:</span>
-                                    <input type="text" name="attr_spelldamage2" accept="Secondary Damage" style="width: 45px;">
-                                    <span data-i18n="type:-u">TYPE:</span>
-                                    <input type="text" name="attr_spelldamagetype2" accept="Secondary Damage Type" style="width: 103px;">
-                                </div>
-                                <div class="row">
-                                    <span data-i18n="healing:-u">HEALING:</span>
-                                    <input type="text" name="attr_spellhealing" accept="Healing" style="width: 45px;">
-                                </div>
-                                <div class="row">
-                                    <input type="checkbox" name="attr_spelldmgmod" value="Yes" accept="Add Casting Modifier">
-                                    <span data-i18n="add-ability-mod-u">ADD ABILITY MOD TO DAMAGE OR HEALING</span>
-                                </div>
-                                <div class="row">
-                                    <span data-i18n="saving-throw:-u">SAVING THROW:</span>
-                                    <select name="attr_spellsave" accept="Save">
-                                        <option value="" selected="selected" data-i18n="none-u">NONE</option>
-                                        <option value="Strength" data-i18n="str-u">PHYSIQUE</option>
-                                        <option value="Dexterity" data-i18n="dex-u">CUNNING</option>
-                                        <option value="Constitution" data-i18n="con-u">CON</option>
-                                        <option value="Intelligence" data-i18n="int-u">INT</option>
-                                        <option value="Wisdom" data-i18n="wis-u">EGO</option>
-                                        <option value="Charisma" data-i18n="cha-u">CHA</option>
-                                    </select>
-                                    <span data-i18n="effect:-u">EFFECT:</span>
-                                    <input type="text" name="attr_spellsavesuccess" accept="Save Success" style="width: 78px;" placeholder="Half damage" data-i18n-placeholder="half-dmg-place">
-                                </div>
-                                <div class="row">
-                                    <span data-i18n="at-higher-lvl-dmg:-u">HIGHER LVL CAST DMG:</span>
-                                    <input type="text" name="attr_spellhldie" placeholder="1" accept="Higher Spell Slot Dice" style="width: 15px; text-align: right;">
-                                    <select name="attr_spellhldietype" accept="Higher Spell Slot Die">
-                                        <option value="" selected="selected" data-i18n="none-u">NONE</option>
-                                        <option value="d4">d4</option>
-                                        <option value="d6">d6</option>
-                                        <option value="d8">d8</option>
-                                        <option value="d10">d10</option>
-                                        <option value="d12">d12</option>
-                                        <option value="d20">d20</option>
-                                    </select>
-                                    <span>+</span>
-                                    <input type="text" name="attr_spellhlbonus" placeholder="0" accept="Higher Spell Slot Bonus" style="width: 15px; text-align: center;">
-                                </div>
-                            </div>
-                            <div class="row">
-                                <span data-i18n="description:-u">DESCRIPTION:</span>
-                            </div>
-                            <input type="hidden" name="attr_spellcontent" accept="Content">
-                            <div class="row">
-                                <textarea name="attr_spelldescription"></textarea>
-                            </div>
-                            <div class="row">
-                                <span data-i18n="at-higher-lvl:-u">AT HIGHER LEVELS:</span>
-                            </div>
-                            <div class="row">
-                                <textarea name="attr_spellathigherlevels" style="height: 36px; min-height: 36px;"></textarea>
-                            </div>
-                            <input type="hidden" name="attr_spellattackid">
-                            <input type="hidden" name="attr_spelllevel" accept="Level">
-                            <input type="hidden" name="attr_spell_updateflag">
-                        </div>
-                        <div class="display">
-                            <input type="hidden" name="attr_rollcontent" value="@{wtype}&{template:spell} {{level=@{spellschool} @{spelllevel}}}  {{name=@{spellname_base}}} {{castingtime=@{spellcastingtime}}} {{range=@{spellrange}}} {{target=@{spelltarget}}} @{spellcomp_v} @{spellcomp_s} @{spellcomp_m} {{material=@{spellcomp_materials}}} {{duration=@{spellduration}}} {{description=@{spelldescription}}} {{athigherlevels=@{spellathigherlevels}}} @{spellritual} @{spellconcentration} @{charname_output}">
-                            <button class="spellcard" type="roll" name="roll_spell" value="@{rollcontent}">
-                                <input type="hidden" name="attr_prep" value=""><span class="prep"></span>
-                                <input type="text" name="attr_spellname" style="width: 225px; margin-left: 13px;" value="">
-                            </button>
-                        </div>
-                    </div>
-                </fieldset>
+               </fieldset>
+            </fieldset>
             </div>
             
         </div>
