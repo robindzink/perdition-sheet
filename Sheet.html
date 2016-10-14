@@ -34,19 +34,19 @@
                 <div class="hlabel-container">
                     <input class="flag" type="hidden" name="attr_customclass_flag" value="0">
                     <input class="showing" type="text" name="attr_cust_class" value="@{cust_classname}" disabled="true" style="width: 64px; height: 28px; padding-top: 10px;">
-                    <select class="hiding" name="attr_class" style="width: 64px;">
-                        <option value="Thug">Thug</option>
-                        <option value="Inheritor">Inheritor</option>
-                        <option value="Inquisitor">Inquisitor</option>
-                        <option value="Druid">Druid</option>
-                        <option value="Heavy Knight">Heavy Knight</option>
-                        <option value="Mystic">Mystic</option>
+                    <select class="hiding" name="attr_class" style="width: 100px;">
                         <option value="Paladin">Paladin</option>
+                        <option value="Heavy Knight">Heavy Knight</option>
+                        <option value="Thug">Thug</option>
+                        <option value="Inquisitor">Inquisitor</option>
                         <option value="Outrider">Outrider</option>
                         <option value="Shroud">Shroud</option>
-                        <option value="Sorcerer">Sorcerer</option>
-                        <option value="Warlock">Warlock</option>
                         <option value="Magus">Magus</option>
+                        <option value="Mystic">Mystic</option>
+                        <option value="Sorcerer">Sorcerer</option>
+                        <option value="Inheritor">Inheritor</option>
+                        <option value="Warlock">Warlock</option>
+                        <option value="Druid">Druid</option>
                     </select>
                     <input type="number" name="attr_level" value="1" style="margin-left: -6px; width: 28px;">
                     <span class="label">CLASS & LEVEL</span>
@@ -82,7 +82,7 @@
 					<select  name="attr_race" style="width: 64px;">
                         <option value="Black Orc">Black Orc</option>
                         <option value="Bogill">Bogill</option>
-                        <option value="Devilkin">Inquisitor</option>
+                        <option value="Devilkin">Devilkin</option>
                         <option value="Giant">Giant</option>
                         <option value="Human">Human</option>
                         <option value="Hobgoblin">Hobgoblin</option>
@@ -202,7 +202,7 @@
 				</div>
 				<div class="hb-attacks-container">
 					<div class="value">
-						<input type="text" name="attr_magical_attack_mod" title="@{magical_attack_mod}" value="@{hb}+@{cunning_mod}+@{globalmagicattackmod}" disabled="true" ><span></span>
+						<input type="text" name="attr_magical_attack_mod" title="@{magical_attack_mod}" value="0">
 					</div>
 					<div class="label">
 						<button class="attacks-saving-throws" type="roll" name="roll_magical_attack" value="@{wtype}&{template:simple} {{rname=MAGICAL ATTACK}} {{mod=[[[[@{magical_attack_mod}]][MAGICAL ATTACK]]]}} {{r1=[[@{advantagetoggle}+[[@{magical_attack_mod]]-[[floor(@{affliction}/2)]] [MAGICAL ATTACK]]]}} @{charname_output}">MAGICAL ATTACK</button>
@@ -210,7 +210,7 @@
 				</div>
 				<div class="hb-attacks-container">
 					<div class="value">
-						<input type="text" name="attr_psychic_attack_mod" title="@{psychic_attack_mod}" value="@{hb}+@{ego_mod}+@{globalpsyattackmod}" disabled="true" ><span></span>
+						<input type="text" name="attr_psychic_attack_mod" title="@{psychic_attack_mod}" value="0">
 					</div>
 					<div class="label">
 						<button class="attacks-saving-throws" type="roll" name="roll_psychic_attack" value="@{wtype}&{template:simple} {{rname=PSYCHIC ATTACK}} {{mod=[[[[@{psychic_attack_mod}]][PSYCHIC ATTACK]]]}} {{r1=[[@{advantagetoggle}+[[@{psychic_attack_mod]]-[[floor(@{affliction}/2)]] [PSYCHIC ATTACK]]]}} @{charname_output}">PSYCHIC ATTACK</button>
@@ -218,7 +218,7 @@
 				</div>
 				<div class="hb-attacks-container">
 					<div class="value">
-						<input type="text" name="attr_social_attack_mod" title="@{social_attack_mod}" value="@{hb}+@{charisma_mod}+@{globalsocialattackmod}" disabled="true" ><span></span>
+						<input type="text" name="attr_social_attack_mod" title="@{social_attack_mod}" value="0">
 					</div>
 					<div class="label">
 						<button class="attacks-saving-throws" type="roll" name="roll_social_attack" value="@{wtype}&{template:simple} {{rname=SOCIAL ATTACK}} {{mod=[[[[@{social_attack_mod}]][SOCIAL ATTACK]]]}} {{r1=[[@{advantagetoggle}+[[@{social_attack_mod]]-[[floor(@{affliction}/2)]] [SOCIAL ATTACK]]]}} @{charname_output}">SOCIAL ATTACK</button>
@@ -373,20 +373,20 @@
                     <span class="label pc-ac">INITIATIVE MOD</span>
 					</div>
                 <div class="speed">
-                    <input type="text" name="attr_speed" title="@{speed}">
+                    <input type="text" name="attr_movement" title="@{movement}">
                     <span class="label">SPEED</span>
                 </div>
             </div>
 			            <div class="hdice-dsaves-container" style="width: 242px;">
                 <div class="subcontainer">
 					<div class="ac" style="margin-right: 1px;">
-					<input type="text" name="attr_pac" title="@{pac}" value="floor((@{physique}+@{cunning})/2+@{globalpacmod})" disabled="true">
+					<input type="text" name="attr_pac" title="@{pac}" value="floor((@{physique}+@{cunning})/2+@{globalpacmod}+@{racialpacmod})" disabled="true">
                     <span class="label pc-ac">PAC</span>
 					</div>
 				</div>
                 <div class="subcontainer" style="float: right;">
 					<div class="ac" style="margin-right: 1px;">
-						<input type="text" name="attr_mac" title="@{mac}" value="floor((@{ego}+@{charisma})/2+@{globalmacmod})" disabled="true">
+						<input type="text" name="attr_mac" title="@{mac}" value="floor((@{ego}+@{charisma})/2+@{globalmacmod}+@{racialmacmod})" disabled="true">
 						<span class="label pc-ac">MAC</span>
 					</div>
 				</div>
@@ -420,25 +420,13 @@
             <div class="hdice-dsaves-container" style="width: 242px;">
                 <div class="subcontainer">
 					<div class="ac" style="margin-right: 1px;">
-						<select class="hiding" name="attr_physical_hit_die" title="@{physical_hit_die}">
-							<option value="1d4">d4</option>
-							<option value="1d6">d6</option>
-							<option value="1d8">d8</option>
-							<option value="1d10">d10</option>
-							<option value="1d12">d12</option>
-						</select>
+						<input class="attr" type="text" name="attr_physical_hit_die" title="@{physical_hit_die}">
 						<button type="roll" name="roll_physical_struggle" value="@{wtype}&{template:simple} {{rname=PHYSICAL STRUGGLE}} {{mod=[[[[@{physical_hit_die}]][PHYSICAL STRUGGLE]]]}} {{r1=[[@{level}*(@{physical_hit_die}+@{attr_size})-[[floor(@{affliction}/2)]][PHYSICAL HIT DIE POOL + SIZE]]]}} @{charname_output}">PHYSICAL HIT DIE</button>
 					</div>
 				</div>
                 <div class="subcontainer" style="float: right;">
 					<div class="ac" style="margin-right: 1px;">
-						<select class="hiding" name="attr_mental_hit_die" title="@{mental_hit_die}">
-							<option value="1d4">d4</option>
-							<option value="1d6">d6</option>
-							<option value="1d8">d8</option>
-							<option value="1d10">d10</option>
-							<option value="1d12">d12</option>
-						</select>
+						<input class="attr" type="text" name="attr_mental_hit_die" title="@{mental_hit_die}">
 						<button type="roll" name="roll_psychic_struggle" value="@{wtype}&{template:simple} {{rname=PSYCHIC STRUGGLE}} {{mod=[[[[@{mental_hit_die}]][PSYCHIC STRUGGLE]]]}} {{r1=[[@{level}*@{mental_hit_die}-[[floor(@{affliction}/2)]][MENTAL HIT DIE POOL + SIZE]]]}} @{charname_output}">MENTAL HIT DIE</button>
 					</div>
 				</div>
@@ -2639,6 +2627,35 @@
                     <span>CLASS OPTIONS (<span name="attr_class" data-i18n-dynamic></span>)</span>
                 </div>
             </div>
+			<div class="class_options">
+                <div class="row">
+                    <span>RACIAL PHYSICAL ARMOR CLASS MODIFIER:</span>
+                    <input type="text" class="num" name="attr_racialpacmod" placeholder="0" value="0">
+                </div>
+                <div class="row">
+                    <span>RACIAL MENTAL ARMOR CLASS MODIFIER:</span>
+                    <input type="text" class="num" name="attr_racialmacmod" placeholder="0" value="0">
+                </div>
+                <div class="row">
+                    <span>RACIAL PHYSICAL ATTACK MODIFIER:</span>
+                    <input type="text" class="num" name="attr_racialphysattackmod" placeholder="0" value="0">
+                </div>
+                <div class="row">
+                    <span>RACIAL MAGICAL ATTACK MODIFIER:</span>
+                    <input type="text" class="num" name="attr_racialmagicattackmod" placeholder="0" value="0">
+                </div>
+                <div class="row">
+                    <span>RACIAL PSYCHIC ATTACK MODIFIER:</span>
+                    <input type="text" class="num" name="attr_racialpsyattackmod" placeholder="0" value="0">
+                </div>
+                <div class="row">
+                    <span >RACIAL SOCIAL ATTACK MODIFIER:</span>
+                    <input type="text" class="num" name="attr_racialsocialattackmod" placeholder="0" value="0">
+                </div>
+                <div class="row title">
+                    <span>RACIAL BONUSES (<span name="attr_race"></span>)</span>
+                </div>
+            </div>
         </div>
         <div class="col col2">
             <div class="skill_options" style="width: 234px;">
@@ -3413,6 +3430,9 @@
     on("change:class change:cust_classname change:cust_hitdietype change:cust_spellcasting_ability change:cust_spellslots change:cust_physique_save_prof change:cust_cunning_save_prof change:cust_constitution_save_prof change:cust_intelligence_save_prof change:cust_ego_save_prof change:cust_charisma_save_prof", function() {
         updateClass();
     });
+	on("change:race", function() {
+        updaterace();
+    });
     
     on("change:custom_class", function() {
         getAttrs(["custom_class"], function(v) {
@@ -4066,16 +4086,16 @@
         });
     });
 	
-	on("change:hb change:physique_mod change:globalphysattackmod", function() {
+	on("change:hb change:physique_mod change:globalphysattackmod change:racialphysattackmod", function() {
 	updatephysattackmod();
 	});
-	on("change:hb change:physique_mod change:globalmagicattackmod", function() {
+	on("change:hb change:physique_mod change:globalmagicattackmod change:racialmagicattackmod", function() {
 	updatemagicattackmod();
 	});
-	on("change:hb change:physique_mod change:globalpsyattackmod", function() {
+	on("change:hb change:physique_mod change:globalpsyattackmod change:racialpsyattackmod", function() {
 	updatepsyattackmod();
 	});
-	on("change:hb change:physique_mod change:globalsocialattackmod", function() {
+	on("change:hb change:physique_mod change:globalsocialattackmod change:racialsocialattackmod", function() {
 	updatesocialattackmod();
 	});
 	
@@ -4189,42 +4209,46 @@
 	});
 	}
 	var updatephysattackmod = function () {
-		getAttrs (["hb", "physique_mod", "globalphysattackmod"], function(v) {
+		getAttrs (["hb", "physique_mod", "globalphysattackmod", "racialphysattackmod"], function(v) {
 			var hb = parseInt(v.hb, 10);
 			var physmod = parseInt(v.physique_mod, 10);
 			var mod = parseInt(v.globalphysattackmod, 10);
+			var race = parseInt(v.racialphysattackmod, 10);
 			var phys_attack = 0;
-			phys_attack = hb + physmod + mod;
+			phys_attack = hb + physmod + mod + race;
 			setAttrs({physical_attack_mod: phys_attack});
 			});
 	}
 	var updatemagicattackmod = function () {
-		getAttrs (["hb", "cunning_mod", "globalmagicattackmod"], function(v) {
+		getAttrs (["hb", "cunning_mod", "globalmagicattackmod", "racialmagicattackmod"], function(v) {
 			var hb = parseInt(v.hb, 10);
 			var cunmod = parseInt(v.cunning_mod, 10);
 			var mod = parseInt(v.globalmagicattackmod, 10);
+			var race = parseInt(v.racialmagicattackmod, 10);
 			var magic_attack = 0;
-			magic_attack = hb + cunmod + mod;
+			magic_attack = hb + cunmod + mod + race;
 			setAttrs({magical_attack_mod: magic_attack});
 			});
 	}
 	var updatepsyattackmod = function () {
-		getAttrs (["hb", "ego_mod", "globalpsyattackmod"], function(v) {
+		getAttrs (["hb", "ego_mod", "globalpsyattackmod", "racialpsyattackmod"], function(v) {
 			var hb = parseInt(v.hb, 10);
 			var egomod = parseInt(v.ego_mod, 10);
 			var mod = parseInt(v.globalpsyattackmod, 10);
+			var race = parseInt(v.racialpsyattackmod, 10);
 			var psy_attack = 0;
-			psy_attack = hb + egomod + mod;
+			psy_attack = hb + egomod + mod + race;
 			setAttrs({psychic_attack_mod: psy_attack});
 			});
 	}
 	var updatesocialattackmod = function () {
-		getAttrs (["hb", "charisma_mod", "globalsocialattackmod"], function(v) {
+		getAttrs (["hb", "charisma_mod", "globalsocialattackmod", "racialsocialattackmod"], function(v) {
 			var hb = parseInt(v.hb, 10);
 			var chamod = parseInt(v.charisma_mod, 10);
 			var mod = parseInt(v.globalsocialattackmod, 10);
+			var race = parseInt(v.racialsocialattackmod, 10);
 			var social_attack = 0;
-			social_attack = hb + chamod + mod;
+			social_attack = hb + chamod + mod + race;
 			setAttrs({social_attack_mod: social_attack});
 			});
 	}
@@ -4610,163 +4634,160 @@
             else {
                 update = {};
                 switch(v.class) {
-                    case "Thug":
-                        update["hitdietype"] = 12;
+                    case "Paladin":
+                        update["physical_hit_die"] = "d8";
+						update["mental_hit_die"] = "d6";
+						update["save"] = 17;
                         update["spellcasting_ability"] = "0*";
-                        if(!v.physique_save_prof || v.physique_save_prof != "(@{pb})" || !v.constitution_save_prof || v.constitution_save_prof != "(@{pb})") {
-                            update["physique_save_prof"] = "(@{pb})";
-                            update["cunning_save_prof"] = 0;
-                            update["constitution_save_prof"] = "(@{pb})";
-                            update["intelligence_save_prof"] = 0;
-                            update["ego_save_prof"] = 0;
-                            update["charisma_save_prof"] = 0;
-                            update["class_resource_name"] = "Rage";
-                        }
-                        break;
-                    case "Inheritor":
-                        update["hitdietype"] = 8;
-                        update["spellcasting_ability"] = "@{charisma_mod}+";
-                        if(!v.cunning_save_prof || v.cunning_save_prof != "(@{pb})" || !v.charisma_save_prof || v.charisma_save_prof != "(@{pb})") {
-                            update["physique_save_prof"] = 0;
-                            update["cunning_save_prof"] = "(@{pb})";
-                            update["constitution_save_prof"] = 0;
-                            update["intelligence_save_prof"] = 0;
-                            update["ego_save_prof"] = 0;
-                            update["charisma_save_prof"] = "(@{pb})";
-                            update["class_resource_name"] = "Bardic Inspiration";
-                        }
-                        break;
-                    case "Inquisitor":
-                        update["hitdietype"] = 8;
-                        update["spellcasting_ability"] = "@{ego_mod}+";
-                        if(!v.ego_save_prof || v.ego_save_prof != "(@{pb})" || !v.charisma_save_prof || v.charisma_save_prof != "(@{pb})") {
-                            update["physique_save_prof"] = 0;
-                            update["cunning_save_prof"] = 0;
-                            update["constitution_save_prof"] = 0;
-                            update["intelligence_save_prof"] = 0;
-                            update["ego_save_prof"] = "(@{pb})";
-                            update["charisma_save_prof"] = "(@{pb})";
-                            update["class_resource_name"] = "Channel Divinity";
-                        }
-                        break;
-                    case "Druid":
-                        update["hitdietype"] = 8;
-                        update["spellcasting_ability"] = "@{ego_mod}+";
-                        if(!v.ego_save_prof || v.ego_save_prof != "(@{pb})" || !v.intelligence_save_prof || v.intelligence_save_prof != "(@{pb})") {
-                            update["physique_save_prof"] = 0;
-                            update["cunning_save_prof"] = 0;
-                            update["constitution_save_prof"] = 0;
-                            update["intelligence_save_prof"] = "(@{pb})";
-                            update["ego_save_prof"] = "(@{pb})";
-                            update["charisma_save_prof"] = 0;
-                            update["class_resource_name"] = "Wild Shape";
-                        }
                         break;
                     case "Heavy Knight":
-                        update["hitdietype"] = 10;
+                        update["physical_hit_die"] = "d12";
+						update["mental_hit_die"] = "d4";
+						update["save"] = 20;
                         update["spellcasting_ability"] = "0*";
-                        if(!v.physique_save_prof || v.physique_save_prof != "(@{pb})" || !v.constitution_save_prof || v.constitution_save_prof != "(@{pb})") {
-                            update["physique_save_prof"] = "(@{pb})";
-                            update["cunning_save_prof"] = 0;
-                            update["constitution_save_prof"] = "(@{pb})";
-                            update["intelligence_save_prof"] = 0;
-                            update["ego_save_prof"] = 0;
-                            update["charisma_save_prof"] = 0;
-                            update["class_resource_name"] = "Second Wind";
-                        }
                         break;
-                    case "Mystic":
-                        update["hitdietype"] = 8;
+                    case "Thug":
+                        update["physical_hit_die"] = "d8";
+						update["mental_hit_die"] = "d6";
+						update["save"] = 18;
                         update["spellcasting_ability"] = "0*";
-                        if(!v.physique_save_prof || v.physique_save_prof != "(@{pb})" || !v.cunning_save_prof || v.cunning_save_prof != "(@{pb})") {
-                            update["physique_save_prof"] = "(@{pb})";
-                            update["cunning_save_prof"] = "(@{pb})";
-                            update["constitution_save_prof"] = 0;
-                            update["intelligence_save_prof"] = 0;
-                            update["ego_save_prof"] = 0;
-                            update["charisma_save_prof"] = 0;
-                            update["class_resource_name"] = "Ki";
-                        }
                         break;
-                    case "Paladin":
-                        update["hitdietype"] = 10;
-                        update["spellcasting_ability"] = "@{ego_mod}+";
-                        if(!v.ego_save_prof || v.ego_save_prof != "(@{pb})" || !v.charisma_save_prof || v.charisma_save_prof != "(@{pb})") {
-                            update["physique_save_prof"] = 0;
-                            update["cunning_save_prof"] = 0;
-                            update["constitution_save_prof"] = 0;
-                            update["intelligence_save_prof"] = 0;
-                            update["ego_save_prof"] = "(@{pb})";
-                            update["charisma_save_prof"] = "(@{pb})";
-                            update["class_resource_name"] = "Channel Divinity";
-                        }
+                    case "Inquisitor":
+                        update["physical_hit_die"] = "d8";
+						update["mental_hit_die"] = "d8";
+						update["save"] = 16;
+                        update["spellcasting_ability"] = "0*";
                         break;
                     case "Outrider":
-                        update["hitdietype"] = 10;
-                        update["spellcasting_ability"] = "@{ego_mod}+";
-                        if(!v.physique_save_prof || v.physique_save_prof != "(@{pb})" || !v.cunning_save_prof || v.cunning_save_prof != "(@{pb})") {
-                            update["physique_save_prof"] = "(@{pb})";
-                            update["cunning_save_prof"] = "(@{pb})";
-                            update["constitution_save_prof"] = 0;
-                            update["intelligence_save_prof"] = 0;
-                            update["ego_save_prof"] = 0;
-                            update["charisma_save_prof"] = 0;
-                        }
+                        update["physical_hit_die"] = "d8";
+						update["mental_hit_die"] = "d6";
+						update["save"] = 15;
+                        update["spellcasting_ability"] = "0*";
                         break;
                     case "Shroud":
-                        update["hitdietype"] = 8;
+                        update["physical_hit_die"] = "d6";
+						update["mental_hit_die"] = "d6";
+						update["save"] = 18;
                         update["spellcasting_ability"] = "0*";
-                        if(!v.intelligence_save_prof || v.intelligence_save_prof != "(@{pb})" || !v.cunning_save_prof || v.cunning_save_prof != "(@{pb})") {
-                            update["physique_save_prof"] = 0;
-                            update["cunning_save_prof"] = "(@{pb})";
-                            update["constitution_save_prof"] = 0;
-                            update["intelligence_save_prof"] = "(@{pb})";
-                            update["ego_save_prof"] = 0;
-                            update["charisma_save_prof"] = 0;
-                        }
-                        break;
-                    case "Sorcerer":
-                        update["hitdietype"] = 6;
-                        update["spellcasting_ability"] = "@{charisma_mod}+";
-                        if(!v.constitution_save_prof || v.constitution_save_prof != "(@{pb})" || !v.charisma_save_prof || v.charisma_save_prof != "(@{pb})") {
-                            update["physique_save_prof"] = 0;
-                            update["cunning_save_prof"] = 0;
-                            update["constitution_save_prof"] = "(@{pb})";
-                            update["intelligence_save_prof"] = 0;
-                            update["ego_save_prof"] = 0;
-                            update["charisma_save_prof"] = "(@{pb})";
-                            update["class_resource_name"] = "Sorcery Points";
-                        }
-                        break;
-                    case "Warlock":
-                        update["hitdietype"] = 8;
-                        update["spellcasting_ability"] = "@{charisma_mod}+";
-                        if(!v.ego_save_prof || v.ego_save_prof != "(@{pb})" || !v.charisma_save_prof || v.charisma_save_prof != "(@{pb})") {
-                            update["physique_save_prof"] = 0;
-                            update["cunning_save_prof"] = 0;
-                            update["constitution_save_prof"] = 0;
-                            update["intelligence_save_prof"] = 0;
-                            update["ego_save_prof"] = "(@{pb})";
-                            update["charisma_save_prof"] = "(@{pb})";
-                        }
                         break;
                     case "Magus":
-                        update["hitdietype"] = 6;
-                        update["spellcasting_ability"] = "@{intelligence_mod}+";
-                        if(!v.ego_save_prof || v.ego_save_prof != "(@{pb})" || !v.intelligence_save_prof || v.intelligence_save_prof != "(@{pb})") {
-                            update["physique_save_prof"] = 0;
-                            update["cunning_save_prof"] = 0;
-                            update["constitution_save_prof"] = 0;
-                            update["intelligence_save_prof"] = "(@{pb})";
-                            update["ego_save_prof"] = "(@{pb})";
-                            update["charisma_save_prof"] = 0;
-                        }
+                        update["physical_hit_die"] = "d4";
+						update["mental_hit_die"] = "d8";
+						update["save"] = 20;
+                        update["spellcasting_ability"] = "0*";
+                        break;
+                    case "Mystic":
+                        update["physical_hit_die"] = "d6";
+						update["mental_hit_die"] = "d12";
+						update["save"] = 20;
+                        update["spellcasting_ability"] = "0*";
+                        break;
+                    case "Sorcerer":
+                        update["physical_hit_die"] = "d4";
+						update["mental_hit_die"] = "d8";
+						update["save"] = 18;
+                        update["spellcasting_ability"] = "0*";
+                        break;
+                    case "Warlock":
+                        update["physical_hit_die"] = "d6";
+						update["mental_hit_die"] = "d8";
+						update["save"] = 20;
+                        update["spellcasting_ability"] = "0*";
+                        break;
+                    case "Druid":
+                        update["physical_hit_die"] = "d8";
+						update["mental_hit_die"] = "d8";
+						update["save"] = 17;
+                        update["spellcasting_ability"] = "0*";
+                        break;
+                    case "Inheritor":
+                        update["physical_hit_die"] = "d6";
+						update["mental_hit_die"] = "d6";
+						update["save"] = 19;
+                        update["spellcasting_ability"] = "0*";
                         break;
                 }
                 setAttrs(update);
             };
         });
-        setlevel();
+    };
+	var updaterace = function() {
+        getAttrs(["race","racialphysattackmod","racialmagicattackmod","racialpsyattackmod","racialsocialattackmod","movement","size"], function(v) {
+                update = {};
+                switch(v.race) {
+                    case "Black Orc":
+                        update["racialphysattackmod"] = 2;
+                        update["racialmagicattackmod"] = 2;
+                        update["racialpsyattackmod"] = 0;
+                        update["racialsocialattackmod"] = 0;
+						update["racialpacmod"] = 0;
+						update["racialmacmod"] = 0;
+						update["movement"] = "12''";
+						update["size"] = 0;
+                        break;
+                    case "Bogill":
+                        update["racialphysattackmod"] = 0;
+                        update["racialmagicattackmod"] = 2;
+                        update["racialpsyattackmod"] = 0;
+                        update["racialsocialattackmod"] = 0;
+						update["racialpacmod"] = 0;
+						update["racialmacmod"] = 0;
+						update["movement"] = "15''";
+						update["size"] = 1;
+                        break;
+                    case "Devilkin":
+                        update["racialphysattackmod"] = 0;
+                        update["racialmagicattackmod"] = 0;
+                        update["racialpsyattackmod"] = 2;
+                        update["racialsocialattackmod"] = 2;
+						update["racialpacmod"] = 0;
+						update["racialmacmod"] = 1;
+						update["movement"] = "12''";
+						update["size"] = 0;
+                        break;
+                    case "Giant":
+                        update["racialphysattackmod"] = 4;
+                        update["racialmagicattackmod"] = 0;
+                        update["racialpsyattackmod"] = 0;
+                        update["racialsocialattackmod"] = 0;
+						update["racialpacmod"] = 0;
+						update["racialmacmod"] = 0;
+						update["movement"] = "15''";
+						update["size"] = 1;
+                        break;
+                    case "Human":
+                        update["racialphysattackmod"] = 0;
+                        update["racialmagicattackmod"] = 0;
+                        update["racialpsyattackmod"] = 0;
+                        update["racialsocialattackmod"] = 0;
+						update["racialpacmod"] = 0;
+						update["racialmacmod"] = 0;
+						update["movement"] = "12''";
+						update["size"] = 0;
+                        break;
+					case "Hobgoblin":
+                        update["racialphysattackmod"] = 4;
+                        update["racialmagicattackmod"] = 0;
+                        update["racialpsyattackmod"] = 0;
+                        update["racialsocialattackmod"] = 0;
+						update["racialpacmod"] = 2;
+						update["racialmacmod"] = 0;
+						update["movement"] = "12''";
+						update["size"] = 0;
+                        break;
+					case "Red Troll":
+                        update["racialphysattackmod"] = 0;
+                        update["racialmagicattackmod"] = 2;
+                        update["racialpsyattackmod"] = 0;
+                        update["racialsocialattackmod"] = 0;
+						update["racialpacmod"] = 1;
+						update["racialmacmod"] = 1;
+						update["movement"] = "12''";
+						update["size"] = 0;
+                        break;
+                }
+                setAttrs(update);
+        });
     };
     
     var updateAttack = function(eventinfo) {
