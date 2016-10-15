@@ -399,13 +399,13 @@
                 <div class="subcontainer">
 					<div class="ac" style="margin-right: 1px;">
 						<input class="attr" type="text" name="attr_physical_hit_die" title="@{physical_hit_die}">
-						<button type="roll" name="roll_physical_struggle" value="@{wtype}&{template:simple} {{rname=PHYSICAL STRUGGLE}} {{mod=[[[[@{physical_hit_die}]][PHYSICAL STRUGGLE]]]}} {{r1=[[@{level}*(@{physical_hit_die}+@{attr_size})-[[floor(@{affliction}/2)]][PHYSICAL HIT DIE POOL + SIZE]]]}} @{charname_output}">PHYSICAL HIT DIE</button>
+						<button type="roll" name="roll_physical_struggle" value="@{wtype}&{template:simple} {{rname=PHYSICAL STRUGGLE}} {{mod=[[[[@{physical_hit_die}]][PHYSICAL STRUGGLE]]]}} {{r1=[[@{level}*(@{physical_hit_die}+@{attr_size})+@{previous_level}*@{previous_physical_hd}(@{previous_physical_hd}+@{attr_size})-[[floor(@{affliction}/2)]][PHYSICAL HIT DIE POOL + SIZE]]]}} @{charname_output}">PHYSICAL HIT DIE</button>
 					</div>
 				</div>
                 <div class="subcontainer" style="float: right;">
 					<div class="ac" style="margin-right: 1px;">
 						<input class="attr" type="text" name="attr_mental_hit_die" title="@{mental_hit_die}">
-						<button type="roll" name="roll_psychic_struggle" value="@{wtype}&{template:simple} {{rname=PSYCHIC STRUGGLE}} {{mod=[[[[@{mental_hit_die}]][PSYCHIC STRUGGLE]]]}} {{r1=[[@{level}*@{mental_hit_die}-[[floor(@{affliction}/2)]][MENTAL HIT DIE POOL + SIZE]]]}} @{charname_output}">MENTAL HIT DIE</button>
+						<button type="roll" name="roll_psychic_struggle" value="@{wtype}&{template:simple} {{rname=PSYCHIC STRUGGLE}} {{mod=[[[[@{mental_hit_die}]][PSYCHIC STRUGGLE]]]}} {{r1=[[@{level}*@{mental_hit_die}+@{previous_level}*@{previous_mental_hd}-[[floor(@{affliction}/2)]][MENTAL HIT DIE POOL + SIZE]]]}} @{charname_output}">MENTAL HIT DIE</button>
 					</div>
 				</div>
             </div>
@@ -1252,7 +1252,6 @@
                         <div class="display">
                             <input type="hidden" name="attr_rollcontent" value="@{wtype}&{template:spell} {{level=@{spellschool} @{spelllevel}}}  {{name=@{spellname_base}}} {{castingtime=@{spellcastingtime}}} {{range=@{spellrange}}} {{target=@{spelltarget}}} @{spellcomp_v} @{spellcomp_s} @{spellcomp_m} {{material=@{spellcomp_materials}}} {{duration=@{spellduration}}} {{description=@{spelldescription}}} {{athigherlevels=@{spellathigherlevels}}} @{spellritual} @{spellconcentration} @{charname_output}">
                             <button class="spellcard" type="roll" name="roll_spell" value="@{rollcontent}">
-                                <input type="hidden" name="attr_prep" value=""><span class="prep"></span>
                                 <input type="text" name="attr_spellname" style="width: 225px; margin-left: 13px;" value="">
                             </button>
                         </div>
@@ -1341,201 +1340,143 @@
             <div class="class_options">
                 <div class="row">
                     <span>GLOBAL SAVING THROW MODIFIER:</span>
-                    <input type="text" class="num" name="attr_globalsavemod" placeholder="0" value="0">
+                    <input type="text" class="num" name="attr_globalsavemod" value="0">
                 </div>
                 <div class="row">
                     <span>GLOBAL  PHYSICAL ARMOR CLASS MODIFIER:</span>
-                    <input type="text" class="num" name="attr_globalpacmod" placeholder="0" value="0">
+                    <input type="text" class="num" name="attr_globalpacmod" value="0">
                 </div>
                 <div class="row">
                     <span>GLOBAL  MENTAL ARMOR CLASS MODIFIER:</span>
-                    <input type="text" class="num" name="attr_globalmacmod" placeholder="0" value="0">
+                    <input type="text" class="num" name="attr_globalmacmod" value="0">
                 </div>
                 <div class="row">
                     <span>GLOBAL  PHYSICAL ATTACK MODIFIER:</span>
-                    <input type="text" class="num" name="attr_globalphysattackmod" placeholder="0" value="0">
+                    <input type="text" class="num" name="attr_globalphysattackmod" value="0">
                 </div>
                 <div class="row">
                     <span>GLOBAL  MAGICAL ATTACK MODIFIER:</span>
-                    <input type="text" class="num" name="attr_globalmagicattackmod" placeholder="0" value="0">
+                    <input type="text" class="num" name="attr_globalmagicattackmod" value="0">
                 </div>
                 <div class="row">
                     <span>GLOBAL  PSYCHIC ATTACK MODIFIER:</span>
-                    <input type="text" class="num" name="attr_globalpsyattackmod" placeholder="0" value="0">
+                    <input type="text" class="num" name="attr_globalpsyattackmod" value="0">
                 </div>
                 <div class="row">
                     <span >GLOBAL  SOCIAL ATTACK MODIFIER:</span>
-                    <input type="text" class="num" name="attr_globalsocialattackmod" placeholder="0" value="0">
-                </div>
-                <div class="row">
-                    <input type="checkbox" name="attr_custom_ac_flag" value="1">
-                    <span data-i18n="custom_ac:-u">CUSTOM AC:</span>
-                    <input type="text" class="num" name="attr_custom_ac_base" placeholde="10" value="10">
-                    <span>+</span>
-                    <select name="attr_custom_ac_part1">
-                        <option value="none" selected="selected" data-i18n="none-u">NONE</option>
-                        <option value="Strength" data-i18n="str-u">PHYSIQUE</option>
-                        <option value="Dexterity" data-i18n="dex-u">CUNNING</option>
-                        <option value="Constitution" data-i18n="con-u">CON</option>
-                        <option value="Intelligence" data-i18n="int-u">INT</option>
-                        <option value="Wisdom" data-i18n="wis-u">EGO</option>
-                        <option value="Charisma" data-i18n="cha-u">CHA</option>
-                    </select>
-                    <span>+</span>
-                    <select name="attr_custom_ac_part2">
-                        <option value="none" selected="selected" data-i18n="none-u">NONE</option>
-                        <option value="Strength" data-i18n="str-u">PHYSIQUE</option>
-                        <option value="Dexterity" data-i18n="dex-u">CUNNING</option>
-                        <option value="Constitution" data-i18n="con-u">CON</option>
-                        <option value="Intelligence" data-i18n="int-u">INT</option>
-                        <option value="Wisdom" data-i18n="wis-u">EGO</option>
-                        <option value="Charisma" data-i18n="cha-u">CHA</option>
-                    </select>
-                </div>
-                <div class="row">
-                    <input type="checkbox" name="attr_halflingluck_flag" value="1">
-                    <span data-i18n="halfling-luck-u">HALFLING LUCK</span>
-                </div>
-                <div class="row">
-                    <input type="checkbox" name="attr_arcane_fighter" value="1">
-                    <span data-i18n="arcane-heavy_knight-u">ARCANE FIGHTER</span>
-                </div>
-                <div class="row">
-                    <input type="checkbox" name="attr_arcane_rogue" value="1">
-                    <span data-i18n="arcane-shroud-u">ARCANE ROGUE</span>
+                    <input type="text" class="num" name="attr_globalsocialattackmod" value="0">
                 </div>
                 <div class="row title">
-                    <span>CLASS OPTIONS (<span name="attr_class" data-i18n-dynamic></span>)</span>
+                    <span>ATTACK OPTIONS</span>
                 </div>
             </div>
 			<div class="class_options">
                 <div class="row">
                     <span>RACIAL PHYSICAL ARMOR CLASS MODIFIER:</span>
-                    <input type="text" class="num" name="attr_racialpacmod" placeholder="0" value="0">
+                    <input type="text" class="num" name="attr_racialpacmod" value="0">
                 </div>
                 <div class="row">
                     <span>RACIAL MENTAL ARMOR CLASS MODIFIER:</span>
-                    <input type="text" class="num" name="attr_racialmacmod" placeholder="0" value="0">
+                    <input type="text" class="num" name="attr_racialmacmod" value="0">
                 </div>
                 <div class="row">
                     <span>RACIAL PHYSICAL ATTACK MODIFIER:</span>
-                    <input type="text" class="num" name="attr_racialphysattackmod" placeholder="0" value="0">
+                    <input type="text" class="num" name="attr_racialphysattackmod" value="0">
                 </div>
                 <div class="row">
                     <span>RACIAL MAGICAL ATTACK MODIFIER:</span>
-                    <input type="text" class="num" name="attr_racialmagicattackmod" placeholder="0" value="0">
+                    <input type="text" class="num" name="attr_racialmagicattackmod" value="0">
                 </div>
                 <div class="row">
                     <span>RACIAL PSYCHIC ATTACK MODIFIER:</span>
-                    <input type="text" class="num" name="attr_racialpsyattackmod" placeholder="0" value="0">
+                    <input type="text" class="num" name="attr_racialpsyattackmod" value="0">
                 </div>
                 <div class="row">
-                    <span >RACIAL SOCIAL ATTACK MODIFIER:</span>
-                    <input type="text" class="num" name="attr_racialsocialattackmod" placeholder="0" value="0">
+                    <span>RACIAL SOCIAL ATTACK MODIFIER:</span>
+                    <input type="text" class="num" name="attr_racialsocialattackmod" value="0">
+                </div>
+                <div class="row">
+                    <span>MOVEMET SPEED:</span>
+                    <input type="text" class="num" name="attr_movement" value="0">
                 </div>
                 <div class="row title">
                     <span>RACIAL BONUSES (<span name="attr_race"></span>)</span>
+                </div>
+            </div>
+			<div class="class_options">
+                <div class="row">
+                    <span>PREVIOUS PHYSICAL HIT DIE:</span>
+                    <input type="text" class="num" name="attr_previous_physical_hd" value="0">
+                </div>
+                <div class="row">
+                    <span>PREVIOUS MENTAL HIT DIE:</span>
+                    <input type="text" class="num" name="attr_previous_mental_hd" value="0">
+                </div>
+                <div class="row">
+                    <span>PREVIOUS LEVEL:</span>
+                    <input type="text" class="num" name="attr_previous_level" value="0">
+                </div>
+                <div class="row title">
+                    <span>DUAL CLASSING</span>
                 </div>
             </div>
         </div>
         <div class="col col2">
             <div class="skill_options" style="width: 234px;">
                 <div class="row skill">
-                    <select name="attr_acrobatics_type"><option value="1" selected="selected" data-i18n="normal">Normal</option><option value="2" data-i18n="expirtise">Expertise</option></select>
-                    <span data-i18n="acrobatics-core">Acrobatics <span>(Dex)</span></span>
-                    <span>+</span><input type="text" class="num" name="attr_acrobatics_flat" value="0" placeholder="0" title="@{acrobatics_flat}">
+                    <span>Alchemy <span>(Cun)</span></span>
+                    <span>+</span><input type="text" class="num" name="attr_alchemy_flat" value="0" placeholder="0" title="@{alchemy_flat}">
                 </div>
                 <div class="row skill">
-                    <select name="attr_animal_handling_type"><option value="1" selected="selected" data-i18n="normal">Normal</option><option value="2" data-i18n="expirtise">Expertise</option></select>
-                    <span data-i18n="animal-handling-core">Animal Handling <span>(Wis)</span></span>
-                    <span>+</span><input type="text" class="num" name="attr_animal_handling_flat" value="0" placeholder="0" title="@{animal_handling_flat}">
-                </div>
-                <div class="row skill">
-                    <select name="attr_arcana_type"><option value="1" selected="selected" data-i18n="normal">Normal</option><option value="2" data-i18n="expirtise">Expertise</option></select>
-                    <span data-i18n="arcana-core">Arcana <span>(Int)</span></span>
+                    <span>Arcana</span>
                     <span>+</span><input type="text" class="num" name="attr_arcana_flat" value="0" placeholder="0" title="@{arcana_flat}">
                 </div>
                 <div class="row skill">
-                    <select name="attr_athletics_type"><option value="1" selected="selected" data-i18n="normal">Normal</option><option value="2" data-i18n="expirtise">Expertise</option></select>
-                    <span data-i18n="athletics-core">Athletics <span>(Str)</span></span>
+                    <span>Athletics <span>(Phys)</span></span>
                     <span>+</span><input type="text" class="num" name="attr_athletics_flat" value="0" placeholder="0" title="@{athletics_flat}">
                 </div>
                 <div class="row skill">
-                    <select name="attr_deception_type"><option value="1" selected="selected" data-i18n="normal">Normal</option><option value="2" data-i18n="expirtise">Expertise</option></select>
-                    <span data-i18n="deception-core">Deception <span>(Cha)</span></span>
-                    <span>+</span><input type="text" class="num" name="attr_deception_flat" value="0" placeholder="0" title="@{deception_flat}">
+                    <span>Bureaucracy <span>(Ego)</span></span>
+                    <span>+</span><input type="text" class="num" name="attr_bureaucracy_flat" value="0" placeholder="0" title="@{bureaucracy_flat}">
                 </div>
                 <div class="row skill">
-                    <select name="attr_history_type"><option value="1" selected="selected" data-i18n="normal">Normal</option><option value="2" data-i18n="expirtise">Expertise</option></select>
-                    <span data-i18n="history-core">History <span>(Int)</span></span>
-                    <span>+</span><input type="text" class="num" name="attr_history_flat" value="0" placeholder="0" title="@{history_flat}">
+                    <span>Craft</span>
+                    <span>+</span><input type="text" class="num" name="craft" value="0" placeholder="0" title="@{craft_flat}">
                 </div>
                 <div class="row skill">
-                    <select name="attr_insight_type"><option value="1" selected="selected" data-i18n="normal">Normal</option><option value="2" data-i18n="expirtise">Expertise</option></select>
-                    <span data-i18n="insight-core">Insight <span>(Wis)</span></span>
-                    <span>+</span><input type="text" class="num" name="attr_insight_flat" value="0" placeholder="0" title="@{insight_flat}">
+                    <span>Devices <span>(Cun)</span></span>
+                    <span>+</span><input type="text" class="num" name="attr_devices_flat" value="0" placeholder="0" title="@{devices_flat}">
                 </div>
                 <div class="row skill">
-                    <select name="attr_intimidation_type"><option value="1" selected="selected" data-i18n="normal">Normal</option><option value="2" data-i18n="expirtise">Expertise</option></select>
-                    <span data-i18n="intimidation-core">Intimidation <span>(Cha)</span></span>
-                    <span>+</span><input type="text" class="num" name="attr_intimidation_flat" value="0" placeholder="0" title="@{intimidation_flat}">
+                    <span>Healing</span>
+                    <span>+</span><input type="text" class="num" name="attr_healing_flat" value="0" placeholder="0" title="@{healing_flat}">
                 </div>
                 <div class="row skill">
-                    <select name="attr_investigation_type"><option value="1" selected="selected" data-i18n="normal">Normal</option><option value="2" data-i18n="expirtise">Expertise</option></select>
-                    <span data-i18n="investigation-core">Investigation <span>(Int)</span></span>
-                    <span>+</span><input type="text" class="num" name="attr_investigation_flat" value="0" placeholder="0" title="@{investigation_flat}">
+                    <span>Infernal Lore</span>
+                    <span>+</span><input type="text" class="num" name="attr_infernal_lore_flat" value="0" placeholder="0" title="@{infernal_lore_flat}">
                 </div>
                 <div class="row skill">
-                    <select name="attr_medicine_type"><option value="1" selected="selected" data-i18n="normal">Normal</option><option value="2" data-i18n="expirtise">Expertise</option></select>
-                    <span data-i18n="medicine-core">Medicine <span>(Wis)</span></span>
-                    <span>+</span><input type="text" class="num" name="attr_medicine_flat" value="0" placeholder="0" title="@{medicine_flat}">
+                    <span>Perform <span>(Cha)</span></span>
+                    <span>+</span><input type="text" class="num" name="attr_perform_flat" value="0" placeholder="0" title="@{perform_flat}">
                 </div>
                 <div class="row skill">
-                    <select name="attr_nature_type"><option value="1" selected="selected" data-i18n="normal">Normal</option><option value="2" data-i18n="expirtise">Expertise</option></select>
-                    <span data-i18n="nature-core">Nature <span>(Int)</span></span>
-                    <span>+</span><input type="text" class="num" name="attr_nature_flat" value="0" placeholder="0" title="@{nature_flat}">
+                    <span>Poison Use</span>
+                    <span>+</span><input type="text" class="num" name="attr_poison_use_flat" value="0" placeholder="0" title="@{poison_use_flat}">
                 </div>
                 <div class="row skill">
-                    <select name="attr_perception_type"><option value="1" selected="selected" data-i18n="normal">Normal</option><option value="2" data-i18n="expirtise">Expertise</option></select>
-                    <span data-i18n="perception-core">Perception <span>(Wis)</span></span>
-                    <span>+</span><input type="text" class="num" name="attr_perception_flat" value="0" placeholder="0" title="@{perception_flat}">
+                    <span>Prestidigitation</span>
+                    <span>+</span><input type="text" class="num" name="attr_prestidigitation_flat" value="0" placeholder="0" title="@{prestidigitation_flat}">
                 </div>
                 <div class="row skill">
-                    <select name="attr_performance_type"><option value="1" selected="selected" data-i18n="normal">Normal</option><option value="2" data-i18n="expirtise">Expertise</option></select>
-                    <span data-i18n="performance-core">Performance <span>(Cha)</span></span>
-                    <span>+</span><input type="text" class="num" name="attr_performance_flat" value="0" placeholder="0" title="@{performance_flat}">
-                </div>
-                <div class="row skill">
-                    <select name="attr_persuasion_type"><option value="1" selected="selected" data-i18n="normal">Normal</option><option value="2" data-i18n="expirtise">Expertise</option></select>
-                    <span data-i18n="persuasion-core">Persuasion <span>(Cha)</span></span>
-                    <span>+</span><input type="text" class="num" name="attr_persuasion_flat" value="0" placeholder="0" title="@{persuasion_flat}">
-                </div>
-                <div class="row skill">
-                    <select name="attr_religion_type"><option value="1" selected="selected" data-i18n="normal">Normal</option><option value="2" data-i18n="expirtise">Expertise</option></select>
-                    <span data-i18n="religion-core">Religion <span>(Int)</span></span>
-                    <span>+</span><input type="text" class="num" name="attr_religion_flat" value="0" placeholder="0" title="@{religion_flat}">
-                </div>
-                <div class="row skill">
-                    <select name="attr_sleight_of_hand_type"><option value="1" selected="selected" data-i18n="normal">Normal</option><option value="2" data-i18n="expirtise">Expertise</option></select>
-                    <span data-i18n="sleight-of-hand-core">Sleight of Hand <span>(Dex)</span></span>
-                    <span>+</span><input type="text" class="num" name="attr_sleight_of_hand_flat" value="0" placeholder="0" title="@{sleight_of_hand_flat}">
-                </div>
-                <div class="row skill">
-                    <select name="attr_stealth_type"><option value="1" selected="selected" data-i18n="normal">Normal</option><option value="2" data-i18n="expirtise">Expertise</option></select>
-                    <span data-i18n="stealth-core">Stealth <span>(Dex)</span></span>
+                    <span>Stealth</span>
                     <span>+</span><input type="text" class="num" name="attr_stealth_flat" value="0" placeholder="0" title="@{stealth_flat}">
                 </div>
                 <div class="row skill">
-                    <select name="attr_survival_type"><option value="1" selected="selected" data-i18n="normal">Normal</option><option value="2" data-i18n="expirtise">Expertise</option></select>
-                    <span data-i18n="survival-core">Survival <span>(Wis)</span></span>
+                    <span>Survival</span>
                     <span>+</span><input type="text" class="num" name="attr_survival_flat" value="0" placeholder="0" title="@{survival_flat}">
                 </div>
-                <div class="row" style="margin-top:10px;">
-                    <input type="checkbox" name="attr_jack_of_all_trades" value="(floor(@{pb}/2))">
-                    <span data-i18n="jack-of-all-u">JACK OF ALL TRADES</span>
-                </div>
                 <div class="row title">
-                    <span data-i18n="skill-opts-u">SKILL OPTIONS</span>
+                    <span>SKILL OPTIONS</span>
                 </div>
             </div>
         </div>
@@ -2235,7 +2176,7 @@
 		setlevel();
     });
 	
-    on("change:level", function (){
+    on("change:level change:previous_level", function (){
 		updatehb();
     })
     
@@ -2970,8 +2911,10 @@
 	}
 	
 		var updatehb = function () {
-		getAttrs(["level"], function(v) {
-		var lvl = parseInt(v.level, 10);
+		getAttrs(["level", "previous_level"], function(v) {
+		var blvl = parseInt(v.level, 10);
+		var plvl = parseInt(v.previous_level, 10);
+		var lvl = blvl + plvl
 		var guess0 = 0;
 		var guess1 = 0;
 		var guess2 = 0;

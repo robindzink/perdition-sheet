@@ -994,7 +994,6 @@ button.sheet-attacks-saving-throws {
     border-radius: 5px;
     width: 238px;
     text-align: center;
-    margin-left: -20px;
 }
 
 .sheet-cantrips span {
@@ -2257,4 +2256,3 @@ button.sheet-attacks-saving-throws {
 .lang-es input[type=radio].sheet-tab-button.sheet-spells + span {
     right: 21px;
     width: 78px;
-}
