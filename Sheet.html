@@ -57,7 +57,7 @@
             </div>
             <div class="bottom">
                 <div class="hlabel-container">
-					<select  name="attr_race" style="width: 64px;">
+					<select  name="attr_race" style="width: 64px; height: 19px; padding: 0px;">
                         <option value="Black Orc">Black Orc</option>
                         <option value="Bogill">Bogill</option>
                         <option value="Devilkin">Devilkin</option>
@@ -69,7 +69,7 @@
                     <span class="label">RACE</span>
                 </div>
                 <div class="hlabel-container">
-					<select name="attr_size" style="width: 64px;">
+					<select name="attr_size" style="width: 64px; height: 19px; padding: 0px;">
                         <option value="medium">Medium</option>
                         <option value="large">Large</option>
                     </select>
@@ -210,8 +210,8 @@
 							<option value="1d10">Expert</option>
 							<option value="1d12">Mastered</option>
 						</select>
-                        <button type="roll" name="roll_alchemy" value="@{wtype}&{template:simple} {{rname=ALCHEMY}} {{mod=[[[[@{cunning_mod}]][DEC]]]}} {{r1=[[@{alchemy_prof}+[[@{cunning_mod}]]-[[floor(@{affliction}/2)]][ALCHEMY+CUNNING]]]}} @{charname_output}" >Alchemy <span>(Cun)</span></button>
-                    </div>
+                        <button type="roll" name="roll_alchemy" value="@{wtype}&{template:simple} {{rname=ALCHEMY}} {{mod=[[[[@{cunning_mod}]][DEC]]]}} {{r1=[[@{alchemy_prof}@{alchemy_flat}+@{cunning_mod}-[[floor(@{affliction}/2)]][ALCHEMY+CUNNING]]]}} @{charname_output}" >Alchemy</span>
+					</div>
                     <div class="skill">
 						<select class="hiding" name="attr_arcana_prof" title="@{arcana_prof}">
 							<option value="1d6">Unskilled</option>
@@ -219,8 +219,8 @@
 							<option value="1d10">Expert</option>
 							<option value="1d12">Mastered</option>
 						</select>
-                        <button type="roll" name="roll_arcana" value="@{wtype}&{template:simple} {{rname=ARCANA}} {{mod=[[[[@{ego_mod}]][HIS]]]}} {{r1=[[@{arcana_prof}-[[floor(@{affliction}/2)]][ARCANA]]]}} @{charname_output}">Arcana <span></span></button>
-                    </div>
+                        <button type="roll" name="roll_arcana" value="@{wtype}&{template:simple} {{rname=ARCANA}} {{mod=[[[[@{ego_mod}]][HIS]]]}} {{r1=[[@{arcana_prof}+@{arcana_flat}-[[floor(@{affliction}/2)]][ARCANA]]]}} @{charname_output}">Arcana</button>
+					</div>
                     <div class="skill">
 						<select class="hiding" name="attr_athletics_prof" title="@{athletics_prof}">
 							<option value="1d6">Unskilled</option>
@@ -228,8 +228,8 @@
 							<option value="1d10">Expert</option>
 							<option value="1d12">Mastered</option>
 						</select>
-                        <button type="roll" name="roll_athletics" value="@{wtype}&{template:simple} {{rname=ATHLETICS}} {{mod=[[[[@{physique_mod}]][ATH]]]}} {{r1=[[@{athletics_prof}+[[@{physique_mod}]]-[[floor(@{affliction}/2)]][SKILL+PHYSIQUE]]]}} @{charname_output}">Athletics <span>(Phs)</span></button>
-                    </div>
+                        <button type="roll" name="roll_athletics" value="@{wtype}&{template:simple} {{rname=ATHLETICS}} {{mod=[[[[@{physique_mod}]][ATH]]]}} {{r1=[[@{athletics_prof}+@{athletics_flat}+@{physique_mod}-[[floor(@{affliction}/2)]][SKILL+PHYSIQUE]]]}} @{charname_output}">Athletics</button>
+					</div>
                     <div class="skill">
 						<select class="hiding" name="attr_bureaucracy_prof" title="@{bureaucracy_prof}">
 							<option value="1d6">Unskilled</option>
@@ -237,8 +237,8 @@
 							<option value="1d10">Expert</option>
 							<option value="1d12">Mastered</option>
 						</select>
-                        <button type="roll" name="roll_bureaucracy" value="@{wtype}&{template:simple} {{rname=BUREAUCRACY}} {{mod=[[[[@{ego_mod}]][CUN]]]}} {{r1=[[@{bureaucracy_prof}+[[@{ego_mod}]]-[[floor(@{affliction}/2)]][BUREAUCRACY+EGO]]]}} @{charname_output}">Bureaucracy <span>(Ego)</span></button>
-                    </div>
+                        <button type="roll" name="roll_bureaucracy" value="@{wtype}&{template:simple} {{rname=BUREAUCRACY}} {{mod=[[[[@{ego_mod}]][CUN]]]}} {{r1=[[@{bureaucracy_prof}+@{bureaucracy_flat}+@{ego_mod}-[[floor(@{affliction}/2)]][BUREAUCRACY+EGO]]]}} @{charname_output}">Bureaucracy</span></button>
+					</div>
                     <div class="skill">
 						<select class="hiding" name="attr_craft_prof" title="@{craft_prof}">
 							<option value="1d6">Unskilled</option>
@@ -246,8 +246,8 @@
 							<option value="1d10">Expert</option>
 							<option value="1d12">Mastered</option>
 						</select>
-                        <button type="roll" name="roll_craft" value="@{wtype}&{template:simple} {{rname=CRAFT}} {{mod=[[[[@{ego_mod}]][EGO]]]}} {{r1=[[@{craft_prof}-[[floor(@{affliction}/2)]][CRAFT+EGO]]]}} @{charname_output}">Craft <span></span></button>
-                    </div>
+                        <button type="roll" name="roll_craft" value="@{wtype}&{template:simple} {{rname=CRAFT}} {{mod=[[[[@{ego_mod}]][EGO]]]}} {{r1=[[@{craft_prof}+@{craft_flat}-[[floor(@{affliction}/2)]][CRAFT+EGO]]]}} @{charname_output}">Craft (<span name="attr_craft_type"></span>)</button>
+				    </div>
                     <div class="skill">
 						<select class="hiding" name="attr_devices_prof" title="@{devices_prof}">
 							<option value="1d6">Unskilled</option>
@@ -255,8 +255,8 @@
 							<option value="1d10">Expert</option>
 							<option value="1d12">Mastered</option>
 						</select>
-                        <button type="roll" name="roll_devices" value="@{wtype}&{template:simple} {{rname=DEVICES}} {{mod=[[[[@{cunning_mod}]][CUN]]]}} {{r1=[[@{devices_prof}+[[@{cunning_mod}]]-[[floor(@{affliction}/2)]][DEVICES+CUN]]]}} @{charname_output}">Devices <span>(Cun)</span></button>
-                    </div>
+                        <button type="roll" name="roll_devices" value="@{wtype}&{template:simple} {{rname=DEVICES}} {{mod=[[[[@{cunning_mod}]][CUN]]]}} {{r1=[[@{devices_prof}+@{devices_flat}+@{cunning_mod}-[[floor(@{affliction}/2)]][DEVICES+CUN]]]}} @{charname_output}">Devices</button>
+					</div>
                     <div class="skill">
 						<select class="hiding" name="attr_healing_prof" title="@{healing_prof}">
 							<option value="1d6">Unskilled</option>
@@ -264,8 +264,8 @@
 							<option value="1d10">Expert</option>
 							<option value="1d12">Mastered</option>
 						</select>
-                        <button type="roll" name="roll_healing" value="@{wtype}&{template:simple} {{rname=HEALING}} {{mod=[[[[@{cunning_mod}]][CUN]]]}} {{r1=[[@{healing_prof}-[[floor(@{affliction}/2)]][HEALING+EGO]]]}} @{charname_output}">Healing <span></span></button>
-                    </div>
+                        <button type="roll" name="roll_healing" value="@{wtype}&{template:simple} {{rname=HEALING}} {{mod=[[[[@{cunning_mod}]][CUN]]]}} {{r1=[[@{healing_prof}+@{healing_flat}-[[floor(@{affliction}/2)]][HEALING+EGO]]]}} @{charname_output}">Healing</button>
+					</div>
                     <div class="skill">
 						<select class="hiding"  name="attr_infernal_lore_prof" title="@{infernal_lore_prof}">
 							<option value="1d6">Unskilled</option>
@@ -273,8 +273,8 @@
 							<option value="1d10">Expert</option>
 							<option value="1d12">Mastered</option>
 						</select>
-                        <button type="roll" name="roll_infernal_lore" value="@{wtype}&{template:simple} {{rname=INFERNAL LORE}} {{mod=[[[[@{cunning_mod}]][CUN]]]}} {{r1=[[@{infernal_lore_prof}-[[floor(@{affliction}/2)]][INFERNAL LORE]]]}} @{charname_output}">Infernal Lore <span></span></button>
-                    </div>
+                        <button type="roll" name="roll_infernal_lore" value="@{wtype}&{template:simple} {{rname=INFERNAL LORE}} {{mod=[[[[@{cunning_mod}]][CUN]]]}} {{r1=[[@{infernal_lore_prof}+@{infernal_lore_flat}-[[floor(@{affliction}/2)]][INFERNAL LORE]]]}} @{charname_output}">Infernal Lore</button>
+					</div>
                     <div class="skill">
 						<select class="hiding"  name="attr_perform_prof" title="@{perform_prof}">
 							<option value="1d6">Unskilled</option>
@@ -282,8 +282,8 @@
 							<option value="1d10">Expert</option>
 							<option value="1d12">Mastered</option>
 						</select>
-                        <button type="roll" name="roll_perform" value="@{wtype}&{template:simple} {{rname=PERFORM}} {{mod=[[[[@{charisma_mod}]][CHA]]]}} {{r1=[[@{perform_prof}+[[@{charisma_mod}]]-[[floor(@{affliction}/2)]][PERFORM+CHA]]]}} @{charname_output}">Perform <span>(Cha)</span></button>
-                    </div>
+                        <button type="roll" name="roll_perform" value="@{wtype}&{template:simple} {{rname=PERFORM}} {{mod=[[[[@{charisma_mod}]][CHA]]]}} {{r1=[[@{perform_prof}+@{perform_flat}+@{charisma_mod}-[[floor(@{affliction}/2)]][PERFORM+CHA]]]}} @{charname_output}">Perform (<span name="attr_perform_type"></span>)</span></button>
+					</div>
                     <div class="skill">
 						<select class="hiding"  name="attr_poison_use_prof" title="@{poison_use_prof}">
 							<option value="1d6">Unskilled</option>
@@ -291,8 +291,8 @@
 							<option value="1d10">Expert</option>
 							<option value="1d12">Mastered</option>
 						</select>
-                        <button type="roll" name="roll_perform" value="@{wtype}&{template:simple} {{rname=POISON USE}} {{mod=[[[[@{charisma_mod}]][CHA]]]}} {{r1=[[@{poison_use_prof}-[[floor(@{affliction}/2)]][POISON USE]]]}} @{charname_output}">Poison Use <span></span></button>
-                    </div>
+                        <button type="roll" name="roll_perform" value="@{wtype}&{template:simple} {{rname=POISON USE}} {{mod=[[[[@{charisma_mod}]][CHA]]]}} {{r1=[[@{poison_use_prof}+@{poison_use_flat}-[[floor(@{affliction}/2)]][POISON USE]]]}} @{charname_output}">Poison Use</button>
+					</div>
                     <div class="skill">
 						<select class="hiding"  name="attr_prestidigitation_prof" title="@{prestidigitation_prof}">
 							<option value="1d6">Unskilled</option>
@@ -300,8 +300,17 @@
 							<option value="1d10">Expert</option>
 							<option value="1d12">Mastered</option>
 						</select>
-                        <button type="roll" name="roll_prestidigitation" value="@{wtype}&{template:simple} {{rname=PRESTIDIGITATION}} {{mod=[[[[@{charisma_mod}]][CHA]]]}} {{r1=[[@{prestidigitation_prof}-[[floor(@{affliction}/2)]][PRESTIDIGITATION]]]}} @{charname_output}">Prestidigitation <span></span></button>
-                    </div>
+                        <button type="roll" name="roll_prestidigitation" value="@{wtype}&{template:simple} {{rname=PRESTIDIGITATION}} {{mod=[[[[@{charisma_mod}]][CHA]]]}} {{r1=[[@{prestidigitation_prof}+@{prestidigitation_flat}-[[floor(@{affliction}/2)]][PRESTIDIGITATION]]]}} @{charname_output}">Prestidigitation</button>
+					</div>
+                    <div class="skill">
+						<select class="hiding"  name="attr_profession_prof" title="@{profession_prof}">
+							<option value="1d6">Unskilled</option>
+							<option value="1d8">Skilled</option>
+							<option value="1d10">Expert</option>
+							<option value="1d12">Mastered</option>
+						</select>
+                        <button type="roll" name="roll_profession" value="@{wtype}&{template:simple} {{rname=PROFESSION}} {{mod=[[[[@{charisma_mod}]][CHA]]]}} {{r1=[[@{profession_prof}+@{profession_flat}-[[floor(@{affliction}/2)]][PROFESSION]]]}} @{charname_output}">Profession (<span name="attr_profession_type"></span>)</button>
+					</div>
                     <div class="skill">
 						<select class="hiding"  name="attr_stealth_prof" title="@{stealth_prof}">
 							<option value="1d6">Unskilled</option>
@@ -309,8 +318,8 @@
 							<option value="1d10">Expert</option>
 							<option value="1d12">Mastered</option>
 						</select>
-                        <button type="roll" name="roll_stealth" value="@{wtype}&{template:simple} {{rname=STEALTH}} {{mod=[[[[@{charisma_mod}]][CHA]]]}} {{r1=[[@{stealth_prof}-[[floor(@{affliction}/2)]][STEALTH-ARMOR]]]}} @{charname_output}">Stealth <span></span></button>
-                    </div>
+                        <button type="roll" name="roll_stealth" value="@{wtype}&{template:simple} {{rname=STEALTH}} {{mod=[[[[@{charisma_mod}]][CHA]]]}} {{r1=[[@{stealth_prof}+@{stealth_flat}-[[floor(@{affliction}/2)]][STEALTH-ARMOR]]]}} @{charname_output}">Stealth</button>
+					</div>
                     <div class="skill">
 						<select class="hiding"  name="attr_survival_prof" title="@{survival_prof}">
 							<option value="1d6">Unskilled</option>
@@ -318,8 +327,8 @@
 							<option value="1d10">Expert</option>
 							<option value="1d12">Mastered</option>
 						</select>
-                        <button type="roll" name="roll_survival" value="@{wtype}&{template:simple} {{rname=SURVIVAL}} {{mod=[[[[@{charisma_mod}]][CHA]]]}} {{r1=[[@{survival_prof}-[[floor(@{affliction}/2)]][SURVIVAL]]]}} @{charname_output}">Survival <span></span></button>
-                    </div>
+                        <button type="roll" name="roll_survival" value="@{wtype}&{template:simple} {{rname=SURVIVAL}} {{mod=[[[[@{charisma_mod}]][CHA]]]}} {{r1=[[@{survival_prof}+@{survival_flat}-[[floor(@{affliction}/2)]][SURVIVAL]]]}} @{charname_output}">Survival (<span name="attr_survival_type"></span>)</button>
+					</div>
                     <div class="label">
                         <span>SKILLS</span>
                     </div>
@@ -594,7 +603,7 @@
                 <div class="complex">
                     <input type="hidden" class="warningflag" name="attr_armorwarningflag">
                     <div class="warning">
-                        <span data-i18n="warning-armor-sets-u">
+                        <span>
                             <input type="checkbox" name="attr_armorwarning" value="hide">
                             WARNING - MULTIPLE SETS OF ARMOR OR SHIELDS HAVE BEEN ADDED AND AC IS NOT CORRECTLY CALCULATED. UNEQUIP THE ARMOR PIECE FROM THE ITEM DETAILS.
                         </span>
@@ -610,7 +619,7 @@
                             <input class="itemcount" type="text" name="attr_itemcount" value="1">
                             <input class="name" type="text" name="attr_itemname">
 							<select class="weight" name="attr_itemweight">
-								<option value="0.01">Bundle</option>
+								<option value="0.05">Bundle</option>
 								<option value="1" selected="selected">Light</option>
 								<option value="2">Encumbering</option>
 								<option value="4">Heavy</option>
@@ -1424,56 +1433,74 @@
         <div class="col col2">
             <div class="skill_options" style="width: 234px;">
                 <div class="row skill">
-                    <span>Alchemy <span>(Cun)</span></span>
-                    <span>+</span><input type="text" class="num" name="attr_alchemy_flat" value="0" placeholder="0" title="@{alchemy_flat}">
+                    <span>Alchemy</span>
+                    <span name="attr_alchemy_prof"></span>
+					<span>+</span><input type="text" class="num" name="attr_alchemy_flat" value="0" title="@{alchemy_flat}">
                 </div>
                 <div class="row skill">
                     <span>Arcana</span>
-                    <span>+</span><input type="text" class="num" name="attr_arcana_flat" value="0" placeholder="0" title="@{arcana_flat}">
+                    <span name ="attr_arcana_prof"></span>
+					<span>+</span><input type="text" class="num" name="attr_arcana_flat" value="0" title="@{arcana_flat}">
                 </div>
                 <div class="row skill">
-                    <span>Athletics <span>(Phys)</span></span>
-                    <span>+</span><input type="text" class="num" name="attr_athletics_flat" value="0" placeholder="0" title="@{athletics_flat}">
+                    <span>Athletics</span>
+                    <span name="attr_athletics_prof"></span>
+					<span>+</span><input type="text" class="num" name="attr_athletics_flat" value="0" title="@{athletics_flat}">
                 </div>
                 <div class="row skill">
-                    <span>Bureaucracy <span>(Ego)</span></span>
-                    <span>+</span><input type="text" class="num" name="attr_bureaucracy_flat" value="0" placeholder="0" title="@{bureaucracy_flat}">
+                    <span>Bureaucracy</span>
+                    <span name="attr_bureaucracy_prof"></span>
+					<span>+</span><input type="text" class="num" name="attr_bureaucracy_flat" value="0" title="@{bureaucracy_flat}">
                 </div>
                 <div class="row skill">
-                    <span>Craft</span>
-                    <span>+</span><input type="text" class="num" name="craft" value="0" placeholder="0" title="@{craft_flat}">
+                    <span>Craft (</span><input type="text" name="attr_craft_type" value="item" style="width:60px; font-size:9px; text-align:center;"><span>)</span>
+                    <span name="attr_craft_prof"></span>
+					<span>+</span><input type="text" class="num" name="attr_craft_flat" value="0" title="@{craft_flat}">
                 </div>
                 <div class="row skill">
-                    <span>Devices <span>(Cun)</span></span>
-                    <span>+</span><input type="text" class="num" name="attr_devices_flat" value="0" placeholder="0" title="@{devices_flat}">
+                    <span>Devices</span>
+                    <span name="attr_devices_prof"></span>
+					<span>+</span><input type="text" class="num" name="attr_devices_flat" value="0" title="@{devices_flat}">
                 </div>
                 <div class="row skill">
                     <span>Healing</span>
-                    <span>+</span><input type="text" class="num" name="attr_healing_flat" value="0" placeholder="0" title="@{healing_flat}">
+					<span name="attr_healing_prof"></span>
+                    <span>+</span><input type="text" class="num" name="attr_healing_flat" value="0" title="@{healing_flat}">
                 </div>
                 <div class="row skill">
                     <span>Infernal Lore</span>
-                    <span>+</span><input type="text" class="num" name="attr_infernal_lore_flat" value="0" placeholder="0" title="@{infernal_lore_flat}">
+					<span name="attr_infernal_lore_prof"></span>
+                    <span>+</span><input type="text" class="num" name="attr_infernal_lore_flat" value="0" title="@{infernal_lore_flat}">
                 </div>
                 <div class="row skill">
-                    <span>Perform <span>(Cha)</span></span>
-                    <span>+</span><input type="text" class="num" name="attr_perform_flat" value="0" placeholder="0" title="@{perform_flat}">
+                    <span>Perform (</span><input type="text" name="attr_perform_type" value="instrument"  style="width:60px; font-size:9px; text-align:center;"><span>)</span>
+                    <span name="attr_perform_prof"></span>
+					<span>+</span><input type="text" class="num" name="attr_perform_flat" value="0" title="@{perform_flat}">
                 </div>
                 <div class="row skill">
                     <span>Poison Use</span>
-                    <span>+</span><input type="text" class="num" name="attr_poison_use_flat" value="0" placeholder="0" title="@{poison_use_flat}">
+                    <span name="attr_poison_use_prof"></span>
+					<span>+</span><input type="text" class="num" name="attr_poison_use_flat" value="0" title="@{poison_use_flat}">
                 </div>
                 <div class="row skill">
                     <span>Prestidigitation</span>
-                    <span>+</span><input type="text" class="num" name="attr_prestidigitation_flat" value="0" placeholder="0" title="@{prestidigitation_flat}">
+                    <span name="attr_prestidigitation_prof"></span>
+					<span>+</span><input type="text" class="num" name="attr_prestidigitation_flat" value="0" title="@{prestidigitation_flat}">
+                </div>
+				<div class="row skill">
+                    <span>Profession (</span><input type="text" name="attr_profession_type" value="job" style="width:60px; font-size:9px; text-align:center;"><span>)</span>
+                    <span name="attr_profession_prof"></span>
+					<span>+</span><input type="text" class="num" name="attr_profession_flat" value="0" title="@{profession__flat}">
                 </div>
                 <div class="row skill">
                     <span>Stealth</span>
-                    <span>+</span><input type="text" class="num" name="attr_stealth_flat" value="0" placeholder="0" title="@{stealth_flat}">
+					<span name="attr_stealth_prof"></span>
+                    <span>+</span><input type="text" class="num" name="attr_stealth_flat" value="0" title="@{stealth_flat}">
                 </div>
                 <div class="row skill">
-                    <span>Survival</span>
-                    <span>+</span><input type="text" class="num" name="attr_survival_flat" value="0" placeholder="0" title="@{survival_flat}">
+                    <span>Survival (</span><input type="text" name="attr_survival_type" value="terrain" style="width:60px; font-size:9px; text-align:center;"><span>)</span>
+                    <span name="attr_survival_prof"></span>
+					<span>+</span><input type="text" class="num" name="attr_survival_flat" value="0" title="@{survival_flat}">
                 </div>
                 <div class="row title">
                     <span>SKILL OPTIONS</span>
@@ -2998,7 +3025,7 @@
                                 wtotal = wtotal + (parseFloat(v["repeating_inventory_" + currentID + "_itemweight"]) * count);
                             }
                             if(i === idarray.length - 1) {
-                                itemslots = phys - wtotal;
+                                itemslots = Math.floor(phys - wtotal);
 								setAttrs({weighttotal: wtotal});
 								setAttrs({itemslots: itemslots});
                             }
@@ -3007,7 +3034,7 @@
                 }
                 else {
                     setAttrs({weighttotal: wtotal});
-					itemslots = phys - wtotal;
+					itemslots = Math.floor(phys - wtotal);
 					setAttrs({itemslots: itemslots});
                 }
                 
@@ -3446,8 +3473,9 @@
                         update["racialsocialattackmod"] = 0;
 						update["racialpacmod"] = 0;
 						update["racialmacmod"] = 0;
-						update["movement"] = "12''";
+						update["movement"] = 12;
 						update["size"] = 0;
+						update["stealth_flat"] = 0;
                         break;
                     case "Bogill":
                         update["racialphysattackmod"] = 0;
@@ -3456,8 +3484,9 @@
                         update["racialsocialattackmod"] = 0;
 						update["racialpacmod"] = 0;
 						update["racialmacmod"] = 0;
-						update["movement"] = "15''";
+						update["movement"] = 15;
 						update["size"] = 1;
+						update["stealth_flat"] = 1;
                         break;
                     case "Devilkin":
                         update["racialphysattackmod"] = 0;
@@ -3466,8 +3495,9 @@
                         update["racialsocialattackmod"] = 2;
 						update["racialpacmod"] = 0;
 						update["racialmacmod"] = 1;
-						update["movement"] = "12''";
+						update["movement"] = 12;
 						update["size"] = 0;
+						update["stealth_flat"] = 0;
                         break;
                     case "Giant":
                         update["racialphysattackmod"] = 4;
@@ -3476,8 +3506,9 @@
                         update["racialsocialattackmod"] = 0;
 						update["racialpacmod"] = 0;
 						update["racialmacmod"] = 0;
-						update["movement"] = "15''";
+						update["movement"] = 15;
 						update["size"] = 1;
+						update["stealth_flat"] = 0;
                         break;
                     case "Human":
                         update["racialphysattackmod"] = 0;
@@ -3486,8 +3517,9 @@
                         update["racialsocialattackmod"] = 0;
 						update["racialpacmod"] = 0;
 						update["racialmacmod"] = 0;
-						update["movement"] = "12''";
+						update["movement"] = 12;
 						update["size"] = 0;
+						update["stealth_flat"] = 0;
                         break;
 					case "Hobgoblin":
                         update["racialphysattackmod"] = 4;
@@ -3496,8 +3528,9 @@
                         update["racialsocialattackmod"] = 0;
 						update["racialpacmod"] = 2;
 						update["racialmacmod"] = 0;
-						update["movement"] = "12''";
+						update["movement"] = 12;
 						update["size"] = 0;
+						update["stealth_flat"] = 0;
                         break;
 					case "Red Troll":
                         update["racialphysattackmod"] = 0;
@@ -3506,8 +3539,9 @@
                         update["racialsocialattackmod"] = 0;
 						update["racialpacmod"] = 1;
 						update["racialmacmod"] = 1;
-						update["movement"] = "12''";
+						update["movement"] = 12;
 						update["size"] = 0;
+						update["stealth_flat"] = 0;
                         break;
                 }
                 setAttrs(update);
