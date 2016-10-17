@@ -23,7 +23,7 @@
 <div class="page core">
     <div class="header">
         <div class="name-container">
-            <img src="http://i.imgur.com/ZgULBCp.png" style="padding-bottom: 5px;">
+            <span style="color: #EC2127; letter-spacing: 3px; font-size: 40px; font-weight: lighter; padding-bottom: 25px;">PERDITION</span>
             <input type="text" name="attr_character_name" style="width: 100%;">
             <span class="label">CHARACTER NAME</span>
         </div>
@@ -70,8 +70,8 @@
                 </div>
                 <div class="hlabel-container">
 					<select name="attr_size" style="width: 64px; height: 19px; padding: 0px;">
-                        <option value="medium">Medium</option>
-                        <option value="large">Large</option>
+                        <option value="0">Medium</option>
+                        <option value="1">Large</option>
                     </select>
                     <span class="label">SIZE</span>
                 </div>
@@ -360,7 +360,7 @@
                     <span class="label pc-ac">INITIATIVE MOD</span>
 					</div>
                 <div class="speed">
-                    <input type="text" name="attr_movement" title="@{movement}">
+                    <input type="text" name="attr_speed" title="@{speed}">
                     <span class="label">SPEED</span>
                 </div>
             </div>
@@ -619,8 +619,9 @@
                             <input class="itemcount" type="text" name="attr_itemcount" value="1">
                             <input class="name" type="text" name="attr_itemname">
 							<select class="weight" name="attr_itemweight">
+								<option value="0">-</option>
 								<option value="0.05">Bundle</option>
-								<option value="1" selected="selected">Light</option>
+								<option value="1" >Light</option>
 								<option value="2">Encumbering</option>
 								<option value="4">Heavy</option>
 								<option value="10">Unwieldy</option>
@@ -716,7 +717,7 @@
 <div class="page spells">
     <div class="header">
         <div class="name-container">
-            <img src="http://i.imgur.com/ZgULBCp.png" style="padding-bottom: 5px;">
+            <span style="color: #EC2127; letter-spacing: 3px; font-size: 40px; font-weight: lighter; padding-bottom: 25px;">PERDITION</span>
             <input type="text" name="attr_character_name" style="width: 100%;">
             <span class="label">CHARACTER NAME</span>
         </div>
@@ -797,7 +798,7 @@
                             <div class="row">
                                 <span>NAME:</span>
                                 <input type="text" name="attr_spellname_base" accept="Name">
-                                <input type="checkbox" name="attr_spellprepared" value="1" checked="checked">
+                                <input type="checkbox" name="attr_spellprepared" value="1">
                                 <span>LOST</span>
                             </div>
                             <div class="row">
@@ -899,7 +900,7 @@
                             <div class="row">
                                 <span>NAME:</span>
                                 <input type="text" name="attr_spellname_base" accept="Name">
-                                <input type="checkbox" name="attr_spellprepared" value="1" checked="checked">
+                                <input type="checkbox" name="attr_spellprepared" value="1">
                                 <span>LOST</span>
                             </div>
                             <div class="row">
@@ -1001,7 +1002,7 @@
                             <div class="row">
                                 <span>NAME:</span>
                                 <input type="text" name="attr_spellname_base" accept="Name">
-                                <input type="checkbox" name="attr_spellprepared" value="1" checked="checked">
+                                <input type="checkbox" name="attr_spellprepared" value="1">
                                 <span>LOST</span>
                             </div>
                             <div class="row">
@@ -1106,7 +1107,7 @@
                             <div class="row">
                                 <span>NAME:</span>
                                 <input type="text" name="attr_spellname_base" accept="Name">
-                                <input type="checkbox" name="attr_spellprepared" value="1" checked="checked">
+                                <input type="checkbox" name="attr_spellprepared" value="1">
                                 <span>LOST</span>
                             </div>
                             <div class="row">
@@ -1276,52 +1277,31 @@
 <div class="page options">
     <div class="header">
         <div class="name-container">
-            <img src="http://i.imgur.com/ZgULBCp.png" style="padding-bottom: 5px;">
+            <span style="color: #EC2127; letter-spacing: 3px; font-size: 40px; font-weight: lighter; padding-bottom: 25px;">PERDITION</span>
             <input type="text" name="attr_character_name" style="width: 100%;">
             <span class="label">CHARACTER NAME</span>
-        </div>
+        </div>        
         <div class="header-info">
             <div class="top">
                 <div class="hlabel-container">
                     <input class="flag" type="hidden" name="attr_customclass_flag" value="0">
                     <input class="showing" type="text" name="attr_cust_class" value="@{cust_classname}" disabled="true" style="width: 64px; height: 28px; padding-top: 10px;">
-                    <select class="hiding" name="attr_class" style="width: 64px;">
-                        <option value="Thug">Thug</option>
-                        <option value="Inheritor">Inheritor</option>
-                        <option value="Inquisitor">Inquisitor</option>
-                        <option value="Druid">Druid</option>
-                        <option value="Heavy Knight">Heavy Knight</option>
-                        <option value="Mystic">Mystic</option>
+                    <select class="hiding" name="attr_class" style="width: 90px;">
                         <option value="Paladin">Paladin</option>
+                        <option value="Heavy Knight">Heavy Knight</option>
+                        <option value="Thug">Thug</option>
+                        <option value="Inquisitor">Inquisitor</option>
                         <option value="Outrider">Outrider</option>
                         <option value="Shroud">Shroud</option>
-                        <option value="Sorcerer">Sorcerer</option>
-                        <option value="Warlock">Warlock</option>
                         <option value="Magus">Magus</option>
+                        <option value="Mystic">Mystic</option>
+                        <option value="Sorcerer">Sorcerer</option>
+                        <option value="Inheritor">Inheritor</option>
+                        <option value="Warlock">Warlock</option>
+                        <option value="Druid">Druid</option>
                     </select>
-                    <input type="number" name="attr_base_level" value="1" style="margin-left: -6px; width: 28px;">
+                    <input type="number" name="attr_level" value="1" style="margin-left: -6px; width: 28px;">
                     <span class="label">CLASS & LEVEL</span>
-                </div>
-                <div class="hlabel-container">
-                    <input class="flag" type="hidden" name="attr_mutliclass1_showingflag" value="0">
-                    <input class="hiding" type="text" disabled="true" style="width: 64px; margin-bottom: 30px;">
-                    <input class="hiding" type="text" disabled="true" style="margin-left: -6px; width: 28px; margin-bottom: 30px;">
-                    <input class="showing" type="text" name="attr_multiclass1_name" value="@{multiclass1}" disabled="true" style="width: 64px; margin-bottom: 30px;">
-                    <input class="showing" type="text" name="attr_multiclass1_level" value="@{multiclass1_lvl}" disabled="true" style="margin-left: -6px; width: 28px; margin-bottom: 30px;">
-                </div>
-                <div class="hlabel-container">
-                    <input class="flag" type="hidden" name="attr_mutliclass2_showingflag" value="0">
-                    <input class="hiding" type="text" disabled="true" style="width: 64px; margin-bottom: 30px;">
-                    <input class="hiding" type="text" disabled="true" style="margin-left: -6px; width: 28px; margin-bottom: 30px;">
-                    <input class="showing" type="text" name="attr_multiclass2_name" value="@{multiclass2}" disabled="true" style="width: 64px; margin-bottom: 30px;">
-                    <input class="showing" type="text" name="attr_multiclass2_level" value="@{multiclass2_lvl}" disabled="true" style="margin-left: -6px; width: 28px; margin-bottom: 30px;">
-                </div>
-                <div class="hlabel-container">
-                    <input class="flag" type="hidden" name="attr_mutliclass3_showingflag" value="0">
-                    <input class="hiding" type="text" disabled="true" style="width: 64px; margin-bottom: 30px;">
-                    <input class="hiding" type="text" disabled="true" style="margin-left: -6px; width: 28px; margin-bottom: 30px;">
-                    <input class="showing" type="text" name="attr_multiclass3_name" value="@{multiclass3}" disabled="true" style="width: 64px; margin-bottom: 30px;">
-                    <input class="showing" type="text" name="attr_multiclass3_level" value="@{multiclass3_lvl}" disabled="true" style="margin-left: -6px; width: 28px; margin-bottom: 30px;">
                 </div>
                 <div class="hlabel-container">
                     <input type="text" name="attr_background" style="width: 122px;">
@@ -1330,11 +1310,22 @@
             </div>
             <div class="bottom">
                 <div class="hlabel-container">
-                    <input type="text" name="attr_race">
+					<select  name="attr_race" style="width: 64px; height: 19px; padding: 0px;">
+                        <option value="Black Orc">Black Orc</option>
+                        <option value="Bogill">Bogill</option>
+                        <option value="Devilkin">Devilkin</option>
+                        <option value="Giant">Giant</option>
+                        <option value="Human">Human</option>
+                        <option value="Hobgoblin">Hobgoblin</option>
+                        <option value="Red Troll">Red Troll</option>
+                    </select>
                     <span class="label">RACE</span>
                 </div>
                 <div class="hlabel-container">
-                    <input type="text" name="attr_alignment">
+					<select name="attr_size" style="width: 64px; height: 19px; padding: 0px;">
+                        <option value="0">Medium</option>
+                        <option value="1">Large</option>
+                    </select>
                     <span class="label">SIZE</span>
                 </div>
                 <div class="hlabel-container">
@@ -1343,7 +1334,7 @@
                 </div>
             </div>
         </div>
-    </div>
+     </div>
     <div class="body">
         <div class="col col1">
             <div class="class_options">
@@ -1511,14 +1502,14 @@
             <div class="general_options">
                 <div class="version">
                     <span >v</span>
-                    <input type="text" name="attr_version" value="1.5">
+                    <input type="text" name="attr_version" value="1.0">
                 </div>
                 <div class="row">
                     <span>ROLL QUERIES:</span>
                     <select name="attr_rtype">
                         <option value="{{query=1}} ?{Advantage?|Normal Roll,&#123&#123normal=1&#125&#125 &#123&#123r2=[[0d20|Advantage,&#123&#123advantage=1&#125&#125 &#123&#123r2=[[1d20|Disadvantage,&#123&#123disadvantage=1&#125&#125 &#123&#123r2=[[1d20}">Query Advantage</option>
                         <option value="{{always=1}} {{r2=[[1d20">Always Roll Advantage</option>
-                        <option value="@{advantagetoggle}">Advantage Toggle</option>
+                        <option value="@{advantagetoggle}" selected="selected">Advantage Toggle</option>
                         <option value="{{normal=1}} {{r2=[[0d20">Never Roll Advantage</option>
                     </select>
                 </div>
@@ -1545,10 +1536,10 @@
                     </select>
                 </div>
                 <div class="row">
-                    <span data-i18n="inventory:-u">INVENTORY:</span>
+                    <span>INVENTORY:</span>
                     <select name="attr_simpleinventory">
-                        <option value="complex" data-i18n="compendium-compatible">Compendium Compatible</option>
-                        <option value="simple" data-i18n="simple">Simple</option>
+                        <option value="complex">Complex</option>
+                        <option value="simple">Simple</option>
                     </select>
                 </div>
                 <div class="row">
@@ -1564,7 +1555,7 @@
                         <option value="on">On</option>
                         <option value="off">Off</option>
                     </select>
-                    <span data-i18n-title="api-required-title" data-i18n="api-required-u" title="Try it now with easy one click API installation available with your Pro subscription." style="color:#666; cursor:help;">(API REQUIRED)</span>
+                    <span  title="YERPEDERPEDERPEDERP." style="color:#666; cursor:help;">(API REQUIRED)</span>
                 </div>
                 <div class="row title">
                     <span>GENERAL OPTIONS</span>
@@ -1575,37 +1566,16 @@
 </div>
 
 <div class="footer" style="font-size: 10px; color: rgb(165, 165, 165);">
-    <span data-i18n="portions-sheet-utilize">
-        Portions of this sheet utilize content from the System Reference Document 5.0 under the OGL License. View OGL License and Copyright Notice. https://wiki.roll20.net/SRD_5.0_OGL_License
-    </span>
+    <span>
+        Large chunks of this sheet were lifted from the Roll20 5th Edition OGL character sheet. Perdition is available for sale at lulu.com
+	</span>
 </div>
 
 </div> <!-- licensecontainer div close -->
 
 <!-- HIDDEN FIELDS -->
-<input type="hidden" name="attr_level" value="1">
-<input type="hidden" name="attr_acrobatics_proficiency" value="(((@{acrobatics_prof} + @{jack_of_all_trades}) + abs(@{acrobatics_prof} - @{jack_of_all_trades})) / 2)" disabled="true">
-<input type="hidden" name="attr_animal_handling_proficiency" value="(((@{animal_handling_prof} + @{jack_of_all_trades}) + abs(@{animal_handling_prof} - @{jack_of_all_trades})) / 2)" disabled="true">
-<input type="hidden" name="attr_arcana_proficiency" value="(((@{arcana_prof} + @{jack_of_all_trades}) + abs(@{arcana_prof} - @{jack_of_all_trades})) / 2)" disabled="true">
-<input type="hidden" name="attr_athletics_proficiency" value="(((@{athletics_prof} + @{jack_of_all_trades}) + abs(@{athletics_prof} - @{jack_of_all_trades})) / 2)" disabled="true">
-<input type="hidden" name="attr_deception_proficiency" value="(((@{deception_prof} + @{jack_of_all_trades}) + abs(@{deception_prof} - @{jack_of_all_trades})) / 2)" disabled="true">
-<input type="hidden" name="attr_history_proficiency" value="(((@{history_prof} + @{jack_of_all_trades}) + abs(@{history_prof} - @{jack_of_all_trades})) / 2)" disabled="true">
-<input type="hidden" name="attr_insight_proficiency" value="(((@{insight_prof} + @{jack_of_all_trades}) + abs(@{insight_prof} - @{jack_of_all_trades})) / 2)" disabled="true">
-<input type="hidden" name="attr_intimidation_proficiency" value="(((@{intimidation_prof} + @{jack_of_all_trades}) + abs(@{intimidation_prof} - @{jack_of_all_trades})) / 2)" disabled="true">
-<input type="hidden" name="attr_investigation_proficiency" value="(((@{investigation_prof} + @{jack_of_all_trades}) + abs(@{investigation_prof} - @{jack_of_all_trades})) / 2)" disabled="true">
-<input type="hidden" name="attr_medicine_proficiency" value="(((@{medicine_prof} + @{jack_of_all_trades}) + abs(@{medicine_prof} - @{jack_of_all_trades})) / 2)" disabled="true">
-<input type="hidden" name="attr_nature_proficiency" value="(((@{nature_prof} + @{jack_of_all_trades}) + abs(@{nature_prof} - @{jack_of_all_trades})) / 2)" disabled="true">
-<input type="hidden" name="attr_perception_proficiency" value="(((@{perception_prof} + @{jack_of_all_trades}) + abs(@{perception_prof} - @{jack_of_all_trades})) / 2)" disabled="true">
-<input type="hidden" name="attr_performance_proficiency" value="(((@{performance_prof} + @{jack_of_all_trades}) + abs(@{performance_prof} - @{jack_of_all_trades})) / 2)" disabled="true">
-<input type="hidden" name="attr_persuasion_proficiency" value="(((@{persuasion_prof} + @{jack_of_all_trades}) + abs(@{persuasion_prof} - @{jack_of_all_trades})) / 2)" disabled="true">
-<input type="hidden" name="attr_religion_proficiency" value="(((@{religion_prof} + @{jack_of_all_trades}) + abs(@{religion_prof} - @{jack_of_all_trades})) / 2)" disabled="true">
-<input type="hidden" name="attr_sleight_of_hand_proficiency" value="(((@{sleight_of_hand_prof} + @{jack_of_all_trades}) + abs(@{sleight_of_hand_prof} - @{jack_of_all_trades})) / 2)" disabled="true">
-<input type="hidden" name="attr_stealth_proficiency" value="(((@{stealth_prof} + @{jack_of_all_trades}) + abs(@{stealth_prof} - @{jack_of_all_trades})) / 2)" disabled="true">
-<input type="hidden" name="attr_survival_proficiency" value="(((@{survival_prof} + @{jack_of_all_trades}) + abs(@{survival_prof} - @{jack_of_all_trades})) / 2)" disabled="true">
-<input type="hidden" name="attr_hitdie_final" value="">
 <input type="hidden" name="attr_weighttotal" value="">
 <input type="hidden" name="attr_globalsavingthrowbonus" value="">
-<input type="hidden" name="attr_halflingluck" value="">
 
 </div>
 
@@ -2158,24 +2128,6 @@
 <!-- WORKERS -->
 <script type="text/worker">
 
-    on("sheet:opened", function() {
-        versioning();
-
-        getAttrs(['meleedmg1','rangeddmg1','pro_weapons','pro_armor','inventoryname1','barbarian_level','bard_level','cleric_level','druid_level','figher_level','monk_level','paladin_level','ranger_level','rogue_level','sorcerer_level','warlock_level','wizard_level','npc_type','npc_size','npc_alignment','npc_hp','npc_HP_hit_dice','npc_AC_note','npc_physique','npc_cunning','npc_constitution','npc_intelligence','npc_ego','npc_charisma','speed','speed_fly','speed_burrow','speed_swim','speed_climb','prolanguages','blindsight','darkvision','tremorsense','truesight','challenge','xp','multiattack','npc_traits','lair_actions','legendary_action_notes','damage_vulnerability','damage_resistance','damage_immunity','condition_immunity'], function(attrs) {
-            var hasOldData = false;
-            var updates = {};
-            _.each(attrs, function(value, key) {
-                if(value) {
-                    hasOldData = true;
-                }
-            });
-            if(!hasOldData) {
-                updates.already_transitioned = '1';
-            }
-            setAttrs(updates);
-        });
-    });
-
     on("change:class change:cust_classname change:cust_hitdietype change:cust_spellcasting_ability change:cust_spellslots change:cust_physique_save_prof change:cust_cunning_save_prof change:cust_constitution_save_prof change:cust_intelligence_save_prof change:cust_ego_save_prof change:cust_charisma_save_prof", function() {
         updateClass();
     });
@@ -2206,54 +2158,6 @@
     on("change:level change:previous_level", function (){
 		updatehb();
     })
-    
-    on("change:multiclass1_flag", function() {
-        setlevel();
-        getAttrs(["multiclass1_flag"], function(v) {
-            if(v.multiclass1_flag && v.multiclass1_flag === "1") {
-                setAttrs({
-                    mutliclass1_showingflag: 1
-                });
-            }
-            else {
-                setAttrs({
-                    mutliclass1_showingflag: 0
-                });
-            };
-        });
-    });
-    
-    on("change:multiclass2_flag", function() {
-        setlevel();
-        getAttrs(["multiclass2_flag"], function(v) {
-            if(v.multiclass2_flag && v.multiclass2_flag === "1") {
-                setAttrs({
-                    mutliclass2_showingflag: 1
-                });
-            }
-            else {
-                setAttrs({
-                    mutliclass2_showingflag: 0
-                });
-            };
-        });
-    });
-    
-    on("change:multiclass3_flag", function() {
-        setlevel();
-        getAttrs(["multiclass3_flag"], function(v) {
-            if(v.multiclass3_flag && v.multiclass3_flag === "1") {
-                setAttrs({
-                    mutliclass3_showingflag: 1
-                });
-            }
-            else {
-                setAttrs({
-                    mutliclass3_showingflag: 0
-                });
-            };
-        });
-    });
 	
 	on("change:physique", function() {
 		updatephysmod();
@@ -2648,7 +2552,7 @@
     });
 
     on("change:weighttotal change:encumberance_setting change:physique", function() {
-        getAttrs(["weighttotal","encumberance_setting","physique"], function(v) {
+        getAttrs(["weighttotal","encumberance_setting","physique", "movement"], function(v) {
             var update = {};
             var phys = parseInt(v.physique, 10);
             var weight = parseInt(v.weighttotal, 10);
@@ -2660,11 +2564,11 @@
                     update["encumberance"] = "HEAVILY ENCUMBERED";
                 }
                 else if(weight >= phys*0.75) {
-                    update["encumberance"] = "MODERATELY ENCUMBERED";
+                    update["encumberance"] = "LIGHTLY ENCUMBERED";
                 }
 				                
 				else if(weight >= phys*0.5) {
-                    update["encumberance"] = "LIGHTLY ENCUMBERED";
+                    update["encumberance"] = "MODERATELY ENCUMBERED";
                 }
                 else {
                     update["encumberance"] = " ";
@@ -2673,6 +2577,33 @@
             setAttrs(update);
         });
     });
+	on("change:weighttotal change:encumberance_setting change:physique change:movement", function() {
+		getAttrs(["weighttotal","encumberance_setting","physique", "movement"], function(v) {
+			var update = {};
+			var move = parseInt(v.movement, 10);
+			var phys = parseInt(v.physique, 10);
+			var weight = parseInt(v.weighttotal, 10);
+			if(!v.encumberance_setting || v.encumberance_setting === "on") {
+				if(weight > phys) {
+					update["speed"] = "1''";
+				}
+				else if(weight == phys) {
+					update["speed"] = move/4 + "''";
+				}
+				else if(weight >= phys*0.75) {
+					update["speed"] = move/2 + "''";
+				}
+								
+				else if(weight >= phys*0.5) {
+					update["speed"] = move*3/4 + "''";
+				}
+				else {
+					update["speed"] = move + "''";
+				}
+			}
+			setAttrs(update);
+		});
+	});
     on("change:repeating_inventory:useasresource change:repeating_inventory:itemcount change:repeating_inventory:itemname", function(eventinfo) {
         itemid = eventinfo.sourceAttribute.substring(20, 40);
         sourcetype = eventinfo.sourceType;

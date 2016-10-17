@@ -114,7 +114,7 @@ input[type=radio].sheet-tab-button.sheet-options:checked ~ .sheet-page.sheet-opt
 
 input[type=radio].sheet-tab-button.sheet-core,
 input[type=radio].sheet-tab-button.sheet-core + span {
-    right: 116px;
+    right: 83px;
     width: 45px;
 }
 
@@ -1350,7 +1350,7 @@ button.sheet-attacks-saving-throws {
     border: 1px solid black;
 }
 
-.sheet-spell input[value="1"] ~ span.sheet-prep {
+.sheet-spell input[value="0"] ~ span.sheet-prep {
     background-color: #EC2127;
 }
 
