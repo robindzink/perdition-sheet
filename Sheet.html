@@ -318,7 +318,7 @@
 							<option value="1d10">Expert</option>
 							<option value="1d12">Mastered</option>
 						</select>
-                        <button type="roll" name="roll_stealth" value="@{wtype}&{template:simple} {{rname=STEALTH}} {{mod=[[[[@{charisma_mod}]][CHA]]]}} {{r1=[[@{stealth_prof}+@{stealth_flat}-[[floor(@{affliction}/2)]][STEALTH-ARMOR]]]}} @{charname_output}">Stealth</button>
+                        <button type="roll" name="roll_stealth" value="@{wtype}&{template:simple} {{rname=STEALTH}} {{mod=[[[[@{charisma_mod}]][CHA]]]}} {{r1=[[@{stealth_prof}+@{stealth_flat}-@{armor_bonus}-[[floor(@{affliction}/2)]][STEALTH-ARMOR]]]}} @{charname_output}">Stealth</button>
 					</div>
                     <div class="skill">
 						<select class="hiding"  name="attr_survival_prof" title="@{survival_prof}">
@@ -364,16 +364,79 @@
                     <span class="label">SPEED</span>
                 </div>
             </div>
-			            <div class="hdice-dsaves-container" style="width: 242px;">
-                <div class="subcontainer">
-					<div class="ac" style="margin-right: 1px;">
-					<input type="text" name="attr_pac" title="@{pac}" value="floor((@{physique}+@{cunning})/2+@{globalpacmod}+@{racialpacmod})" disabled="true">
-                    <span class="label pc-ac">PAC</span>
+			<!-- Extended armour class breakdowns for the core sheet. Too much clutter, so reverted back to single numbers. Find the rest in the back.
+			<div class="hp">
+                <div style="display: inline-block; width: 210px; margin-left:15px; margin-right:15px;">
+					<div style="display: inline-block; width: 30px;">
+						<input type="text" name="attr_pac" title="@{pac}" value="floor((@{physique}+@{cunning})/2+@{globalpacmod}+@{racialpacmod}-@{size}+@{armor_bonus}+@{shield_bonus}+@{pac_magic_bonus}+@{pac_ability_bonus})" style="font-size: 20px;"  disabled="true">
+						<span style="width: 100% text-align:center">PAC</span>
+					</div>
+					<span style="display: inline-block; width: 5px;">=</span>
+					<div style="display: inline-block; width: 30px;">
+						<input type="text" name="attr_armor_bonus" title="@{armor_bonus}" style="font-size: 20px;" value="0">
+						<span style="width: 100% text-align:center">ARMOR</span>
+					</div>
+					<span style="display: inline-block; width: 5px;">+</span>
+					<div style="display: inline-block; width: 30px;">
+						<input type="text" name="attr_shield_bonus" title="@{shield_bonus}" style="font-size: 20px;" value="0">
+						<span style="width: 100% text-align:center">SHIELD</span>
+					</div>
+					<span style="display: inline-block; width: 5px;">+</span>
+					<div style="display: inline-block; width: 30px;">
+						<input type="text" name="attr_pac_magic_bonus" title="@{pac_magic_bonus}" style="font-size: 20px;" value="0">
+						<span style="width: 100% text-align:center">MAGIC</span>
+					</div>
+					<span style="display: inline-block; width: 5px;">+</span>
+					<div style="display: inline-block; width: 30px;">
+						<input type="text" name="attr_pac_ability_bonus" title="@{pac_ability_bonus}" style="font-size: 20px;" value="0">
+						<span style="width: 100% text-align:center">ABILITES</span>
 					</div>
 				</div>
-                <div class="subcontainer" style="float: right;">
+                <div style="display: inline-block; width: 100%">
+					<span class="label pc-ac" style="margin-left: auto; margin-right: auto;">PHYSICAL ARMOR CLASS</span>
+				</div>
+			</div>
+			<div class="hp">
+                <div style="display: inline-block; width: 220px; margin-left:10px; margin-right:10px;">
+					<div style="display: inline-block; width: 30px;">
+							<input type="text" name="attr_mac" title="@{mac}" value="floor((@{ego}+@{charisma})/2+@{globalmacmod}+@{racialmacmod}+@{talisman_bonus}+@{sigils_bonus}+@{mac_magic_bonus}+@{mac_ability_bonus})" style="font-size: 20px; text-align:center" disabled="true">
+						<span style="width: 100% text-align:center">MAC</span>
+					</div>
+					<span style="display: inline-block; width: 5px;">=</span>
+					<div style="display: inline-block; width: 40px;">
+						<input type="text" name="attr_talisman_bonus" title="@{talisman_bonus}" style="font-size: 20px;" value="0">
+						<span style="width: 100% text-align:center">TALISMAN</span>
+					</div>
+					<span style="display: inline-block; width: 5px;">+</span>
+					<div style="display: inline-block; width: 30px;">
+						<input type="text" name="attr_sigils_bonus" title="@{sigils_bonus}" style="font-size: 20px;" value="0">
+						<span style="width: 100% text-align:center">SIGILS</span>
+					</div>
+					<span style="display: inline-block; width: 5px;">+</span>
+					<div style="display: inline-block; width: 30px;">
+						<input type="text" name="attr_mac_magic_bonus" title="@{mac_magic_bonus}" style="font-size: 20px;" value="0">
+						<span style="width: 100% text-align:center">MAGIC</span>
+					</div>
+					<span style="display: inline-block; width: 5px;">+</span>
+					<div style="display: inline-block; width: 30px;">
+						<input type="text" name="attr_mac_ability_bonus" title="@{mac_ability_bonus}" style="font-size: 20px;" value="0">
+						<span style="width: 100% text-align:center">ABILITES</span>
+					</div>
+				</div>
+                <div style="display: inline-block; width: 100%">
+					<span class="label pc-ac" style="margin-left: auto; margin-right: auto;">MENTAL ARMOR CLASS</span>
+				</div>
+			</div>-->
+			<div class="hdice-dsaves-container" style="width: 242px;">
+                <div class="subcontainer"  style="height: auto;">
 					<div class="ac" style="margin-right: 1px;">
-						<input type="text" name="attr_mac" title="@{mac}" value="floor((@{ego}+@{charisma})/2+@{globalmacmod}+@{racialmacmod})" disabled="true">
+						<input type="text" name="attr_pac" title="@{pac}" value="floor((@{physique}+@{cunning})/2+@{racialpacmod}-@{size}+@{armor_bonus}+@{shield_bonus}+@{pac_magic_bonus}+@{pac_ability_bonus})" style="font-size: 20px;"  disabled="true">
+						<span class="label pc-ac">PAC</span>
+					</div>
+				</div>
+                <div class="subcontainer" style="float: right; height: auto;">
+					<div class="ac" style="margin-right: 1px;">
+							<input type="text" name="attr_mac" title="@{mac}" value="floor((@{ego}+@{charisma})/2+@{racialmacmod}+@{talisman_bonus}+@{sigils_bonus}+@{mac_magic_bonus}+@{mac_ability_bonus})" style="font-size: 20px; text-align:center" disabled="true">
 						<span class="label pc-ac">MAC</span>
 					</div>
 				</div>
@@ -405,13 +468,13 @@
                 <span class="label" >STRESS</span>
             </div>
             <div class="hdice-dsaves-container" style="width: 242px;">
-                <div class="subcontainer">
+                <div class="subcontainer" style="height:auto;">
 					<div class="ac" style="margin-right: 1px;">
 						<input class="attr" type="text" name="attr_physical_hit_die" title="@{physical_hit_die}">
 						<button type="roll" name="roll_physical_struggle" value="@{wtype}&{template:simple} {{rname=PHYSICAL STRUGGLE}} {{mod=[[[[@{physical_hit_die}]][PHYSICAL STRUGGLE]]]}} {{r1=[[@{level}*(@{physical_hit_die}+@{attr_size})+@{previous_level}*@{previous_physical_hd}(@{previous_physical_hd}+@{attr_size})-[[floor(@{affliction}/2)]][PHYSICAL HIT DIE POOL + SIZE]]]}} @{charname_output}">PHYSICAL HIT DIE</button>
 					</div>
 				</div>
-                <div class="subcontainer" style="float: right;">
+                <div class="subcontainer" style="float: right; height:auto;">
 					<div class="ac" style="margin-right: 1px;">
 						<input class="attr" type="text" name="attr_mental_hit_die" title="@{mental_hit_die}">
 						<button type="roll" name="roll_psychic_struggle" value="@{wtype}&{template:simple} {{rname=PSYCHIC STRUGGLE}} {{mod=[[[[@{mental_hit_die}]][PSYCHIC STRUGGLE]]]}} {{r1=[[@{level}*@{mental_hit_die}+@{previous_level}*@{previous_mental_hd}-[[floor(@{affliction}/2)]][MENTAL HIT DIE POOL + SIZE]]]}} @{charname_output}">MENTAL HIT DIE</button>
@@ -717,7 +780,7 @@
 <div class="page spells">
     <div class="header">
         <div class="name-container">
-            <span style="color: #EC2127; letter-spacing: 3px; font-size: 40px; font-weight: lighter; padding-bottom: 25px;">PERDITION</span>
+            <span style="color: #EC2127; letter-spacing: 3px; font-size: 40px; font-weight: lighter; padding-bottom: 25px; text-align:left;">PERDITION</span>
             <input type="text" name="attr_character_name" style="width: 100%;">
             <span class="label">CHARACTER NAME</span>
         </div>
@@ -1337,19 +1400,69 @@
      </div>
     <div class="body">
         <div class="col col1">
+			<div class="class_options">
+                <div class="row" style="width: 220px; margin-left:auto; margin-right:auto;">
+					<div style="display: inline-block; width: 20px;">
+						<input type="text" class="num" name="attr_pac" title="@{pac}" value="floor((@{physique}+@{cunning})/2+@{racialpacmod}-@{size}+@{armor_bonus}+@{shield_bonus}+@{pac_magic_bonus}+@{pac_ability_bonus})" disabled="true">
+						<span>PAC</span>
+					</div>
+					<span style="display: inline-block; width: 5px;">=</span>
+					<div style="display: inline-block; width: 35px;">
+						<input type="text" class="num" name="attr_armor_bonus" title="@{armor_bonus}" value="0">
+						<span>ARMOR</span>
+					</div>
+					<span style="display: inline-block; width: 5px;">+</span>
+					<div style="display: inline-block; width: 35px;">
+						<input type="text" class="num" name="attr_shield_bonus" title="@{shield_bonus}" value="0">
+						<span>SHIELD</span>
+					</div>
+					<span style="display: inline-block; width: 5px;"> +</span>
+					<div style="display: inline-block; width: 30px;">
+						<input type="text" class="num" name="attr_pac_magic_bonus" title="@{pac_magic_bonus}" value="0">
+						<span>MAGIC</span>
+					</div>
+					<span style="display: inline-block; width: 5px;">+</span>
+					<div style="display: inline-block; width: 35px;">
+						<input type="text" class="num" name="attr_pac_ability_bonus" title="@{pac_ability_bonus}" value="0">
+						<span>ABILITIES</span>
+					</div>
+                <div class="row title">
+                    <span>PHYSICAL ARMOR CLASS OPTIONS</span>
+                </div>
+				</div>
+			</div>
+			<div class="class_options">
+                <div class="row" style="width: 220px; margin-left:auto; margin-right:auto;">
+					<div style="display: inline-block; width: 20px;">
+						<input type="text" name="attr_mac" class="num" title="@{mac}" value="floor((@{ego}+@{charisma})/2+@{racialmacmod}+@{talisman_bonus}+@{sigils_bonus}+@{mac_magic_bonus}+@{mac_ability_bonus})" disabled="true">
+						<span>MAC</span>
+					</div>
+					<span style="display: inline-block; width: 5px;">=</span>
+					<div style="display: inline-block; width: 40px;">
+						<input type="text" class="num" name="attr_talisman_bonus" title="@{talisman_bonus}" value="0">
+						<span>TALISMAN</span>
+					</div>
+					<span style="display: inline-block; width: 5px;">+</span>
+					<div style="display: inline-block; width: 35px;">
+						<input type="text" class="num" name="attr_sigils_bonus" title="@{sigils_bonus}" value="0">
+						<span>SIGILS</span>
+					</div>
+					<span style="display: inline-block; width: 5px;"> +</span>
+					<div style="display: inline-block; width: 30px;">
+						<input type="text" class="num" name="attr_mac_magic_bonus" title="@{mac_magic_bonus}" value="0">
+						<span>MAGIC</span>
+					</div>
+					<span style="display: inline-block; width: 5px;">+</span>
+					<div style="display: inline-block; width: 40px;">
+						<input type="text" class="num" name="attr_mac_ability_bonus" title="@{mac_ability_bonus}" value="0">
+						<span>ABILITIES</span>
+					</div>
+                <div class="row title">
+                    <span>MENTAL ARMOR CLASS OPTIONS</span>
+                </div>
+				</div>
+			</div>
             <div class="class_options">
-                <div class="row">
-                    <span>GLOBAL SAVING THROW MODIFIER:</span>
-                    <input type="text" class="num" name="attr_globalsavemod" value="0">
-                </div>
-                <div class="row">
-                    <span>GLOBAL  PHYSICAL ARMOR CLASS MODIFIER:</span>
-                    <input type="text" class="num" name="attr_globalpacmod" value="0">
-                </div>
-                <div class="row">
-                    <span>GLOBAL  MENTAL ARMOR CLASS MODIFIER:</span>
-                    <input type="text" class="num" name="attr_globalmacmod" value="0">
-                </div>
                 <div class="row">
                     <span>GLOBAL  PHYSICAL ATTACK MODIFIER:</span>
                     <input type="text" class="num" name="attr_globalphysattackmod" value="0">
@@ -1401,23 +1514,6 @@
                 </div>
                 <div class="row title">
                     <span>RACIAL BONUSES (<span name="attr_race"></span>)</span>
-                </div>
-            </div>
-			<div class="class_options">
-                <div class="row">
-                    <span>PREVIOUS PHYSICAL HIT DIE:</span>
-                    <input type="text" class="num" name="attr_previous_physical_hd" value="0">
-                </div>
-                <div class="row">
-                    <span>PREVIOUS MENTAL HIT DIE:</span>
-                    <input type="text" class="num" name="attr_previous_mental_hd" value="0">
-                </div>
-                <div class="row">
-                    <span>PREVIOUS LEVEL:</span>
-                    <input type="text" class="num" name="attr_previous_level" value="0">
-                </div>
-                <div class="row title">
-                    <span>DUAL CLASSING</span>
                 </div>
             </div>
         </div>
@@ -1495,6 +1591,23 @@
                 </div>
                 <div class="row title">
                     <span>SKILL OPTIONS</span>
+                </div>
+            </div>
+			<div class="class_options">
+                <div class="row">
+                    <span>PREVIOUS PHYSICAL HIT DIE:</span>
+                    <input type="text" class="num" name="attr_previous_physical_hd" value="0">
+                </div>
+                <div class="row">
+                    <span>PREVIOUS MENTAL HIT DIE:</span>
+                    <input type="text" class="num" name="attr_previous_mental_hd" value="0">
+                </div>
+                <div class="row">
+                    <span>PREVIOUS LEVEL:</span>
+                    <input type="text" class="num" name="attr_previous_level" value="0">
+                </div>
+                <div class="row title">
+                    <span>DUAL CLASSING</span>
                 </div>
             </div>
         </div>
@@ -2752,7 +2865,7 @@
             setAttrs(update);
         });
     });
-    on("change:npc_spelldc change:npc_spellattackmod change:spellcasting_ability ", function() {
+    on("change:spellcasting_ability ", function() {
         force_refresh_spells();
     });
     on("change:ammotracking", function() {
