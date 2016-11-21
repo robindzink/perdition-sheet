@@ -28,6 +28,7 @@
                     <input class="flag" type="hidden" name="attr_customclass_flag" value="0">
                     <input class="showing" type="text" name="attr_cust_class" value="@{cust_classname}" disabled="true" style="width: 64px; height: 28px; padding-top: 10px;">
                     <select class="hiding" name="attr_class" style="width: 90px;">
+						<option value="">-</option>
                         <option value="Paladin">Paladin</option>
                         <option value="Heavy Knight">Heavy Knight</option>
                         <option value="Thug">Thug</option>
@@ -45,14 +46,15 @@
                     <span class="label">CLASS & LEVEL</span>
                 </div>
                 <div class="hlabel-container">
-                    <input type="text" name="attr_background" style="width: 122px;">
+                    <input type="text" name="attr_background" style="width: 122px;" value="500">
                     <span class="label">NEXT LEVEL</span>
                 </div>
             </div>
             <div class="bottom">
                 <div class="hlabel-container">
 					<select  name="attr_race" style="width: 64px; height: 19px; padding: 0px;">
-                        <option value="Black Orc">Black Orc</option>
+                        <option value="">-</option>
+						<option value="Black Orc">Black Orc</option>
                         <option value="Bogill">Bogill</option>
                         <option value="Devilkin">Devilkin</option>
                         <option value="Giant">Giant</option>
@@ -70,8 +72,8 @@
                     <span class="label">SIZE</span>
                 </div>
                 <div class="hlabel-container">
-                    <input type="text" name="attr_experience">
-                    <span class="label">EXPERIENCE POINTS</span>
+                    <input type="text" name="attr_experience" value="0">
+                    <span class="label">PRESTIGE</span>
                 </div>
             </div>
         </div>
@@ -82,7 +84,7 @@
             <div class="attributes-container" style="margin-top: 10px;">
                 <div class="attr-container">
                     <button type="roll" name="roll_physique" value="@{wtype}&{template:simple} {{rname=PHYSIQUE TEST}} {{mod=[[[[@{physique_mod}]][PHYSIQUE]]]}} {{r1=[[@{physique_strength}+[[@{physique_mod}]]-[[floor(@{affliction}/2)]][STRENGTH+PHYSIQUE]]]}} @{charname_output}">PHYSIQUE</button>
-                    <input class="attr" type="text" name="attr_physique_mod" title="@{physique_mod}" value="0">
+                    <input class="attr" type="text" name="attr_physique" title="@{physique}" value="10">
 					<div>
 						<select class="hiding" name="attr_physique_strength" title="@{physique_strength}" value="-">
 							<option value="2d6">-</option>
@@ -91,12 +93,12 @@
 						</select>
 					</div>
                     <div class="attr-mod">
-                        <input type="text" name="attr_physique" title="@{physique}" value="10">
+                        <input type="text" name="attr_physique_mod" title="@{physique_mod}" value="0">
                     </div>
                 </div>
                 <div class="attr-container">
                     <button type="roll" name="roll_cunning" value="@{wtype}&{template:simple} {{rname=CUNNING TEST}} {{mod=[[[[@{cunning_mod}]][CUNNING]]]}} {{r1=[[@{cunning_strength}+[[@{cunning_mod}]]-[[floor(@{affliction}/2)]][STRENGTH+CUNNING]]]}} @{charname_output}">CUNNING</button>
-                    <input class="attr" type="text" name="attr_cunning_mod" title="@{cunning_mod}" value="0">
+                    <input class="attr" type="text" name="attr_cunning" title="@{cunning}" value="0">
 					<div>
 						<select class="hiding" name="attr_cunning_strength" title="@{cunning_strength}" value="-">
 							<option value="2d6">-</option>
@@ -105,12 +107,12 @@
 						</select>
 					</div>
                     <div class="attr-mod">
-                        <input type="text" name="attr_cunning" title="@{cunning}" value="10">
+                        <input type="text" name="attr_cunning_mod" title="@{cunning_mod}" value="10">
                     </div>
                 </div>
                 <div class="attr-container">
                     <button type="roll" name="roll_ego" value="@{wtype}&{template:simple} {{rname=EGO TEST}} {{mod=[[[[@{ego_mod}]][EGO]]]}} {{r1=[[@{ego_strength}+[[@{ego_mod}]]-[[floor(@{affliction}/2)]][STRENGTH+EGO]]]}} @{charname_output}">EGO</button>
-                    <input class="attr" type="text" name="attr_ego_mod" title="@{ego_mod}" value="0">
+                    <input class="attr" type="text" name="attr_ego" title="@{ego}" value="10">
 					<div>
 						<select class="hiding" name="attr_ego_strength" title="@{ego_strength}" value="-">
 							<option value="2d6">-</option>
@@ -119,12 +121,12 @@
 						</select>
 					</div>
                     <div class="attr-mod">
-                        <input type="text" name="attr_ego" title="@{ego}" value="10">
+                        <input type="text" name="attr_ego_mod" title="@{ego_mod}" value="0">
                     </div>
                 </div>
                 <div class="attr-container">
                     <button type="roll" name="roll_charisma" value="@{wtype}&{template:simple} {{rname=CHARISMA TEST}} {{mod=[[[[@{charisma_mod}]][CHA]]]}} {{r1=[[@{charisma_strength}+[[@{charisma_mod}]]-[[floor(@{affliction}/2)]][STRENGTH+CHA]]]}} @{charname_output}">CHARISMA</button>
-                    <input class="attr" type="text" name="attr_charisma_mod" title="@{charisma_mod}" value="0">
+                    <input class="attr" type="text" name="attr_charisma" title="@{charisma}" value="10">
 					<div>
 						<select class="hiding" name="attr_charisma_strength" title="@{charisma_strength}">
 							<option value="2d6">-</option>
@@ -133,7 +135,7 @@
 						</select>
 					</div>
                     <div class="attr-mod">
-                        <input type="text" name="attr_charisma" title="@{charisma}" value="10">
+                        <input type="text" name="attr_charisma_mod" title="@{charisma_mod}" value="0">
                     </div>
                 </div>
 				<div class="attr-container" style="height: 59px;">
@@ -170,7 +172,7 @@
 					</div>
 					<div class="label">
 																																																																											
-						<button class="attacks-saving-throws" type="roll" name="roll_physical_attack" value="@{wtype}&{template:simple} {{rname=PHYSICAL ATTACK}} {{mod=[[[[@{physical_attack_mod}]][PHYSICAL ATTACK]]]}} {{r1=[[[[@{advantagetoggle}+[[@{physical_attack_mod}]]-[[floor(@{affliction}/2)]] [PHYSICAL ATTACK]]]}} @{charname_output}">PHYSICAL ATTACK</button>
+						<button class="attacks-saving-throws" type="roll" name="roll_physical_attack" value="@{wtype}&{template:simple} {{rname=PHYSICAL ATTACK}} {{mod=[[[[@{physical_attack_mod}]][PHYSICAL ATTACK]]]}} {{r1=[[@{advantagetoggle}+[[@{physical_attack_mod}]]-[[floor(@{affliction}/2)]] [PHYSICAL ATTACK]]]}} @{charname_output}">PHYSICAL ATTACK</button>
 					</div>
 				</div>
 				<div class="hb-attacks-container">
@@ -205,7 +207,7 @@
 							<option value="1d10">Expert</option>
 							<option value="1d12">Mastered</option>
 						</select>
-                        <button type="roll" name="roll_alchemy" value="@{wtype}&{template:simple} {{rname=ALCHEMY}} {{mod=[[[[@{cunning_mod}]][DEC]]]}} {{r1=[[@{alchemy_prof}@{alchemy_flat}+@{cunning_mod}-[[floor(@{affliction}/2)]][ALCHEMY+CUNNING]]]}} @{charname_output}" >Alchemy</span>
+                        <button type="roll" name="roll_alchemy" value="@{wtype}&{template:simple} {{rname=ALCHEMY}} {{mod=[[[[@{cunning_mod}]][DEC]]]}} {{r1=[[@{alchemy_prof}+@{alchemy_flat}+@{cunning_mod}-[[floor(@{affliction}/2)]][ALCHEMY+CUNNING]]]}} @{charname_output}" >Alchemy</span>
 					</div>
                     <div class="skill">
 						<select class="hiding" name="attr_arcana_prof" title="@{arcana_prof}">
@@ -328,12 +330,12 @@
                         <span>SKILLS</span>
                     </div>
                 </div>
-            </div>
-			<div class="textbox-container">
-                <textarea name="attr_other_proficiencies_and_languages" style="min-height: 91px; height: 91px;"></textarea>
+				<div class="skills-container">
+                <textarea name="attr_other_proficiencies_and_languages" style="width: 94%; min-height: 105px; height: 105px;"></textarea>
                 <div class="label">
                     <span style="margin-top: -10px;">LANGUAGES</span>
                 </div>
+            </div>
             </div>
         </div>
         <div class="col col2">
@@ -1345,6 +1347,7 @@
                     <input class="flag" type="hidden" name="attr_customclass_flag" value="0">
                     <input class="showing" type="text" name="attr_cust_class" value="@{cust_classname}" disabled="true" style="width: 64px; height: 28px; padding-top: 10px;">
                     <select class="hiding" name="attr_class" style="width: 90px;">
+						<option value="">-</option>
                         <option value="Paladin">Paladin</option>
                         <option value="Heavy Knight">Heavy Knight</option>
                         <option value="Thug">Thug</option>
@@ -1362,13 +1365,14 @@
                     <span class="label">CLASS & LEVEL</span>
                 </div>
                 <div class="hlabel-container">
-                    <input type="text" name="attr_background" style="width: 122px;">
+                    <input type="text" name="attr_background" style="width: 122px;" value="500">
                     <span class="label">NEXT LEVEL</span>
                 </div>
             </div>
             <div class="bottom">
                 <div class="hlabel-container">
 					<select  name="attr_race" style="width: 64px; height: 19px; padding: 0px;">
+						<option value="">-</option>
                         <option value="Black Orc">Black Orc</option>
                         <option value="Bogill">Bogill</option>
                         <option value="Devilkin">Devilkin</option>
@@ -1387,8 +1391,8 @@
                     <span class="label">SIZE</span>
                 </div>
                 <div class="hlabel-container">
-                    <input type="text" name="attr_experience">
-                    <span class="label">EXPERIENCE POINTS</span>
+                    <input type="text" name="attr_experience" value="0">
+                    <span class="label">PRESTIGE</span>
                 </div>
             </div>
         </div>
@@ -2380,13 +2384,13 @@
 	on("change:hb change:physique_mod change:globalphysattackmod change:racialphysattackmod", function() {
 	updatephysattackmod();
 	});
-	on("change:hb change:physique_mod change:globalmagicattackmod change:racialmagicattackmod", function() {
+	on("change:hb change:cunning_mod change:globalmagicattackmod change:racialmagicattackmod", function() {
 	updatemagicattackmod();
 	});
-	on("change:hb change:physique_mod change:globalpsyattackmod change:racialpsyattackmod", function() {
+	on("change:hb change:ego_mod change:globalpsyattackmod change:racialpsyattackmod", function() {
 	updatepsyattackmod();
 	});
-	on("change:hb change:physique_mod change:globalsocialattackmod change:racialsocialattackmod", function() {
+	on("change:hb change:charisma_mod change:globalsocialattackmod change:racialsocialattackmod", function() {
 	updatesocialattackmod();
 	});
 	
